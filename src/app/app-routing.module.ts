@@ -1,0 +1,28 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Router, RouterModule, Routes } from '@angular/router';
+import { SigninpageComponent } from './backOffice/signinpage/signinpage.component';
+import { SignUpPageComponent } from './backOffice/sign-up-page/sign-up-page.component';
+import { PageNotFoundComponent } from './backOffice/page-not-found/page-not-found.component';
+import { AppComponent } from './app.component';
+import { ProfileComponent } from './backOffice/profile/profile.component';
+
+const routes: Routes = [
+  { path: '', component: SigninpageComponent },
+  { path: 'login', component: SigninpageComponent },
+  { path: 'register', component: SignUpPageComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: '**', component: PageNotFoundComponent },
+];
+
+@NgModule({
+  declarations: [],
+  imports: [RouterModule.forRoot(routes)],
+  exports: [RouterModule],
+})
+export class AppRoutingModule {}
+export const routingComponents = [
+  SigninpageComponent,
+  SignUpPageComponent,
+  PageNotFoundComponent,
+];

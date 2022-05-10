@@ -1,0 +1,159 @@
+<!-- <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <style>
+      .logo {
+        margin-left: 2rem;
+      }
+      .sign {
+        width: 30rem;
+        margin-left: 70%;
+      }
+      .sign ul li {
+        margin-left: 3rem;
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="logo navbar-brand" href="#">OurApp</a>
+      <div class="sign collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/signinpage"
+              routerLinkActive="active"
+              ><i class="fa-solid fa-arrow-right-to-bracket"></i> &nbsp;
+              Login</a
+            >
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              routerLink="/signuppage"
+              routerLinkActive="active"
+              >Sign Up</a
+            >
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <router-outlet></router-outlet>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <nav
+      class="navbar navbar-expand-lg navbar-light bg-light bg-white shadow align-self-end py-3 px-xl-5 w-100"
+    >
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Ensa Pay</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <div
+          class="collapse navbar-collapse justify-content-between"
+          id="navbarSupportedContent"
+        >
+          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">
+                <i class="fas fa-home"></i> Home &nbsp;</a
+              >
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">
+                <i class="fas fa-blog"></i> Blog &nbsp;
+              </a>
+            </li>
+            <li class="nav-item dropdown">
+              <a
+                class="nav-link dropdown-toggle"
+                href="#"
+                id="navbarDropdown"
+                role="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <i class="fas fa-users"></i> Services
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a class="dropdown-item" href="#">Something else here</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            <button class="btn"><i class="fas fa-user"></i> Connexion</button>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <router-outlet>
+      <!-- <ul id="container">
+        <li>
+          <a style="background: #3c5a96" href="#"
+            ><span class="fa fa-facebook fa-2x"></span
+          ></a>
+        </li>
+        <li>
+          <a style="background: #c4302b" href="#"
+            ><span class="fa fa-youtube fa-2x"></span
+          ></a>
+        </li>
+        <li>
+          <a style="background: #1178b3" href="#"
+            ><span class="fa fa-linkedin fa-2x"></span
+          ></a>
+        </li>
+        <li>
+          <a style="background: #c8232c" href="#"
+            ><span class="fa fa-pinterest fa-2x"></span
+          ></a>
+        </li>
+        <li>
+          <a style="background: #1dadeb" href="#"
+            ><span class="fa fa-twitter fa-2x"></span
+          ></a>
+        </li>
+      </ul> -->
+    </router-outlet>
+    <footer class="footer bg-white shadow align-self-end py-3 px-xl-5 w-100">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-md-6 text-center text-md-start fw-bold">
+            <p class="mb-2 mb-md-0 fw-bold">ENSA PAY</p>
+          </div>
+          <div class="col-md-6 text-center text-md-end text-gray-400">
+            <p class="mb-0">2022</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
