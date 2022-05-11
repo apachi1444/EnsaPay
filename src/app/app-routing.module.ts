@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Router, RouterModule, Routes } from '@angular/router';
 import { SigninpageComponent } from './backOffice/signinpage/signinpage.component';
 import { SignUpPageComponent } from './backOffice/sign-up-page/sign-up-page.component';
-import { PageNotFoundComponent } from './backOffice/page-not-found/page-not-found.component';
-import { AppComponent } from './app.component';
+import { PageNotFoundComponent } from './commonCompos/page-not-found/page-not-found.component';
 import { ProfileComponent } from './backOffice/profile/profile.component';
 
 const routes: Routes = [
