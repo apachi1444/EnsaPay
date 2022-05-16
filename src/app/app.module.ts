@@ -8,8 +8,11 @@ import { ProfileComponent } from './backOffice/profile/profile.component';
 import { HeaderComponent } from './commonCompos/header/header.component';
 import { FooterComponent } from './commonCompos/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { BackofficeServiceService } from './services/backoffice-service.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BackofficeServiceService } from './services/backOffice/backoffice-service.service';
+import { RecruteurInscrComponent } from './agent/recruteur-inscr/recruteur-inscr.component';
+import { RecuteurserviceComponent } from './services/agent/recuteurservice/recuteurservice.component';
+import { RecruteurLoginComponent } from './agent/recruteur-login/recruteur-login.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,8 +22,11 @@ import { BackofficeServiceService } from './services/backoffice-service.service'
     ProfileComponent,
     HeaderComponent,
     FooterComponent,
+    RecruteurInscrComponent,
+    RecuteurserviceComponent,
+    RecruteurLoginComponent
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule,ReactiveFormsModule],
   providers: [BackofficeServiceService],
   bootstrap: [AppComponent],
 })

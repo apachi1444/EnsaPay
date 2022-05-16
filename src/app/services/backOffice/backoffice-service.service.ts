@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BackOffice } from '../Models/backOffice/BackOfficeModel';
+import { BackOffice } from '../../Models/backOffice/BackOfficeModel';
 
 @Injectable({
   providedIn: 'root',
