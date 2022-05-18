@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BackofficeServiceService } from 'src/app/services/backoffice-service.service';
+import { BackofficeServiceService } from 'src/app/services/backOffice/backoffice-service.service';
 
 // the component thell angular that i might use the injector
 @Component({
@@ -14,5 +14,8 @@ export class ListBackOfficesComponent implements OnInit {
 
   ngOnInit() {
     // this.backOffices = this._backOfficesService.getBackoffices();
+    this._backOfficesService
+      .getBackoffices()
+      .subscribe((data: any) => (this.backOffices = data));
   }
 }

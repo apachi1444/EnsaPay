@@ -1,9 +1,8 @@
 export class BackOffice {
   constructor(
-    name: string,
-    id: number,
-    backOffice_code: string,
-    email: string,
-    password: string
+    public name: string,
+    public email: string,
+    public password: string,
+    public backOfficeCode: string
   ) {}
 }

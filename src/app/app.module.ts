@@ -9,7 +9,10 @@ import { HeaderComponent } from './commonCompos/header/header.component';
 import { FooterComponent } from './commonCompos/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import { BackofficeServiceService } from './services/backoffice-service.service';
+// import { BackofficeServiceService } from './services/backOffice/backoffice-service.service';
+import { ProfileDetailsComponent } from './backOffice/profile/profile-details/profile-details.component';
+import { ChangePasswordComponent } from './commonCompos/change-password/change-password.component';
+import { SponsorsComponent } from './commonCompos/sponsors/sponsors.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,9 +22,12 @@ import { BackofficeServiceService } from './services/backoffice-service.service'
     ProfileComponent,
     HeaderComponent,
     FooterComponent,
+    ProfileDetailsComponent,
+    ChangePasswordComponent,
+    SponsorsComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
-  providers: [BackofficeServiceService],
+  // providers: [BackofficeService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
