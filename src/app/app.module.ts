@@ -9,16 +9,18 @@ import { HeaderComponent } from './commonCompos/header/header.component';
 import { FooterComponent } from './commonCompos/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
+import { NgForm } from '@angular/forms';
 // import { BackofficeServiceService } from './services/backOffice/backoffice-service.service';
 import { ProfileDetailsComponent } from './backOffice/profile/profile-details/profile-details.component';
 import { ChangePasswordComponent } from './commonCompos/change-password/change-password.component';
 import { SponsorsComponent } from './commonCompos/sponsors/sponsors.component';
+import { SignUpPageComponent } from './backOffice/sign-up-page/sign-up-page.component';
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents,
     PageNotFoundComponent,
     SigninpageComponent,
+    SignUpPageComponent,
     ProfileComponent,
     HeaderComponent,
     FooterComponent,
@@ -26,7 +28,13 @@ import { SponsorsComponent } from './commonCompos/sponsors/sponsors.component';
     ChangePasswordComponent,
     SponsorsComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
+  imports: [
+    NgForm,
+    BrowserModule,
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule,
+  ],
   // providers: [BackofficeService],
   bootstrap: [AppComponent],
 })

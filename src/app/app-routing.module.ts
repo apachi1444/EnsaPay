@@ -5,14 +5,16 @@ import { SigninpageComponent } from './backOffice/signinpage/signinpage.componen
 import { SignUpPageComponent } from './backOffice/sign-up-page/sign-up-page.component';
 import { PageNotFoundComponent } from './commonCompos/page-not-found/page-not-found.component';
 import { ProfileComponent } from './backOffice/profile/profile.component';
-import { ProfileDetailsComponent } from './backOffice/profile/profile-details/profile-details.component';
+import { RecruteurInscrComponent } from './agent/recruteur-inscr/recruteur-inscr.component';
+import { RecruteurLoginComponent } from './agent/recruteur-login/recruteur-login.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: SigninpageComponent },
   { path: 'register', component: SignUpPageComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'profile/:id', component: ProfileDetailsComponent },
+  { path: 'registerAgent', component: RecruteurInscrComponent },
+  { path: 'loginAgent', component: RecruteurLoginComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
@@ -22,9 +24,4 @@ const routes: Routes = [
   exports: [RouterModule],
 })
 export class AppRoutingModule {}
-export const routingComponents = [
-  SigninpageComponent,
-  SignUpPageComponent,
-  PageNotFoundComponent,
-  ProfileDetailsComponent,
-];
+export const routingComponents = [];
