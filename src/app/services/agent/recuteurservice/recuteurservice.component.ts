@@ -19,7 +19,7 @@ export class RecuteurserviceComponent implements OnInit {
   save(recruteur:Recruteur):Observable<Recruteur>{
     console.log(recruteur)
     let host=environment.host;
-    return this.Http.post<Recruteur>(host+"/inscr",recruteur);
+    return this.Http.post<Recruteur>(host+"/registerAgent",recruteur);
 
 
   }

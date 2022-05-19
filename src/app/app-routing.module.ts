@@ -7,6 +7,7 @@ import { PageNotFoundComponent } from './commonCompos/page-not-found/page-not-fo
 import { ProfileComponent } from './backOffice/profile/profile.component';
 import { RecruteurInscrComponent } from './agent/recruteur-inscr/recruteur-inscr.component';
 import { RecruteurLoginComponent } from './agent/recruteur-login/recruteur-login.component';
+import { AgentDashbordComponent } from './agent/agent-dashbord/agent-dashbord.component';
 
 const routes: Routes = [
   { path: '', component: SigninpageComponent },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'profile', component: ProfileComponent },
   {path:'registerAgent',component:RecruteurInscrComponent},
   {path:'loginAgent',component:RecruteurLoginComponent},
+  {path:'agentdash',component:AgentDashbordComponent},
   { path: '**', component: PageNotFoundComponent },
   
 ];

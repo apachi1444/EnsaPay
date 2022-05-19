@@ -13,6 +13,9 @@ import { BackofficeServiceService } from './services/backOffice/backoffice-servi
 import { RecruteurInscrComponent } from './agent/recruteur-inscr/recruteur-inscr.component';
 import { RecuteurserviceComponent } from './services/agent/recuteurservice/recuteurservice.component';
 import { RecruteurLoginComponent } from './agent/recruteur-login/recruteur-login.component';
+import { AgentDashbordComponent } from './agent/agent-dashbord/agent-dashbord.component';
+
+import { AgentPaginationComponent } from './agent/agent-pagination/agent-pagination.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +27,10 @@ import { RecruteurLoginComponent } from './agent/recruteur-login/recruteur-login
     FooterComponent,
     RecruteurInscrComponent,
     RecuteurserviceComponent,
-    RecruteurLoginComponent
+    RecruteurLoginComponent,
+    AgentDashbordComponent,
+   
+    AgentPaginationComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule,ReactiveFormsModule],
   providers: [BackofficeServiceService],
