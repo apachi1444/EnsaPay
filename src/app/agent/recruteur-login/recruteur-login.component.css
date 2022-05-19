@@ -31,6 +31,7 @@ header{
     }
 	.signup-form .form-group {
 		margin-bottom: 20px;
+		margin: 30px;
 	}
 	.signup-form label {
 		font-weight: normal;
