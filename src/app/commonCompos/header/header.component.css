@@ -7,11 +7,11 @@
 .navbar-brand {
   font-family: "Pacifico", cursive;
   font-size: 2.5rem;
-  color: #e74c3c;
+  color: #19aa8d;
 }
 
 .navbar-toggler {
-  background: #e74c3c;
+  background: #19aa8d;
   border: none;
   padding: 10px 6px;
   outline: none;
@@ -43,12 +43,12 @@
 }
 
 .navbar-expanded-lg .navbar-nav .nav-link:hover {
-  border-top: 4px solid #e74c3c;
+  border-top: 4px solid #19aa8d;
 }
 
 .navbar-expanded-lg .navbar-nav .nav-link:active {
-  border-top: 4px solid #e74c3c;
-  color: #e74c3c;
+  border-top: 4px solid #19aa8d;
+  color: #19aa8d;
 }
 
 .navbar-nav button {
@@ -56,7 +56,7 @@
 }
 
 .navbar-nav .btn {
-  background-color: #e74c3c;
+  background-color: #19aa8d;
   padding: 1rem 1.5rem;
   color: white;
   border-radius: 0;

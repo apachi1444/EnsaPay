@@ -10,13 +10,12 @@ import { RecruteurLoginComponent } from './agent/recruteur-login/recruteur-login
 import { AgentDashbordComponent } from './agent/agent-dashbord/agent-dashbord.component';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/login', pathMatch: 'full' },
-  { path: 'login', component: SigninpageComponent },
-  { path: 'register', component: SignUpPageComponent },
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'backOffice/register', component: SignUpPageComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'registerAgent', component: RecruteurInscrComponent },
-  { path: 'loginAgent', component: RecruteurLoginComponent },
-  { path: 'agentdash', component: AgentDashbordComponent },
+  { path: 'agent/registerAgent', component: RecruteurInscrComponent },
+  { path: 'login', component: RecruteurLoginComponent },
+  { path: 'agent/agentdash', component: AgentDashbordComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 
