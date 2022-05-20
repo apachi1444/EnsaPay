@@ -15,6 +15,8 @@ import { ProfileDetailsComponent } from './backOffice/profile/profile-details/pr
 import { ChangePasswordComponent } from './commonCompos/change-password/change-password.component';
 import { SponsorsComponent } from './commonCompos/sponsors/sponsors.component';
 import { SignUpPageComponent } from './backOffice/sign-up-page/sign-up-page.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +35,7 @@ import { SignUpPageComponent } from './backOffice/sign-up-page/sign-up-page.comp
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    ReactiveFormsModule,
     FormsModule,
   ],
   // providers: [BackofficeService],
