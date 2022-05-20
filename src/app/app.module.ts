@@ -8,15 +8,15 @@ import { ProfileComponent } from './backOffice/profile/profile.component';
 import { HeaderComponent } from './commonCompos/header/header.component';
 import { FooterComponent } from './commonCompos/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
-import { FormsModule } from '@angular/forms';
-import { NgForm } from '@angular/forms';
+import { FormsModule, NgForm, ReactiveFormsModule } from '@angular/forms';
 // import { BackofficeServiceService } from './services/backOffice/backoffice-service.service';
-import { ProfileDetailsComponent } from './backOffice/profile/profile-details/profile-details.component';
-import { ChangePasswordComponent } from './commonCompos/change-password/change-password.component';
-import { SponsorsComponent } from './commonCompos/sponsors/sponsors.component';
-import { SignUpPageComponent } from './backOffice/sign-up-page/sign-up-page.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { RecruteurInscrComponent } from './agent/recruteur-inscr/recruteur-inscr.component';
+import { RecuteurserviceComponent } from './services/agent/recuteurservice/recuteurservice.component';
+import { RecruteurLoginComponent } from './agent/recruteur-login/recruteur-login.component';
+import { AgentDashbordComponent } from './agent/agent-dashbord/agent-dashbord.component';
 
+import { AgentPaginationComponent } from './agent/agent-pagination/agent-pagination.component';
+import { SignUpPageComponent } from './backOffice/sign-up-page/sign-up-page.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,9 +26,11 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProfileComponent,
     HeaderComponent,
     FooterComponent,
-    ProfileDetailsComponent,
-    ChangePasswordComponent,
-    SponsorsComponent,
+    RecruteurInscrComponent,
+    RecuteurserviceComponent,
+    RecruteurLoginComponent,
+    AgentDashbordComponent,
+    AgentPaginationComponent,
   ],
   imports: [
     NgForm,

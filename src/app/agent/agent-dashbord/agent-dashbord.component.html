@@ -1,0 +1,54 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<div>
+    <div class="row"> 
+        <div class="col">
+            <div class="container">
+                <form class="frame">
+                <h2>Set A New Password</h2>
+                <p>Please fill in this form to change your password!</p>
+                <hr>
+            <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+                  <input type="email" class="form-control" name="email" placeholder="Email Address" required="required" formControlName="email">
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+                  <input type="password" class="form-control" name="password" placeholder="Password" required="required" formControlName="password">
+                </div>
+            </div>
+            <button class="btn btn-primary btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">Change Password</button>
+                </form>
+            </div>
+        </div>
+        <div class="col">
+            <app-agent-pagination></app-agent-pagination>
+        </div>
+    </div>
+</div>  
+
+   
+<div  class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content container">
+            <div class="modal-header" style="display: block;">
+                <div class="form-group"><input type="password" class="form-control" name="old-password" placeholder="Old Password" required="required" formControlName="password"></div>
+                <div class="form-group"><input type="password" class="form-control" name="new-password" placeholder="New Password" required="required" formControlName="password"></div>
+                <div class="form-group"><input type="password" class="form-control" name="confirm-new-password" placeholder=" Confirm New Password" required="required" formControlName="password"></div>
+            
+                <div class="modal-footer" style="display: flex;">
+                    <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Confirm</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+            
+           
+
