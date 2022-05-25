@@ -17,6 +17,7 @@ import { AgentDashbordComponent } from './agent/agent-dashbord/agent-dashbord.co
 import { SponsorsComponent } from './commonCompos/sponsors/sponsors.component';
 import { AgentPaginationComponent } from './agent/agent-pagination/agent-pagination.component';
 import { HeaderGreenComponent } from './commonCompos/headerGreen/header-green/header-green.component';
+import { ChangePasswordModalComponent } from './agent/agent-dashbord/change-password-modal/change-password-modal.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { HeaderGreenComponent } from './commonCompos/headerGreen/header-green/he
     SponsorsComponent,
     AgentPaginationComponent,
     HeaderGreenComponent,
+    ChangePasswordModalComponent,
   ],
   imports: [
     BrowserModule,

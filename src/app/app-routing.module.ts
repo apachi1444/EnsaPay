@@ -11,9 +11,9 @@ import { AgentDashbordComponent } from './agent/agent-dashbord/agent-dashbord.co
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'backOffice/register', component: SignUpPageComponent },
+  { path: 'backOffice/registerAgent', component: SignUpPageComponent },
   { path: 'profile', component: ProfileComponent },
-  { path: 'agent/registerAgent', component: RecruteurInscrComponent },
+  { path: 'agent/registerClient', component: RecruteurInscrComponent },
   { path: 'login', component: RecruteurLoginComponent },
   { path: 'agent/agentdash', component: AgentDashbordComponent },
   { path: '**', component: PageNotFoundComponent },

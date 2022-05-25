@@ -21,9 +21,12 @@
     "lib": ["es2020", "dom"]
   },
   "angularCompilerOptions": {
+    "allowEmptyCodegenFiles": true,
     "enableI18nLegacyMessageIdFormat": false,
-    "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
-    "strictTemplates": true
+    "strictTemplates": true,
+    "fullTemplateTypeCheck": true,
+    "strictInjectionParameters": true,
+    "enableIvy": false
   }
 }
