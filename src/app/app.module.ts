@@ -10,7 +10,6 @@ import { FooterComponent } from './commonCompos/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BackOfficeService } from './services/backOffice/backoffice-service.service';
-import { RecruteurInscrComponent } from './agent/recruteur-inscr/recruteur-inscr.component';
 import { RecuteurserviceComponent } from './services/agent/recuteurservice/recuteurservice.component';
 import { RecruteurLoginComponent } from './agent/recruteur-login/recruteur-login.component';
 import { AgentDashbordComponent } from './agent/agent-dashbord/agent-dashbord.component';
@@ -18,6 +17,11 @@ import { SponsorsComponent } from './commonCompos/sponsors/sponsors.component';
 import { AgentPaginationComponent } from './agent/agent-pagination/agent-pagination.component';
 import { HeaderGreenComponent } from './commonCompos/headerGreen/header-green/header-green.component';
 import { ChangePasswordModalComponent } from './agent/agent-dashbord/change-password-modal/change-password-modal.component';
+import { AgentModuleRoutingModule } from './agent-module/agent-module-routing.module';
+import { ClientModuleRoutingModule } from './client-module/client-module-routing.module';
+import { AgentModuleModule } from './agent-module/agent-module.module';
+import { ClientModuleModule } from './client-module/client-module.module';
+import { BackOfficeModuleModule } from './back-office-module/back-office-module.module';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,6 @@ import { ChangePasswordModalComponent } from './agent/agent-dashbord/change-pass
     ProfileComponent,
     HeaderComponent,
     FooterComponent,
-    RecruteurInscrComponent,
     RecuteurserviceComponent,
     RecruteurLoginComponent,
     AgentDashbordComponent,
@@ -38,6 +41,9 @@ import { ChangePasswordModalComponent } from './agent/agent-dashbord/change-pass
     ChangePasswordModalComponent,
   ],
   imports: [
+    BackOfficeModuleModule,
+    ClientModuleModule,
+    AgentModuleModule,
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,

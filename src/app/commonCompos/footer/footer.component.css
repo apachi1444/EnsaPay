@@ -1,5 +1,8 @@
 .footer {
-  color: #19aa8d;
+  color: #4575bc;
   font-weight: bold;
   font-size: 18px;
+  bottom: 0;
+  position: absolute;
+  background-color: #e6e7e7;
 }
