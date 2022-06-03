@@ -3,12 +3,8 @@ import { CommonModule } from '@angular/common';
 
 import { AgentModuleRoutingModule } from './agent-module-routing.module';
 
-
 @NgModule({
   declarations: [],
-  imports: [
-    CommonModule,
-    AgentModuleRoutingModule
-  ]
+  imports: [CommonModule, AgentModuleRoutingModule],
 })
-export class AgentModuleModule { }
+export class AgentModuleModule {}

@@ -11,10 +11,8 @@ import { ClientModuleModule } from './client-module/client-module.module';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'backOffice/registerAgent', component: SignUpPageComponent },
   { path: 'profile', component: ProfileComponent },
   { path: 'login', component: RecruteurLoginComponent },
-  { path: 'agent/agentdash', component: AgentDashbordComponent },
   {
     path: 'comment',
     loadChildren: () =>

@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AgentDashbordComponent } from '../agent/agent-dashbord/agent-dashbord.component';
 
 const routes: Routes = [
-  { path: 'agentdashe', component: AgentDashbordComponent },
+  { path: 'agent/agentdashee', component: AgentDashbordComponent },
 ];
 
 @NgModule({
