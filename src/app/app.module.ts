@@ -3,42 +3,37 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { PageNotFoundComponent } from './commonCompos/page-not-found/page-not-found.component';
-import { SigninpageComponent } from './backOffice/signinpage/signinpage.component';
-import { ProfileComponent } from './backOffice/profile/profile.component';
 import { HeaderComponent } from './commonCompos/header/header.component';
 import { FooterComponent } from './commonCompos/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { BackOfficeService } from './services/backOffice/backoffice-service.service';
-import { RecuteurserviceComponent } from './services/agent/recuteurservice/recuteurservice.component';
-import { RecruteurLoginComponent } from './agent/recruteur-login/recruteur-login.component';
-import { AgentDashbordComponent } from './agent/agent-dashbord/agent-dashbord.component';
+import { RecruteurLoginComponent } from './oldDesign/recruteur-login/recruteur-login.component';
 import { SponsorsComponent } from './commonCompos/sponsors/sponsors.component';
-import { AgentPaginationComponent } from './agent/agent-pagination/agent-pagination.component';
-import { HeaderGreenComponent } from './commonCompos/headerGreen/header-green/header-green.component';
-import { ChangePasswordModalComponent } from './agent/agent-dashbord/change-password-modal/change-password-modal.component';
-import { AgentModuleRoutingModule } from './agent-module/agent-module-routing.module';
-import { ClientModuleRoutingModule } from './client-module/client-module-routing.module';
 import { AgentModuleModule } from './agent-module/agent-module.module';
 import { ClientModuleModule } from './client-module/client-module.module';
 import { BackOfficeModuleModule } from './back-office-module/back-office-module.module';
+import { AboutUsComponent } from './commonCompos/about-us/about-us.component';
+import { LoginComponent } from './commonCompos/login/login.component';
+import { AgentDashbordComponent } from './agent-module/agent-components/agent-dashbord/agent-dashbord.component';
+import { AgentPaginationComponent } from './agent-module/agent-components/agent-pagination/agent-pagination.component';
+import { ChangePasswordModalComponent } from './agent-module/agent-components/agent-dashbord/change-password-modal/change-password-modal.component';
+import { BackOfficeService } from './back-office-module/back-office-services/backoffice-service.service';
+import { AgentServiceService } from './agent-module/agent-services/agent-service.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     routingComponents,
     PageNotFoundComponent,
-    SigninpageComponent,
-    ProfileComponent,
     HeaderComponent,
     FooterComponent,
-    RecuteurserviceComponent,
     RecruteurLoginComponent,
     AgentDashbordComponent,
     SponsorsComponent,
     AgentPaginationComponent,
-    HeaderGreenComponent,
     ChangePasswordModalComponent,
+    AboutUsComponent,
+    LoginComponent,
   ],
   imports: [
     BackOfficeModuleModule,
@@ -50,7 +45,7 @@ import { BackOfficeModuleModule } from './back-office-module/back-office-module.
     FormsModule,
     ReactiveFormsModule,
   ],
-  providers: [BackOfficeService],
+  providers: [BackOfficeService, AgentServiceService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

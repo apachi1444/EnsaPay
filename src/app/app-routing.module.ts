@@ -1,24 +1,11 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { Router, RouterModule, Routes } from '@angular/router';
-import { SigninpageComponent } from './backOffice/signinpage/signinpage.component';
-import { SignUpPageComponent } from './backOffice/sign-up-page/sign-up-page.component';
+import { RouterModule, Routes } from '@angular/router';
+import { LoginComponent } from './commonCompos/login/login.component';
 import { PageNotFoundComponent } from './commonCompos/page-not-found/page-not-found.component';
-import { ProfileComponent } from './backOffice/profile/profile.component';
-import { RecruteurLoginComponent } from './agent/recruteur-login/recruteur-login.component';
-import { AgentDashbordComponent } from './agent/agent-dashbord/agent-dashbord.component';
-import { ClientModuleModule } from './client-module/client-module.module';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
-  { path: 'profile', component: ProfileComponent },
-  { path: 'login', component: RecruteurLoginComponent },
-  {
-    path: 'comment',
-    loadChildren: () =>
-      import('./comment/comment.module').then((m) => m.CommentModule),
-  },
-  { path: '**', component: PageNotFoundComponent },
+  { path: 'login', component: LoginComponent },
   {
     path: 'agent',
     loadChildren: () =>
@@ -26,6 +13,21 @@ const routes: Routes = [
         (m) => m.AgentModuleModule
       ),
   },
+  {
+    path: 'backOffice',
+    loadChildren: () =>
+      import('./back-office-module/back-office-module.module').then(
+        (m) => m.BackOfficeModuleModule
+      ),
+  },
+  {
+    path: 'client',
+    loadChildren: () =>
+      import('./client-module/client-module.module').then(
+        (m) => m.ClientModuleModule
+      ),
+  },
+  { path: '**', component: PageNotFoundComponent },
 ];
 
 @NgModule({

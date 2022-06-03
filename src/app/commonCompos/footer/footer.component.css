@@ -1,8 +1,16 @@
-.footer {
+/* .footer {
   color: #4575bc;
   font-weight: bold;
   font-size: 18px;
   bottom: 0;
   position: absolute;
   background-color: #e6e7e7;
+} */
+.footer {
+  color: #e74c3c;
+  font-weight: bold;
+  font-size: 18px;
+  /* bottom: 0;
+  position: absolute; */
+  background-color: #20cfcf;
 }
