@@ -1,60 +1,37 @@
-.slider {
-  margin: auto;
-  position: relative;
-  width: 70%;
-  display: grid;
-  place-items: center;
-  overflow: hidden;
-  overflow-y: auto;
-}
-
-.slide-track {
-  display: flex;
-  width: calc(250px * 18);
-  animation: scroll 12s linear infinite;
-}
-
-.slide-track:hover {
-  animation-play-state: paused;
-}
-
-.slide {
-  height: 200px;
-  width: 250px;
-  display: flex;
-  align-items: center;
-  padding: 15px;
-  perspective: 100px;
-}
-
-img {
-  width: 100%;
-  transition: transform 0.6s;
-}
-
-@keyframes scroll {
+/* @keyframes scroll {
   0% {
+    -webkit-transform: translateX(0);
     transform: translateX(0);
   }
   100% {
-    transform: translateX(calc(-250px * 9));
+    -webkit-transform: translateX(calc(-250px * 7));
+    transform: translateX(calc(-250px * 7));
   }
+} */
+marquee {
+  margin-bottom: 5rem;
 }
-
-/* this part for the gradient shadows */
-
+.slide {
+  margin-right: 2rem;
+  margin-left: 2rem;
+  border-radius: 20px;
+}
+.slider {
+  box-shadow: 0 10px 20px -5px rgba(0, 0, 0, 0.125);
+  height: 100px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+  display: inline-block;
+}
 .slider::before,
 .slider::after {
   background: linear-gradient(to right, white 0%, rgba(255, 255, 255, 0) 100%);
   content: "";
-  height: 100%;
+  height: 100px;
   position: absolute;
-  width: 15%;
+  width: 200px;
   z-index: 2;
-}
-
-img:hover {
-  transform: translateZ(20px);
 }
 .slider::after {
   right: 0;
@@ -65,4 +42,14 @@ img:hover {
 .slider::before {
   left: 0;
   top: 0;
+}
+.slider .slide-track {
+  -webkit-animation: scroll 10s linear infinite;
+  animation: scroll 6s linear infinite;
+  display: flex;
+  width: calc(250px * 14);
+}
+.slider .slide {
+  height: 100px;
+  width: 250px;
 }
