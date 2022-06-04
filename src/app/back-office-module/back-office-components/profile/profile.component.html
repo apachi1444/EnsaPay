@@ -104,70 +104,14 @@
           <div class="card-header">
             <h4 class="card-heading">Forget Password</h4>
           </div>
-          <div class="card-body">
-            <div class="row mb-3">
-              <div class="col-auto d-flex align-items-center">
-                <img
-                  class="avatar avatar-lg p-1"
-                  src="https://therichpost.com/wp-content/uploads/2021/03/avatar2.png"
-                  alt="Avatar"
-                />
-              </div>
-              <div class="col">
-                <label class="form-label"
-                  ><i class="fas fa-user"></i> Name</label
-                >
-                <input value="Yessine Jaoua" class="form-control" disabled />
-              </div>
-            </div>
-            <!-- <div class="mb-3">
-              <label class="form-label">Bio</label>
-              <textarea class="form-control" rows="8"></textarea>
-            </div> -->
-            <div class="mb-3">
-              <label class="form-label"
-                ><i class="fas fa-envelope"></i> Email</label
-              >
-              <input
-                class="form-control"
-                placeholder="yessinejawa@gmail.com"
-                disabled
-              />
-            </div>
-            <div class="mb-3">
-              <label class="form-label"
-                ><i class="fas fa-phone"></i> Phone Number</label
-              >
-              <input
-                class="form-control"
-                placeholder="+212 620722602"
-                disabled
-              />
-            </div>
-            <div class="mb-3">
-              <label class="form-label"
-                ><i class="fas fa-address-card"></i> Address</label
-              >
-              <input class="form-control" placeholder="Jnane Ourad" disabled />
-            </div>
-            <div class="mb-3">
-              <label class="form-label"
-                ><i class="fas fa-address-card"></i> City</label
-              >
-              <input class="form-control" placeholder="Marrakech" disabled />
-            </div>
-            <div class="mb-3">
-              <label class="form-label"
-                ><i class="fas fa-house"></i> Zip Code</label
-              >
-              <input class="form-control" placeholder="40000" disabled />
-            </div>
-            <div class="mb-3">
-              <label class="form-label"
-                ><i class="fas fa-bank"></i> My Account</label
-              >
-              <input class="form-control" placeholder="5000$" disabled />
-            </div>
+          <div class="card-footer p-4 text-center">
+            <button
+              class="btn btn-primary"
+              (click)="btnClickToNavigateToForgetPasswordPage()"
+              routerLink="/backOffice/forgetPassword"
+            >
+              <i class="fas fa-lock px-2"></i> Change Password Now
+            </button>
           </div>
           <!-- <div class="card-footer text-end">
             <button class="btn btn-primary">Save</button>

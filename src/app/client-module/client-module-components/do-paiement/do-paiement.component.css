@@ -1,0 +1,30 @@
+.am {
+  height: 53.4vh;
+  width: 100vw;
+}
+.cd {
+  margin: 30;
+}
+.dar {
+  height: 60vh;
+}
+
+.btn {
+  text-align: center;
+  width: 250px;
+  background-color: #0a3d62;
+  margin-right: 10px;
+}
+
+.btn-warning {
+  background-color: #e74c3c;
+}
+
+.col-lg-4 img {
+  text-align: center;
+  width: 100%;
+}
+.col-lg-4 {
+  display: flex;
+  justify-content: center;
+}
