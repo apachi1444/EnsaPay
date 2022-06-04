@@ -19,6 +19,10 @@ export class ProfileComponent implements OnInit {
 
   ngOnInit(): void {}
   btnClickToNavigateToForgetPasswordPage() {
-    this.router.navigateByUrl('/forgetPassword');
+    this.router.navigateByUrl('/backOffice/forgetPassword');
+  }
+
+  btnClickToNavigateToAddAgentPage() {
+    this.router.navigateByUrl('/backOffice/addAgent');
   }
 }
