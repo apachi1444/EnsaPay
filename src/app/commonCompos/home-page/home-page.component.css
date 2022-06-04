@@ -17,3 +17,9 @@
 .blur-image {
   filter: blur(7px);
 }
+.btn:hover {
+  border: none;
+}
+.btn {
+  border: none;
+}

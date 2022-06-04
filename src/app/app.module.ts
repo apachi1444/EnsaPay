@@ -19,11 +19,8 @@ import { AgentPaginationComponent } from './agent-module/agent-components/agent-
 import { ChangePasswordModalComponent } from './agent-module/agent-components/agent-dashbord/change-password-modal/change-password-modal.component';
 import { BackOfficeService } from './back-office-module/back-office-services/backoffice-service.service';
 import { AgentServiceService } from './agent-module/agent-services/agent-service.service';
-<<<<<<< HEAD
 import { HomePageComponent } from './commonCompos/home-page/home-page.component';
-=======
 import { ContactUsComponent } from './commonCompos/contact-us/contact-us.component';
->>>>>>> 2dcab2db9a4d47ca5b20d8a9f8e70d1823acfdb6
 
 @NgModule({
   declarations: [
@@ -39,11 +36,8 @@ import { ContactUsComponent } from './commonCompos/contact-us/contact-us.compone
     ChangePasswordModalComponent,
     AboutUsComponent,
     LoginComponent,
-<<<<<<< HEAD
     HomePageComponent,
-=======
     ContactUsComponent,
->>>>>>> 2dcab2db9a4d47ca5b20d8a9f8e70d1823acfdb6
   ],
   imports: [
     BackOfficeModuleModule,
