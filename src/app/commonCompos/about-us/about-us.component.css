@@ -1,9 +1,26 @@
+<<<<<<< HEAD
 .container {
   text-align: center;
   width: 80%;
   background-color: rgba(0, 0, 0, 0.2);
   box-shadow: 0 0 1rem white;
 }
+=======
+/* figure {
+  padding: 0;
+  margin: 0;
+  width: 63%;
+  background-color: rgb(205, 197, 189);
+  border: 1px solid black;
+  padding: 5rem 0;
+} */
+/* .container {
+  text-align: center;
+  width: 80%;
+  box-shadow: 0 0 1rem white;
+  position: absolute;
+} */
+>>>>>>> 2dcab2db9a4d47ca5b20d8a9f8e70d1823acfdb6
 
 .container h1 {
   color: RGB(196, 188, 180);
@@ -13,15 +30,24 @@
 }
 
 .container h3 {
+<<<<<<< HEAD
   color: #ff0a23;
+=======
+  color: #e74c3c;
+>>>>>>> 2dcab2db9a4d47ca5b20d8a9f8e70d1823acfdb6
   font-size: 2rem;
   font-family: "Lobster", sans-serif;
   margin: 0 0 2rem 0;
 }
 
 .container p {
+<<<<<<< HEAD
   color: rgb(255, 255, 125);
   font-size: 1rem;
+=======
+  font-size: 1.5rem;
+  text-align: justify;
+>>>>>>> 2dcab2db9a4d47ca5b20d8a9f8e70d1823acfdb6
 }
 
 .container .img-about {
@@ -43,7 +69,11 @@
 .container .social {
   width: 100%;
   clear: both;
+<<<<<<< HEAD
   margin-top: 2.8rem;
+=======
+  margin: 2.8rem 0 1rem 0;
+>>>>>>> 2dcab2db9a4d47ca5b20d8a9f8e70d1823acfdb6
   text-align: center;
   display: inline-block;
 }
@@ -56,7 +86,11 @@
   border-radius: 50%;
   line-height: 2.2;
   text-align: center;
+<<<<<<< HEAD
   background-color: #f28f92;
+=======
+  background-color: #e74c3c;
+>>>>>>> 2dcab2db9a4d47ca5b20d8a9f8e70d1823acfdb6
   margin: 0 0.3rem;
 }
 
