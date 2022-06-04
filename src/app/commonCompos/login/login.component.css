@@ -8,3 +8,12 @@
 .btn-login:hover {
   color: #f06657;
 }
+
+input:focus {
+  border: none;
+  border-color: transparent;
+}
+
+.form-control:focus {
+  border: none;
+}

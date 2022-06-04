@@ -1,11 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AboutUsComponent } from './commonCompos/about-us/about-us.component';
+import { ContactUsComponent } from './commonCompos/contact-us/contact-us.component';
 import { LoginComponent } from './commonCompos/login/login.component';
 import { PageNotFoundComponent } from './commonCompos/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
+  { path: 'aboutUs', component: AboutUsComponent },
+  { path: 'contactUs', component: ContactUsComponent },
   {
     path: 'agent',
     loadChildren: () =>

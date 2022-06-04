@@ -4,8 +4,8 @@ import { ListServicesComponent } from './back-office-components/list-services/li
 import { ProfileComponent } from './back-office-components/profile/profile.component';
 
 const routes: Routes = [
-  { path: 'backOffice/profile', component: ProfileComponent },
-  { path: 'backOffice/listServices', component: ListServicesComponent },
+  { path: 'profile', component: ProfileComponent },
+  { path: 'listServices', component: ListServicesComponent },
 ];
 
 @NgModule({
