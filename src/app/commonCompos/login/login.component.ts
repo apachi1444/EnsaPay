@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { LoginServiceService } from './services/login-service.service';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +12,7 @@ export class LoginComponent implements OnInit {
   showPassword: boolean = false;
   passwordType: String = 'password';
   className: String = 'fas fa-eye';
-  constructor() {}
+  constructor(private loginService: LoginServiceService) {}
 
   ngOnInit(): void {}
 
@@ -29,5 +31,10 @@ export class LoginComponent implements OnInit {
       this.passwordType = 'password';
       this.className = 'fas fa-eye';
     }
+  }
+
+  addStudent(userForm: NgForm) {
+    this.loginService.authenticate(userForm);
+    console.log(userForm);
   }
 }

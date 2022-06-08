@@ -19,7 +19,8 @@
                   Welcome
                 </p>
 
-                <form class="mx-1 mx-md-4">
+                {{ userForm.value | json }}
+                <form class="mx-1 mx-md-4" #userForm="ngForm">
                   <div class="d-flex align-items-center mb-4">
                     <div class="input-group">
                       <span class="input-group-text">
@@ -29,11 +30,12 @@
                       <input
                         ngModel
                         #phoneNumber="ngModel"
-                        type="number"
+                        type="text"
                         id="form3Example3c"
                         class="form-control"
                         placeholder="Enter Your Number Here"
                         value="+212"
+                        name="phoneNumber"
                       />
                     </div>
                   </div>
@@ -107,8 +109,9 @@
 
                   <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
                     <button
-                      type="button"
+                      type="submit"
                       class="btn btn-primary btn-lg btn-login"
+                      (click)="addStudent(userForm)"
                     >
                       Login
                     </button>
