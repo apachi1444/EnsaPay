@@ -8,9 +8,12 @@ import { AddAgentComponent } from './back-office-components/add-agent/add-agent.
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { VerifyCodeComponent } from '../commonCompos/verify-code/verify-code.component';
 import { NewCodeComponent } from '../commonCompos/new-code/new-code.component';
+import { ClientDashboardComponent } from '../client-module/client-module-components/client-dashboard/client-dashboard.component';
+import { PaymentAddComponent } from '../client-module/client-module-components/client-payment-components/payment-add/payment-add.component';
+import { ProfileComponent } from './back-office-components/profile/profile.component';
 
 @NgModule({
-  declarations: [ListServicesComponent, AddAgentComponent],
+  declarations: [AddAgentComponent, ProfileComponent],
   imports: [
     CommonModule,
     BackOfficeModuleRoutingModule,

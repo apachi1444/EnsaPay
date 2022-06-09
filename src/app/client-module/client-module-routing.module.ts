@@ -8,8 +8,7 @@ import { PaymentAddComponent } from './client-module-components/client-payment-c
 
 const routes: Routes = [
   { path: 'dashboard', component: ClientDashboardComponent },
-  { path: 'addPayment', component: PaiementStepperComponent },
-  { path: 'add', component: PaymentAddComponent },
+  { path: 'addPayment', component: PaymentAddComponent },
   // { path: 'doPayment', component: DoPaiementComponent },
 ];
 

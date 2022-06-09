@@ -24,7 +24,6 @@ const routes: Routes = [
   { path: 'new-password', component: NewCodeComponent },
   { path: 'verify-code', component: VerifyCodeComponent },
   { path: 'forget-password', component: ForgetPasswordComponent },
-  { path: 'add', component: PaymentAddComponent },
   {
     path: 'agent',
     loadChildren: () =>

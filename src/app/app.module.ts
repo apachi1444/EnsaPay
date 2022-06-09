@@ -16,7 +16,6 @@ import { HomePageComponent } from './commonCompos/home-page/home-page.component'
 import { ContactUsComponent } from './commonCompos/contact-us/contact-us.component';
 import { AuthGuard } from './commonServices/authGuard/auth.guard';
 import { PageUnauthorizedComponent } from './commonCompos/page-unauthorized/page-unauthorized.component';
-import { TokenInterceptorService } from './commonServices/token-service/token-interceptor.service';
 import { LoginServiceService } from './commonServices/login-service/login-service.service';
 import { NewCodeComponent } from './commonCompos/new-code/new-code.component';
 import { ForgetPasswordComponent } from './commonCompos/forget-password/forget-password.component';
