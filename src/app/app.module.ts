@@ -20,6 +20,7 @@ import { TokenInterceptorService } from './commonServices/token-service/token-in
 import { LoginServiceService } from './commonServices/login-service/login-service.service';
 import { NewCodeComponent } from './commonCompos/new-code/new-code.component';
 import { ForgetPasswordComponent } from './commonCompos/forget-password/forget-password.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { ForgetPasswordComponent } from './commonCompos/forget-password/forget-p
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [
     BackOfficeService,

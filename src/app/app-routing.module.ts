@@ -11,6 +11,7 @@ import { PageUnauthorizedComponent } from './commonCompos/page-unauthorized/page
 import { NewCodeComponent } from './commonCompos/new-code/new-code.component';
 import { VerifyCodeComponent } from './commonCompos/verify-code/verify-code.component';
 import { ForgetPasswordComponent } from './commonCompos/forget-password/forget-password.component';
+import { PaymentAddComponent } from './client-module/client-module-components/payment-add/payment-add.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home-page', pathMatch: 'full' },
@@ -23,6 +24,7 @@ const routes: Routes = [
   { path: 'new-password', component: NewCodeComponent },
   { path: 'verify-code', component: VerifyCodeComponent },
   { path: 'forget-password', component: ForgetPasswordComponent },
+  { path: 'add', component: PaymentAddComponent },
   {
     path: 'agent',
     loadChildren: () =>
