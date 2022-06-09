@@ -43,4 +43,8 @@ export class LocalStorageService {
       return decodedJwtData.role[0];
     }
   }
+
+  removeItem(item: any) {
+    localStorage.removeItem(item);
+  }
 }

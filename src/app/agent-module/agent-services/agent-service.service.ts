@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { LocalStorageService } from 'src/app/commonCompos/commonServices/local-storage.service';
-import { LoginServiceService } from 'src/app/commonCompos/login/services/login-service.service';
+import { LocalStorageService } from 'src/app/commonServices/local-storage-service/local-storage.service';
+import { LoginServiceService } from 'src/app/commonServices/login-service/login-service.service';
 import { environment } from 'src/environments/environment';
 
 @Injectable({
