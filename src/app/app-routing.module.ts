@@ -8,6 +8,9 @@ import { PageNotFoundComponent } from './commonCompos/page-not-found/page-not-fo
 import { PaiementStepperComponent } from './client-module/client-module-components/paiement-stepper/paiement-stepper.component';
 import { DoPaiementComponent } from './client-module/client-module-components/do-paiement/do-paiement.component';
 import { PageUnauthorizedComponent } from './commonCompos/page-unauthorized/page-unauthorized.component';
+import { NewCodeComponent } from './commonCompos/new-code/new-code.component';
+import { VerifyCodeComponent } from './commonCompos/verify-code/verify-code.component';
+import { ForgetPasswordComponent } from './commonCompos/forget-password/forget-password.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home-page', pathMatch: 'full' },
@@ -17,6 +20,9 @@ const routes: Routes = [
   { path: 'contactUs', component: ContactUsComponent },
   { path: 'addPayment', component: PaiementStepperComponent },
   { path: 'unauthorized', component: PageUnauthorizedComponent },
+  { path: 'new-password', component: NewCodeComponent },
+  { path: 'verify-code', component: VerifyCodeComponent },
+  { path: 'forget-password', component: ForgetPasswordComponent },
   {
     path: 'agent',
     loadChildren: () =>

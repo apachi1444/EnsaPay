@@ -6,16 +6,13 @@ import { BackOfficeService } from 'src/app/back-office-module/back-office-servic
 @Component({
   selector: 'app-forget-password',
   templateUrl: './forget-password.component.html',
-  styleUrls: ['./forget-password.component.css']
+  styleUrls: ['./forget-password.component.css'],
 })
 export class ForgetPasswordComponent implements OnInit {
+  constructor(private backOfficeService: BackOfficeService) {}
 
-  constructor(private backOfficeService:BackOfficeService) { }
-
-  ngOnInit(): void {
-  }
-  send(f:NgForm){
+  ngOnInit(): void {}
+  send(f: NgForm) {
     this.backOfficeService.sendMailToClient(f.value.username);
   }
-
 }
