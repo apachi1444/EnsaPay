@@ -1,5 +1,6 @@
 <div class="template">
-  <form class="card mb-4 form">
+  <form class="card mb-4 form" #myform="ngForm" (submit)="addClient($event)"
+  enctype="multipart/form-data">
     <div class="card-header ass">
       <h4 class="card-heading">Add Client</h4>
     </div>
@@ -9,10 +10,12 @@
           <div class="mb-4">
             <label class="form-label">Company</label>
             <input
+            ngModel
+            name="Company"
               class="form-control"
               type="text"
               placeholder="Company"
-              value="Jassa Rich"
+              
             />
           </div>
         </div>
@@ -20,35 +23,47 @@
           <div class="mb-4">
             <label class="form-label">Username</label>
             <input
+            ngModel
+            name="Username"
               class="form-control"
               type="text"
               placeholder="Username"
-              value="Jassa"
+             
             />
           </div>
         </div>
         <div class="col-sm-6 col-md-4">
           <div class="mb-4">
             <label class="form-label">Email address</label>
-            <input class="form-control" type="email" placeholder="Email" />
+            <input class="form-control" 
+            ngModel
+            name="email"
+            type="email" placeholder="Email" />
           </div>
         </div>
         <div class="col-sm-6 col-md-6">
           <div class="mb-4">
             <label class="form-label">First Name</label>
-            <input class="form-control" type="text" placeholder="First name" />
+            <input class="form-control"
+            ngModel
+            name="FirstName" type="text" placeholder="First name" />
           </div>
         </div>
         <div class="col-sm-6 col-md-6">
           <div class="mb-4">
             <label class="form-label">Last Name</label>
-            <input class="form-control" type="text" placeholder="Last Name" />
+            <input class="form-control"
+            ngModel
+            name="LastName"
+             type="text" placeholder="Last Name" />
           </div>
         </div>
         <div class="col-md-12">
           <div class="mb-4">
             <label class="form-label">Address</label>
             <input
+            ngModel
+            name="Address"
               class="form-control"
               type="text"
               placeholder="Home Address"
@@ -58,19 +73,25 @@
         <div class="col-sm-6 col-md-4">
           <div class="mb-4">
             <label class="form-label">City</label>
-            <input class="form-control" type="text" placeholder="City" />
+            <input
+            ngModel
+            name="City" class="form-control" type="text" placeholder="City" />
           </div>
         </div>
         <div class="col-sm-6 col-md-3">
           <div class="mb-4">
             <label class="form-label">ZIP</label>
-            <input class="form-control" type="number" placeholder="ZIP" />
+            <input ngModel
+            name="Zip"
+            class="form-control" type="number" placeholder="ZIP" />
           </div>
         </div>
         <div class="col-md-5">
           <div class="mb-4">
             <label class="form-label">Country</label>
-            <select class="form-control custom-select">
+            <select
+            ngModel
+            name="Country" class="form-control custom-select">
               <option value="">UK</option>
               <option value="">US</option>
             </select>
@@ -81,14 +102,19 @@
             <label class="form-label">CIN</label>
             <div>
               <label for="upload" class="btn btn-primary task choix"
-                >choose file</label
+                >{{this.nameImage}}</label
               >
               <input
+              (change)="File($event)"
                 id="upload"
                 type="file"
+                name="file"
                 placeholder="Paste file url"
                 required
-              />
+              /><br>
+              <img *ngIf="this.src!=null" [src]="src" height="150"><br>
+              <i *ngIf="this.nameImage!='choose file'" class=" fas fa-trash" (click)="suprrimerPhoto()"></i>
+              
             </div>
           </div>
         </div>
