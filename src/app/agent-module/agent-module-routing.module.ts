@@ -4,7 +4,8 @@ import { ForgetPasswordComponent } from '../back-office-module/back-office-compo
 import { AuthGuard } from '../commonServices/authGuard/auth.guard';
 import { AddClientComponent } from './agent-components/add-client/add-client.component';
 import { AgentDashbordComponent } from './agent-components/agent-dashbord/agent-dashbord.component';
-
+import { VerifyCodeComponent } from '../back-office-module/back-office-components/profile/verify-code/verify-code.component';
+import { NewCodeComponent } from '../back-office-module/back-office-components/profile/new-code/new-code.component';
 const routes: Routes = [
   {
     path: 'addClient',
@@ -16,6 +17,10 @@ const routes: Routes = [
     component: AgentDashbordComponent,
     canActivate: [AuthGuard],
   },
+  { path: 'newPassword', component: NewCodeComponent },
+  { path: 'VerifyCode', component: VerifyCodeComponent },
+  { path: 'addClient', component: AddClientComponent },
+  { path: 'profile', component: AgentDashbordComponent },
   { path: 'forgetPassword', component: ForgetPasswordComponent },
 ];
 

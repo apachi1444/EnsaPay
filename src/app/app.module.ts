@@ -17,6 +17,7 @@ import { ContactUsComponent } from './commonCompos/contact-us/contact-us.compone
 import { AuthGuard } from './commonServices/authGuard/auth.guard';
 import { PageUnauthorizedComponent } from './commonCompos/page-unauthorized/page-unauthorized.component';
 import { TokenInterceptorService } from './commonServices/token-service/token-interceptor.service';
+import { LoginServiceService } from './commonServices/login-service/login-service.service';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { TokenInterceptorService } from './commonServices/token-service/token-in
     BackOfficeService,
     AgentServiceService,
     AuthGuard,
+    LoginServiceService,
     // {
     //   provide: HTTP_INTERCEPTORS,
     //   useClass: TokenInterceptorService,

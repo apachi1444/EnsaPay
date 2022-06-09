@@ -4,7 +4,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AgentModuleRoutingModule } from './agent-module-routing.module';
 import { AddClientComponent } from './agent-components/add-client/add-client.component';
 import { AgentDashbordComponent } from './agent-components/agent-dashbord/agent-dashbord.component';
-
+import { NgToastModule } from 'ng-angular-popup';
 @NgModule({
   declarations: [AddClientComponent, AgentDashbordComponent],
   imports: [
@@ -12,6 +12,7 @@ import { AgentDashbordComponent } from './agent-components/agent-dashbord/agent-
     AgentModuleRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    NgToastModule,
   ],
 })
 export class AgentModuleModule {}

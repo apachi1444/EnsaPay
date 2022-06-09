@@ -40,6 +40,7 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
@@ -51,5 +52,11 @@ export class BackOfficeService {
     return this.http.post('http://localhost:8081/backoffice/add', user, {
       responseType: 'text' as 'json',
     });
+  }
+  sendMailToClient(username:any){
+
+   this.http.post("http://localhost:1111/forgetPassword/"+username,[],{responseType:'text'}).subscribe(
+    (res)=>{console.log(res.toString())},
+    (error)=>{error.errors})
   }
 }

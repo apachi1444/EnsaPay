@@ -36,4 +36,16 @@ export class AgentServiceService {
       },
     });
   }
+  postClient(data:FormData){
+    let finalUrl = this.server + 'client/regiterNewUserClient';
+    this.http.post(finalUrl,data,{responseType:'text'}).subscribe(
+      (res)=>{
+        console.log(res.toString())
+      },
+      (error)=>{
+        console.log(error.error)
+      }
+
+    )
+  }
 }
