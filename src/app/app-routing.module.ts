@@ -7,6 +7,7 @@ import { LoginComponent } from './commonCompos/login/login.component';
 import { PageNotFoundComponent } from './commonCompos/page-not-found/page-not-found.component';
 import { PaiementStepperComponent } from './client-module/client-module-components/paiement-stepper/paiement-stepper.component';
 import { DoPaiementComponent } from './client-module/client-module-components/do-paiement/do-paiement.component';
+import { PageUnauthorizedComponent } from './commonCompos/page-unauthorized/page-unauthorized.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home-page', pathMatch: 'full' },
@@ -15,6 +16,7 @@ const routes: Routes = [
   { path: 'home-page', component: HomePageComponent },
   { path: 'contactUs', component: ContactUsComponent },
   { path: 'addPayment', component: PaiementStepperComponent },
+  { path: 'unauthorized', component: PageUnauthorizedComponent },
   {
     path: 'agent',
     loadChildren: () =>
