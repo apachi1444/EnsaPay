@@ -12,7 +12,7 @@ import { NgToastModule } from 'ng-angular-popup';
     AgentModuleRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    NgToastModule
+    NgToastModule,
   ],
 })
 export class AgentModuleModule {}

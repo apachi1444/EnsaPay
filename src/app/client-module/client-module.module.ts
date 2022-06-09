@@ -21,6 +21,7 @@ import { FactureComponent } from './client-module-components/facture/facture.com
 import { FacturePaiementComponent } from './client-module-components/facture-paiement/facture-paiement.component';
 import { DoPaiementComponent } from './client-module-components/do-paiement/do-paiement.component';
 import { PaiementProviderComponent } from './client-module-components/paiement-provider/paiement-provider.component';
+import { PaymentAddComponent } from './client-module-components/payment-add/payment-add.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { PaiementProviderComponent } from './client-module-components/paiement-p
     PaiementSlectComponent,
     DoPaiementComponent,
     PaiementProviderComponent,
+    PaymentAddComponent,
   ],
   imports: [
     BrowserModule,
