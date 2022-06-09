@@ -43,11 +43,11 @@ import { TokenInterceptorService } from './commonServices/token-service/token-in
     BackOfficeService,
     AgentServiceService,
     AuthGuard,
-    {
-      provide: HTTP_INTERCEPTORS,
-      useClass: TokenInterceptorService,
-      multi: true,
-    },
+    // {
+    //   provide: HTTP_INTERCEPTORS,
+    //   useClass: TokenInterceptorService,
+    //   multi: true,
+    // },
   ],
   bootstrap: [AppComponent],
 })
