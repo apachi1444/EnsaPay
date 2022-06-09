@@ -17,9 +17,6 @@ const routes: Routes = [
     component: AgentDashbordComponent,
     canActivate: [AuthGuard],
   },
-
-  { path: 'addClient', component: AddClientComponent },
-  { path: 'profile', component: AgentDashbordComponent },
 ];
 
 @NgModule({

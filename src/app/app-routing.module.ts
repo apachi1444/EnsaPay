@@ -5,13 +5,13 @@ import { HomePageComponent } from './commonCompos/home-page/home-page.component'
 import { ContactUsComponent } from './commonCompos/contact-us/contact-us.component';
 import { LoginComponent } from './commonCompos/login/login.component';
 import { PageNotFoundComponent } from './commonCompos/page-not-found/page-not-found.component';
-import { PaiementStepperComponent } from './client-module/client-module-components/paiement-stepper/paiement-stepper.component';
-import { DoPaiementComponent } from './client-module/client-module-components/do-paiement/do-paiement.component';
+import { PaiementStepperComponent } from './client-module/client-module-components/client-payment-components/paiement-stepper/paiement-stepper.component';
+import { DoPaiementComponent } from './client-module/client-module-components/client-payment-components/do-paiement/do-paiement.component';
 import { PageUnauthorizedComponent } from './commonCompos/page-unauthorized/page-unauthorized.component';
 import { NewCodeComponent } from './commonCompos/new-code/new-code.component';
 import { VerifyCodeComponent } from './commonCompos/verify-code/verify-code.component';
 import { ForgetPasswordComponent } from './commonCompos/forget-password/forget-password.component';
-import { PaymentAddComponent } from './client-module/client-module-components/payment-add/payment-add.component';
+import { PaymentAddComponent } from './client-module/client-module-components/client-payment-components/payment-add/payment-add.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home-page', pathMatch: 'full' },

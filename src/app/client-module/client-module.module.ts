@@ -14,14 +14,14 @@ import { MatStepperModule } from '@angular/material/stepper';
 import { MatIconModule } from '@angular/material/icon';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { PaiementSlectComponent } from './client-module-components/paiement-slect/paiement-slect.component';
-import { PaiementStepperComponent } from './client-module-components/paiement-stepper/paiement-stepper.component';
-import { PaiementParReferenceComponent } from './client-module-components/paiement-par-reference/paiement-par-reference.component';
-import { FactureComponent } from './client-module-components/facture/facture.component';
-import { FacturePaiementComponent } from './client-module-components/facture-paiement/facture-paiement.component';
-import { DoPaiementComponent } from './client-module-components/do-paiement/do-paiement.component';
-import { PaiementProviderComponent } from './client-module-components/paiement-provider/paiement-provider.component';
-import { PaymentAddComponent } from './client-module-components/payment-add/payment-add.component';
+import { PaiementSlectComponent } from './client-module-components/client-payment-components/paiement-slect/paiement-slect.component';
+import { PaiementStepperComponent } from './client-module-components/client-payment-components/paiement-stepper/paiement-stepper.component';
+import { PaiementParReferenceComponent } from './client-module-components/client-payment-components/paiement-par-reference/paiement-par-reference.component';
+import { FactureComponent } from './client-module-components/client-payment-components/facture/facture.component';
+import { FacturePaiementComponent } from './client-module-components/client-payment-components/facture-paiement/facture-paiement.component';
+import { DoPaiementComponent } from './client-module-components/client-payment-components/do-paiement/do-paiement.component';
+import { PaiementProviderComponent } from './client-module-components/client-payment-components/paiement-provider/paiement-provider.component';
+import { PaymentAddComponent } from './client-module-components/client-payment-components/payment-add/payment-add.component';
 
 @NgModule({
   declarations: [
