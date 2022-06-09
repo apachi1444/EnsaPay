@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { LocalStorageService } from 'src/app/commonCompos/commonServices/local-storage.service';
+import { LocalStorageService } from 'src/app/commonServices/local-storage-service/local-storage.service';
 import { environment } from 'src/environments/environment';
 
 @Injectable({

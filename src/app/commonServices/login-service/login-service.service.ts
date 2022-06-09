@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LocalStorageService } from '../../commonServices/local-storage.service';
+import { LocalStorageService } from '../local-storage-service/local-storage.service';
 
 @Injectable({
   providedIn: 'root',
@@ -55,5 +55,18 @@ export class LoginServiceService implements OnInit {
         },
         (error) => console.log(error.error)
       );
+  }
+
+  loggedIn() {
+    return !!localStorage.getItem('token');
+  }
+
+  getToken() {
+    return this.localStorageService.getTokenLocalStorage();
+  }
+
+  logout() {
+    this.localStorageService.removeItem('token');
+    this.router.navigateByUrl('');
   }
 }
