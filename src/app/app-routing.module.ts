@@ -5,8 +5,6 @@ import { HomePageComponent } from './commonCompos/home-page/home-page.component'
 import { ContactUsComponent } from './commonCompos/contact-us/contact-us.component';
 import { LoginComponent } from './commonCompos/login/login.component';
 import { PageNotFoundComponent } from './commonCompos/page-not-found/page-not-found.component';
-import { PaiementStepperComponent } from './client-module/client-module-components/paiement-stepper/paiement-stepper.component';
-import { DoPaiementComponent } from './client-module/client-module-components/do-paiement/do-paiement.component';
 import { PaymentAddComponent } from './client-module/client-module-components/payment-add/payment-add.component';
 
 const routes: Routes = [
@@ -15,7 +13,6 @@ const routes: Routes = [
   { path: 'aboutUs', component: AboutUsComponent },
   { path: 'home-page', component: HomePageComponent },
   { path: 'contactUs', component: ContactUsComponent },
-  { path: 'addPayment', component: PaiementStepperComponent },
   { path: 'add', component: PaymentAddComponent },
   {
     path: 'agent',
