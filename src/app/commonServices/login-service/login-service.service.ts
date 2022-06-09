@@ -22,39 +22,17 @@ export class LoginServiceService implements OnInit {
     userPassword: String,
   };
 
-  redirectUser(role: any) {
-    switch (role) {
-      case 'ROLE_Agent':
-        this.router.navigateByUrl('/agent/profile');
-        break;
-      case 'ROLE_Backoffice':
-        this.router.navigateByUrl('/backOffice/profile');
-        break;
-      case 'ROLE_Client':
-        this.router.navigateByUrl('/client/profile');
-        break;
-
-      default:
-        break;
-    }
-  }
-
   authenticate(userForm: NgForm) {
     this.data.username = userForm.value.phoneNumber;
     this.data.userPassword = userForm.value.password;
 
-    this.http
-      .post('http://localhost:8080/user/authenticate', this.data, {
+    return this.http.post<any>(
+      'http://localhost:8080/user/authenticate',
+      this.data,
+      {
         responseType: 'json',
-      })
-      .subscribe(
-        (result: any) => {
-          this.localStorageService.setTokenLocalStorage(result.jwtToken);
-          console.log(this.localStorageService.getRole());
-          this.redirectUser(this.localStorageService.getRole());
-        },
-        (error) => console.log(error.error)
-      );
+      }
+    );
   }
 
   loggedIn() {

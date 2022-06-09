@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { LocalStorageService } from 'src/app/commonServices/local-storage-service/local-storage.service';
 import { LoginServiceService } from '../../commonServices/login-service/login-service.service';
 
 @Component({
@@ -12,7 +14,11 @@ export class LoginComponent implements OnInit {
   showPassword: boolean = false;
   passwordType: String = 'password';
   className: String = 'fas fa-eye';
-  constructor(private loginService: LoginServiceService) {}
+  constructor(
+    private loginService: LoginServiceService,
+    private localStorageService: LocalStorageService,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {}
 
@@ -33,8 +39,29 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  redirectUser(role: any) {
+    switch (role) {
+      case 'ROLE_Agent':
+        this.router.navigateByUrl('/agent/profile');
+        break;
+      case 'ROLE_Backoffice':
+        this.router.navigateByUrl('/backOffice/profile');
+        break;
+      case 'ROLE_Client':
+        this.router.navigateByUrl('/client/profile');
+        break;
+
+      default:
+        break;
+    }
+  }
+
   addStudent(userForm: NgForm) {
-    this.loginService.authenticate(userForm);
-    console.log(userForm);
+    console.log('dsfds');
+    this.loginService.authenticate(userForm).subscribe((res) => {
+      console.log('result');
+      this.localStorageService.setTokenLocalStorage(res.jwtToken);
+      this.redirectUser(this.localStorageService.getRole());
+    });
   }
 }

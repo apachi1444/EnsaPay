@@ -12,14 +12,23 @@ import { LoginServiceService } from '../login-service/login-service.service';
   providedIn: 'root',
 })
 export class TokenInterceptorService implements HttpInterceptor {
-  constructor(private injector: Injector) {}
-  intercept(req: HttpRequest<any>, next: HttpHandler) {
-    let authService = this.injector.get(LoginServiceService);
-    let tokenizedReq = req.clone({
-      setHeaders: {
-        Authorization: `Bearer ${authService.getToken()}`,
-      },
-    });
-    return next.handle(tokenizedReq);
+  constructor(
+    private injector: Injector,
+    private loginService: LoginServiceService
+  ) {}
+  intercept(
+    req: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<any>> {
+    throw new Error('Method not implemented.');
   }
+  //  intercept(req: any, next: any) {
+  // //   console.log(this.loginService.getToken());
+  // //   let tokenizedReq = req.clone({
+  // //     setHeaders: {
+  // //       Authorization: `Bearer ${this.loginService.getToken()}`,
+  // //     },
+  // //   });
+  // //   return next.handle(tokenizedReq);
+  //  }
 }
