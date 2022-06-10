@@ -17,6 +17,12 @@ const routes: Routes = [
     component: AgentDashbordComponent,
     // canActivate: [AuthGuard],
   },
+  { path: 'newPassword/:username', component: NewCodeComponent },
+  { path: 'VerifyCode/:username', component: VerifyCodeComponent },
+
+  { path: 'addClient', component: AddClientComponent },
+  { path: 'profile', component: AgentDashbordComponent },
+  { path: 'forgetPassword', component: ForgetPasswordComponent },
 ];
 
 @NgModule({

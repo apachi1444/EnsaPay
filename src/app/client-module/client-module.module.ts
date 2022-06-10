@@ -15,7 +15,6 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { PaiementSlectComponent } from './client-module-components/client-payment-components/paiement-slect/paiement-slect.component';
-import { PaiementStepperComponent } from './client-module-components/client-payment-components/paiement-stepper/paiement-stepper.component';
 import { PaiementParReferenceComponent } from './client-module-components/client-payment-components/paiement-par-reference/paiement-par-reference.component';
 import { FactureComponent } from './client-module-components/client-payment-components/facture/facture.component';
 import { FacturePaiementComponent } from './client-module-components/client-payment-components/facture-paiement/facture-paiement.component';
@@ -28,7 +27,6 @@ import { PaymentAddComponent } from './client-module-components/client-payment-c
     FacturePaiementComponent,
     FactureComponent,
     PaiementParReferenceComponent,
-    PaiementStepperComponent,
     PaiementSlectComponent,
     DoPaiementComponent,
     PaiementProviderComponent,
@@ -45,6 +43,7 @@ import { PaymentAddComponent } from './client-module-components/client-payment-c
     ReactiveFormsModule,
     MatIconModule,
     ClientModuleRoutingModule,
+    MatStepperModule,
   ],
 })
 export class ClientModuleModule {}

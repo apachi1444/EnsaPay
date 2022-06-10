@@ -20,6 +20,7 @@ import { LoginServiceService } from './commonServices/login-service/login-servic
 import { NewCodeComponent } from './commonCompos/new-code/new-code.component';
 import { ForgetPasswordComponent } from './commonCompos/forget-password/forget-password.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { VerifyCodeComponent } from './commonCompos/verify-code/verify-code.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PageUnauthorizedComponent,
     NewCodeComponent,
     ForgetPasswordComponent,
+    VerifyCodeComponent,
   ],
   imports: [
     BrowserModule,

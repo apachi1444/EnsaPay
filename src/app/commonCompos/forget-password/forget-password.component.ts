@@ -14,5 +14,6 @@ export class ForgetPasswordComponent implements OnInit {
   ngOnInit(): void {}
   send(f: NgForm) {
     this.backOfficeService.sendMailToClient(f.value.username);
+    
   }
 }
