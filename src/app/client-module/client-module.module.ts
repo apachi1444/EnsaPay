@@ -36,6 +36,7 @@ import { PaymentAddComponent } from './client-module-components/client-payment-c
   imports: [
     MatStepperModule,
     FormsModule,
+    CommonModule,
     MatTabsModule,
     MatExpansionModule,
     MatRadioModule,

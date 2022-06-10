@@ -31,6 +31,7 @@ export class ResetPasswordService {
           detail: res.toString(),
           duration: 3000,
         });
+        location.reload();
       },
       (error) => {
         const toast = this.toast.error({ detail: error.error, duration: 3000 });
@@ -57,6 +58,7 @@ export class ResetPasswordService {
           duration: 3000,
         });
         console.log(res.toString());
+        location.reload();
       },
       (error) => {
         const toast = this.toast.error({ detail: error.error, duration: 3000 });

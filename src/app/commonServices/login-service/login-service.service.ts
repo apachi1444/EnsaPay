@@ -35,6 +35,23 @@ export class LoginServiceService implements OnInit {
     );
   }
 
+  redirectUser(role: any) {
+    switch (role) {
+      case 'ROLE_Agent':
+        this.router.navigateByUrl('/agent/profile');
+        break;
+      case 'ROLE_Backoffice':
+        this.router.navigateByUrl('/backOffice/profile');
+        break;
+      case 'ROLE_Client':
+        this.router.navigateByUrl('/client/dashboard');
+        break;
+
+      default:
+        break;
+    }
+  }
+
   loggedIn() {
     return !!localStorage.getItem('token');
   }

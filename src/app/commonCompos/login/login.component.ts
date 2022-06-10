@@ -39,29 +39,11 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  redirectUser(role: any) {
-    switch (role) {
-      case 'ROLE_Agent':
-        this.router.navigateByUrl('/agent/profile');
-        break;
-      case 'ROLE_Backoffice':
-        this.router.navigateByUrl('/backOffice/profile');
-        break;
-      case 'ROLE_Client':
-        this.router.navigateByUrl('/client/profile');
-        break;
-
-      default:
-        break;
-    }
-  }
-
   addStudent(userForm: NgForm) {
-    console.log('dsfds');
     this.loginService.authenticate(userForm).subscribe((res) => {
       console.log('result');
       this.localStorageService.setTokenLocalStorage(res.jwtToken);
-      this.redirectUser(this.localStorageService.getRole());
+      this.loginService.redirectUser(this.localStorageService.getRole());
     });
   }
 }

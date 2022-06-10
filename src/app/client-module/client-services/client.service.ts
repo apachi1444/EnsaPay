@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable } from 'rxjs/internal/Observable';
 import { LocalStorageService } from 'src/app/commonServices/local-storage-service/local-storage.service';
 import { LoginServiceService } from 'src/app/commonServices/login-service/login-service.service';
 import { environment } from 'src/environments/environment';
@@ -8,7 +8,7 @@ import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root',
 })
-export class AgentServiceService {
+export class ClientService {
   constructor(
     private tokenService: LoginServiceService,
     private localService: LocalStorageService,
@@ -29,7 +29,7 @@ export class AgentServiceService {
 
   agentUserName = this.localService.getUserName();
   getDataFromToken(): Observable<any> {
-    let finalUrl = this.server + 'agent/profileAgent/' + this.agentUserName;
+    let finalUrl = this.server + 'client/profileClient/' + this.agentUserName;
     return this.http.get<any>(finalUrl, {
       headers: {
         Authorization: 'Bearer ' + this.localService.getTokenLocalStorage(),
@@ -38,7 +38,7 @@ export class AgentServiceService {
   }
   postClient(data: FormData) {
     console.log(data.get('file'));
-    let finalUrl = this.server + 'client/regiterNewUserClient';
+    let finalUrl = this.server + 'client/newPayment';
     this.http.post(finalUrl, data, { responseType: 'text' }).subscribe(
       (res) => {
         console.log(res.toString());
