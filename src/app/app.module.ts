@@ -14,6 +14,8 @@ import { BackOfficeService } from './back-office-module/back-office-services/bac
 import { AgentServiceService } from './agent-module/agent-services/agent-service.service';
 import { HomePageComponent } from './commonCompos/home-page/home-page.component';
 import { ContactUsComponent } from './commonCompos/contact-us/contact-us.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,6 @@ import { ContactUsComponent } from './commonCompos/contact-us/contact-us.compone
     LoginComponent,
     HomePageComponent,
     ContactUsComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -34,6 +35,7 @@ import { ContactUsComponent } from './commonCompos/contact-us/contact-us.compone
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [BackOfficeService, AgentServiceService],
   bootstrap: [AppComponent],

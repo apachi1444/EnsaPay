@@ -1,3 +1,31 @@
+<!-- <mat-horizontal-stepper>
+  <mat-step>
+    <form>
+      <ng-template matStepLabel>Enter your name</ng-template>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <form>
+      <ng-template matStepLabel>Enter your address</ng-template>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    Details taken.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button>Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper> -->
+
 <mat-stepper [linear]="true" #stepper>
   <ng-template class="row" matStepperIcon="edit" aria-label="1">
     <mat-icon
@@ -17,7 +45,7 @@
           [disabled]="isCompleted"
         >
           <img
-            src="../../../assets/arrow.png"
+            src="../../../assets/images/arrow.png"
             style="width: 40px; filter: invert(100)"
           />
         </button>
@@ -30,13 +58,13 @@
       <div class="text-center">
         <button mat-button matStepperPrevious class="btn btn-primary">
           <img
-            src="../../../assets/arrow.png"
+            src="../../../assets/images/arrow.png"
             style="width: 40px; transform: scaleX(-1); filter: invert(100)"
           />
         </button>
         <button mat-button matStepperNext class="btn btn-primary">
           <img
-            src="../../../assets/arrow.png"
+            src="../../../assets/images/arrow.png"
             style="width: 40px; filter: invert(100)"
           />
         </button>
@@ -49,13 +77,13 @@
       <div class="text-center">
         <button mat-button matStepperPrevious class="btn btn-primary">
           <img
-            src="../../../assets/arrow.png"
+            src="../../../assets/images/arrow.png"
             style="width: 40px; transform: scaleX(-1); filter: invert(100)"
           />
         </button>
         <button mat-button matStepperNext class="btn btn-primary">
           <img
-            src="../../../assets/arrow.png"
+            src="../../../assets/images/arrow.png"
             style="width: 40px; filter: invert(100)"
           />
         </button>
@@ -69,13 +97,13 @@
       <div class="text-center">
         <button mat-button matStepperPrevious class="btn btn-primary">
           <img
-            src="../../../assets/arrow.png"
+            src="../../../assets/images/arrow.png"
             style="width: 40px; transform: scaleX(-1); filter: invert(100)"
           />
         </button>
         <button mat-button matStepperNext class="btn btn-primary">
           <img
-            src="../../../assets/check.png"
+            src="../../../assets/images/check.png"
             style="width: 53.6px; filter: invert(100)"
           />
         </button>
