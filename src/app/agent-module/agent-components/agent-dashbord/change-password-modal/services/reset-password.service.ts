@@ -9,9 +9,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root',
 })
 export class ResetPasswordService {
-  data = {
-    userPassword: String,
-  };
+ 
   constructor(
     private http: HttpClient,
     private localeStorage: LocalStorageService,
@@ -19,14 +17,17 @@ export class ResetPasswordService {
   ) {}
 
   resetPassword(newPass: any) {
-    this.data.userPassword = newPass;
+   let data = {
+      userPassword: String,
+    };
+    data.userPassword = newPass;
     let final =
       environment.host +
       'user/resetpassword/' +
       this.localeStorage.getUserName();
-    console.log(this.data);
+    console.log(data);
     this.http
-      .put(final, this.data, { responseType: 'text' })
+      .put(final, data, { responseType: 'text' })
       .subscribe((res) => {
         const toast = this.toast.success(
           {detail: res.toString(),
@@ -37,6 +38,38 @@ export class ResetPasswordService {
         const toast = this.toast.error(
           {detail: error.error,
           duration:3000});
+      })
+
+      ;
+  }
+  changePassword(Pass:any,confirmNewPass:any) {
+    let data = {
+      password: String,
+      confirmPassword:String
+
+    };
+    data.password = Pass;
+    data.confirmPassword=confirmNewPass
+    console.log(data)
+    let final =
+      environment.host +
+      'user/changePassword/' +
+      this.localeStorage.getUserName();
+   
+    this.http
+      .put(final, data, { responseType: 'text' })
+      .subscribe((res) => {
+        const toast = this.toast.success(
+          {detail: res.toString(),
+          duration:3000});
+          console.log(res.toString())
+      },
+      (error)=>{
+        const toast = this.toast.error(
+          {detail: error.error,
+          duration:3000});
+          console.log(error.error)
+
       })
 
       ;

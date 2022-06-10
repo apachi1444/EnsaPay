@@ -155,9 +155,10 @@
               <h4 class="card-heading">Forget Password</h4>
             </div>
             <div class="card-footer p-4 text-center">
-              <button
+              <button *ngIf="!this.FirstConnection"
                 class="btn btn-primary"
-                (click)="routeChangePassword()"
+                data-bs-toggle="modal"
+                data-bs-target="#changePassword"
               >
                 <i class="fas fa-lock px-2"></i> Change Password Now
               </button>
@@ -320,6 +321,72 @@
           <div class="modal-footer" style="display: flex">
             <button
             (click)="doTheResetPassword(reset.value)"
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Confirm
+            </button>
+            <button
+              type="submit"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+<div
+  class="modal fade"
+  id="changePassword"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" >
+    {{ f.value | json }}
+    <form action="" #f="ngForm"  >
+      <div class="modal-content container">
+        <div class="modal-header" style="display: block">
+          <div class="form-group mb-3">
+            <input
+              ngModel
+              name="newPass"
+              type="password"
+              class="form-control"
+              placeholder="Ancien Password"
+              required="required"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              ngModel
+              name="confirmPass"
+              type="password"
+              class="form-control"
+              placeholder=" Confirm New Password"
+              required="required"
+            />
+          </div>
+          <br>
+          <div class="form-group">
+            <input
+              ngModel
+              name="confirm"
+              type="password"
+              class="form-control"
+              placeholder=" Confirm New Password"
+              required="required"
+            />
+          </div>
+
+          <div class="modal-footer" style="display: flex">
+            <button
+            (click)="changePassword(f)"
               type="button"
               class="btn btn-primary"
               data-bs-dismiss="modal"

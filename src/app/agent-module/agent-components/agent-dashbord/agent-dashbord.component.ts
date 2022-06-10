@@ -39,15 +39,19 @@ export class AgentDashbordComponent implements OnInit {
        this.toast.error(
         {detail: "confirm password incorrect",
         duration:3000});
-        alert("dddd")
+        console.log("confirm passwor incorrect")
         
     }
-    
   }
-  routeChangePassword(){
-    if(!this.FirstConnection){
-    this.router.navigateByUrl("/agent/forgetPassword");
+  changePassword(f:NgForm){
+    if(f.value.confirm==f.value.confirmPass){
+      this.resetPasswordService.changePassword(f.value.newPass,f.value.confirm)
     }
-    
+    else{
+      console.log("confirm password incorrect")
+    }
+
   }
+    
+ 
 }

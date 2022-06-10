@@ -6,8 +6,9 @@ import { AgentDashbordComponent } from './agent-components/agent-dashbord/agent-
 import { VerifyCodeComponent } from '../back-office-module/back-office-components/profile/verify-code/verify-code.component';
 import { NewCodeComponent } from '../back-office-module/back-office-components/profile/new-code/new-code.component';
 const routes: Routes = [
-  {path:'newPassword',component:NewCodeComponent},
-  {path:'VerifyCode',component:VerifyCodeComponent},
+  {path:'newPassword/:username',component:NewCodeComponent},
+  {path:'VerifyCode/:username',component:VerifyCodeComponent},
+
   { path: 'addClient', component: AddClientComponent },
   { path: 'profile', component: AgentDashbordComponent },
   { path: 'forgetPassword', component: ForgetPasswordComponent },

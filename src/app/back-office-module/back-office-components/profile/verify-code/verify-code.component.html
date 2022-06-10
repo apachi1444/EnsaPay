@@ -19,7 +19,7 @@
                     Enter your Verification Code
                   </p>
   
-                  <form class="mx-1 mx-md-4" (submit)="NewCode()"  >
+                  <form class="mx-1 mx-md-4" #f="ngForm" (submit)="NewCode(f)"  >
                     <div class="d-flex flex-row align-items-center mb-4">
                       <div class="form-outline flex-fill mb-0 text-center">
                         <span>
@@ -32,10 +32,10 @@
                         <div class="form-outline flex-fill mb-0 text-center far">
                       
 
-                            <input type="text" id="form3Example3c" class="form-control num" placeholder="_" maxlength="1" size="1" pattern="[0-9]{1}" />
-                            <input type="text" id="form3Example3c" class="form-control num" placeholder="_" maxlength="1" size="1" pattern="[0-9]{1}"/>
-                            <input type="text" id="form3Example3c" class="form-control num" placeholder="_" maxlength="1" size="1" pattern="[0-9]{1}"/>
-                            <input type="text" id="form3Example3c" class="form-control num" placeholder="_" maxlength="1" size="1" pattern="[0-9]{1}"/>
+                            <input ngModel name="un" type="text" id="form3Example3c" class="form-control num" placeholder="_" maxlength="1" size="1" pattern="[0-9]{1}" />
+                            <input ngModel name="deux"  type="text" id="form3Example3c" class="form-control num" placeholder="_" maxlength="1" size="1" pattern="[0-9]{1}"/>
+                            <input ngModel name="trois"  type="text" id="form3Example3c" class="form-control num" placeholder="_" maxlength="1" size="1" pattern="[0-9]{1}"/>
+                            <input ngModel name="quatre"  type="text" id="form3Example3c" class="form-control num" placeholder="_" maxlength="1" size="1" pattern="[0-9]{1}"/>
                           </div>
                       </div>
                     </div>
