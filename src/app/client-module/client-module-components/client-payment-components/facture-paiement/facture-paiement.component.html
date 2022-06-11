@@ -1,7 +1,7 @@
 <h1>PAIEMENT DE FACTURE</h1>
 <hr />
 <div>
-  <mat-tab-group>
+  <mat-tab-group name="f" ngModel #status="ngModel" >
     <mat-tab label="LISTE DES CREANCIERS">
       <div class="row">
         <div class="col-6 box">
@@ -12,7 +12,7 @@
             <div class="col-6">
               <h2>IAM RECHARGES</h2>
               <div class="left">
-                <mat-radio-button>TELEPHONIE ET INTERNET SIM</mat-radio-button>
+                <mat-radio-button (change)="send($event)" value="TELEPHONIE ET INTERNET SIM">TELEPHONIE ET INTERNET SIM</mat-radio-button>
               </div>
             </div>
           </div>
@@ -25,9 +25,9 @@
             <div class="col-6">
               <h2>IAM FACTURES</h2>
               <div class="left">
-                <mat-radio-button>PRODUIT INTERNET SIM</mat-radio-button>
-                <mat-radio-button>PRODUIT FIXE SIM</mat-radio-button>
-                <mat-radio-button>PRODUIT MOBILE SIM</mat-radio-button>
+                <mat-radio-button (change)="send($event)" value="PRODUIT INTERNET SIM">PRODUIT INTERNET SIM</mat-radio-button>
+                <mat-radio-button (change)="send($event)" value="PRODUIT FIXE SIM">PRODUIT FIXE SIM</mat-radio-button>
+                <mat-radio-button (change)="send($event)" value="PRODUIT MOBILE SIM">PRODUIT MOBILE SIM</mat-radio-button>
               </div>
             </div>
           </div>
@@ -40,7 +40,7 @@
             <div class="col-6">
               <h2>REDAL</h2>
               <div class="left">
-                <mat-radio-button>FACTURE REDAL</mat-radio-button>
+                <mat-radio-button (change)="send($event)"   value="FACTURE REDAL">FACTURE REDAL</mat-radio-button>
               </div>
             </div>
           </div>
@@ -53,7 +53,7 @@
             <div class="col-6">
               <h2>AMENDIS</h2>
               <div class="left">
-                <mat-radio-button>FACTURES AMENDIS</mat-radio-button>
+                <mat-radio-button (change)="send($event)"  value="FACTURES AMENDIS">FACTURES AMENDIS</mat-radio-button>
               </div>
             </div>
           </div>
@@ -66,7 +66,7 @@
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <div class="col-6">
-              <mat-panel-description> Maroc Telecom </mat-panel-description>
+              <mat-panel-description > Maroc Telecom </mat-panel-description>
             </div>
             <div class="col-6">
               <mat-panel-title>

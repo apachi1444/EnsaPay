@@ -7,32 +7,47 @@
             <h1>Effectuer Un Paiment</h1>
             <hr />
             <br />
-            <div class="form-text">Please enter your Name:</div>
-            <input
+            <div *ngIf="this.creancier=='Redal'" class="form-text">Please enter your reference:</div>
+            <input *ngIf="this.creancier=='Redal'"
               class="form-control"
               name="name"
               type="text"
               id="name"
-              placeholder="Nom et Prénom Du Donnateur"
+              placeholder="reference"
+            />
+            <div *ngIf="this.creancier=='Amendis'" class="form-text">Please enter your reference:</div>
+            <input *ngIf="this.creancier=='Amendis'"
+              class="form-control"
+              name="name"
+              type="text"
+              id="name"
+              placeholder="reference"
+            />
+            <div *ngIf="this.creancier=='Maroc Telecom'" class="form-text">Please enter your Phone Number:</div>
+            <input *ngIf="this.creancier=='Maroc Telecom'"
+              class="form-control"
+              name="name"
+              type="text"
+              id="name"
+              placeholder="Phone Number"
             />
 
+          
+
             <br />
-            <div class="form-text">Please enter the amount:</div>
-            <input
-              class="form-control"
-              name="amount"
-              type="text"
-              id="amount"
-              placeholder="Montant en DH"
-            /><br />
-            <button class="btn btn-warning">Annuler</button>
+            
+            
+           
             <button class="btn btn-success">Valider</button>
           </form>
         </div>
       </div>
     </div>
     <div class="col-lg-4">
-      <img src="../../../assets/images/ALCS.jpg" />
+      <img height="220" *ngIf="this.creancier=='Maroc Telecom'" src="../../../assets/images/iam.png" />
+      <img height="250" *ngIf="this.creancier=='Redal'" src="../../../assets/images/Redal.jpeg" />
+      <img height="300" *ngIf="this.creancier=='Amendis'" src="../../../assets/images/Amendis.png" />
+ 
     </div>
   </div>
 </div>

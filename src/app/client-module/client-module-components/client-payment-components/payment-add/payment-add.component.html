@@ -36,9 +36,10 @@
   </ng-template>
   <mat-step [completed]="!isCompleted" label="Choose Your Provider">
     <div class="container">
-      <app-facture-paiement></app-facture-paiement>
+      <app-facture-paiement (event)="receive($event)" ></app-facture-paiement>
       <div class="text-center">
         <button
+        (click)="checkCreanceAndCreancier()"
           mat-button
           matStepperNext
           class="btn btn-primary"
@@ -54,7 +55,7 @@
   </mat-step>
   <mat-step label="Pay!">
     <div class="container">
-      <app-do-paiement></app-do-paiement>
+      <app-do-paiement [creancier]="creancier" ></app-do-paiement>
       <div class="text-center">
         <button mat-button matStepperPrevious class="btn btn-primary">
           <img
