@@ -49,6 +49,42 @@ td {
 
 .btn {
   text-align: center;
-  width: 250px;
-  background-color: #0a3d62;
+  width:14rem;
+
 }
+.submitbtn{
+  width:14rem;
+  text-align: center;
+  
+  border: none;
+  border-radius: 10px;
+  padding: 0.3rem;
+  color: white;
+  margin: 0.2rem;
+
+}
+.cancelbtn{
+  width:14rem;
+  text-align: center;
+  
+  border: none;
+  border-radius: 10px;
+  padding: 0.3rem;
+  color: white;
+  margin: 0.2rem;
+}
+
+
+
+
+.num{
+  text-align: center;
+  margin:5px;
+  width: 50px;
+}
+.far{
+    display: flex;
+    justify-content: space-around ;
+    text-align: center;
+}
+

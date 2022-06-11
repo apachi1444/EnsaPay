@@ -62,7 +62,7 @@
     </mat-tab>
 
     <mat-tab label="HISTORIQUE">
-      <mat-accordion class="example-headers-align" multi>
+      <mat-accordion  class="example-headers-align" multi>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <div class="col-6">
@@ -74,8 +74,16 @@
               </mat-panel-title>
             </div>
           </mat-expansion-panel-header>
-          <div class="row">
-            <app-facture></app-facture>
+          <div class="row" *ngFor="let facture of this.Facture" >
+            <div class="container" *ngIf="facture.creditorName=='Maroc Telecom'">
+              <div class="col-9 box">
+                <div class="row">
+                  <div class="col-sm">{{facture.reference}}</div>
+                  <div class="col-sm">{{facture.debtName}}</div>
+                  <div class="col-sm">{{facture.impaye}}</div>
+                </div>
+              </div>
+            </div>
           </div>
         </mat-expansion-panel>
         <mat-expansion-panel>
@@ -89,10 +97,16 @@
               </mat-panel-title>
             </div>
           </mat-expansion-panel-header>
-          <div class="row">
-            <app-facture></app-facture>
-            <app-facture></app-facture>
-            <app-facture></app-facture>
+          <div class="row" *ngFor="let facture of this.Facture">
+            <div class="container" *ngIf="facture.creditorName=='Redal'">
+              <div class="col-9 box">
+                <div class="row">
+                  <div class="col-sm">{{facture.reference}}</div>
+                  <div class="col-sm">{{facture.debtName}}</div>
+                  <div class="col-sm">{{facture.impaye}}</div>
+                </div>
+              </div>
+            </div>
           </div>
         </mat-expansion-panel>
         <mat-expansion-panel>
@@ -106,9 +120,16 @@
               </mat-panel-title>
             </div>
           </mat-expansion-panel-header>
-          <div class="row">
-            <app-facture></app-facture>
-            <app-facture></app-facture>
+          <div class="row" *ngFor="let facture of this.Facture">
+            <div class="container" *ngIf="facture.creditorName=='Amendis'">
+              <div class="col-9 box">
+                <div class="row">
+                  <div class="col-sm">{{facture.reference}}</div>
+                  <div class="col-sm">{{facture.debtName}}</div>
+                  <div class="col-sm">{{facture.impaye}}</div>
+                </div>
+              </div>
+            </div>
           </div>
         </mat-expansion-panel>
       </mat-accordion>

@@ -2,43 +2,54 @@
   <div class="row mb-g3">
     <div class="col-lg-8">
       <div class="card dar">
-        <div class="card-body">
-          <form class="form" action="" accept-charset="YTF-8" method="post">
+        <div class="card-body" >
+          <form class="form" action="" #f="ngForm" (submit)="send(f.value)" accept-charset="YTF-8" method="post">
             <h1>Effectuer Un Paiment</h1>
             <hr />
             <br />
             <div *ngIf="this.creancier=='Redal'" class="form-text">Please enter your reference:</div>
-            <input *ngIf="this.creancier=='Redal'"
-              class="form-control"
-              name="name"
-              type="text"
-              id="name"
-              placeholder="reference"
-            />
             <div *ngIf="this.creancier=='Amendis'" class="form-text">Please enter your reference:</div>
-            <input *ngIf="this.creancier=='Amendis'"
+            <div *ngIf="this.creancier=='Maroc Telecom'" class="form-text">Please enter your Phone Number:</div>
+            <div style="display:flex; margin: 0.2rem;">
+            
+            <input *ngIf="this.creancier=='Redal'"
+            ngModel
+          
               class="form-control"
               name="name"
               type="text"
               id="name"
               placeholder="reference"
             />
-            <div *ngIf="this.creancier=='Maroc Telecom'" class="form-text">Please enter your Phone Number:</div>
+           
+            <input *ngIf="this.creancier=='Amendis'"
+            ngModel 
+            class="form-control"
+              name="name"
+              type="text"
+              id="name"
+              placeholder="reference"
+            />
+
+            
+            
             <input *ngIf="this.creancier=='Maroc Telecom'"
-              class="form-control"
+            ngModel  
+            class="form-control"
               name="name"
               type="text"
               id="name"
               placeholder="Phone Number"
             />
-
+            <i *ngIf="this.isCompleted==''" style="color:rgb(21, 255, 21);margin: 0.2rem;"  class="fa-solid fa-check fa-5x"></i>
+          </div>
           
 
             <br />
             
             
            
-            <button class="btn btn-success">Valider</button>
+            <button *ngIf="this.isCompleted=='ok'" type="submit" class="btn btn-primary">Valider</button>
           </form>
         </div>
       </div>

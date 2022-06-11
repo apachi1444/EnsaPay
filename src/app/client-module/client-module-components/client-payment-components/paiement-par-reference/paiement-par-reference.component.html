@@ -2,20 +2,22 @@
 <div id="sec">
   <h2>Paiement par référence</h2>
   <div class="paiement_par_reference">
-    <figure><img src="../../../assets/images/ALCS.png" /></figure>
+    <figure><img height="60" *ngIf="this.Creancier=='Maroc Telecom'" src="../../../assets/images/iam.png" />
+      <img height="60"  *ngIf="this.Creancier=='Redal'" src="../../../assets/images/Redal.jpeg" />
+      <img  height="60" *ngIf="this.Creancier=='Amendis'" src="../../../assets/images/Amendis.png" />></figure>
     <div>
       <label><strong>Créancier</strong></label>
-      <p>ALCS</p>
+      <p>{{this.Creancier}}</p>
       <label><strong>Date de création</strong></label>
-      <p>23-12-2020</p>
+      <p>{{ dateToday | date: "shortDate" }}</p>
     </div>
     <div>
       <label><strong>Créance</strong></label>
-      <p>SIDACTION</p>
+      <p>{{this.Creance}}</p>
     </div>
     <div>
       <label><strong>Donateur</strong></label>
-      <p>ANAS</p>
+      <p *ngIf="this.ImpayQrCode!=null">{{this.ImpayQrCode.donnateur}}</p>
     </div>
   </div>
   <h4>Récapitulatif des informations saisies</h4>
@@ -31,16 +33,13 @@
       <tr>
         <td>100001192072</td>
         <td>Don Sidaction</td>
-        <td>10 DH</td>
+        <td *ngIf="this.ImpayQrCode!=null">{{this.ImpayQrCode.impay}} DH</td>
       </tr>
     </tbody>
   </table>
-  <div class="total">
-    <label>Total</label>
-    <p>10 DH</p>
-  </div>
+  
   <div class="text-center">
-    <button class="btn btn-warning">Abondonner la transaction</button>
-    <button type="submit" class="btn btn-success">Confirmer et Signer</button>
+    <button (click)="cancel()" class="btn btn-danger">Abondonner la transaction</button>
+    <button (click)="confirm()" type="btn btn-primary" class="btn btn-success">Confirmer et Signer</button>
   </div>
 </div>
