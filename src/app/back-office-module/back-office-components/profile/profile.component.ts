@@ -18,11 +18,4 @@ export class ProfileComponent implements OnInit {
   constructor(private router: Router) {}
 
   ngOnInit(): void {}
-  btnClickToNavigateToForgetPasswordPage() {
-    this.router.navigateByUrl('/backOffice/forgetPassword');
-  }
-
-  btnClickToNavigateToAddAgentPage() {
-    this.router.navigateByUrl('/backOffice/addAgent');
-  }
 }

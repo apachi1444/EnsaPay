@@ -1,7 +1,7 @@
 <h1>PAIEMENT DE FACTURE</h1>
 <hr />
 <div>
-  <mat-tab-group>
+  <mat-tab-group name="f" ngModel #status="ngModel" >
     <mat-tab label="LISTE DES CREANCIERS">
       <div class="row">
         <div class="col-6 box">
@@ -12,7 +12,7 @@
             <div class="col-6">
               <h2>IAM RECHARGES</h2>
               <div class="left">
-                <mat-radio-button>TELEPHONIE ET INTERNET SIM</mat-radio-button>
+                <mat-radio-button (change)="send($event)" value="TELEPHONIE ET INTERNET SIM">TELEPHONIE ET INTERNET SIM</mat-radio-button>
               </div>
             </div>
           </div>
@@ -25,9 +25,9 @@
             <div class="col-6">
               <h2>IAM FACTURES</h2>
               <div class="left">
-                <mat-radio-button>PRODUIT INTERNET SIM</mat-radio-button>
-                <mat-radio-button>PRODUIT FIXE SIM</mat-radio-button>
-                <mat-radio-button>PRODUIT MOBILE SIM</mat-radio-button>
+                <mat-radio-button (change)="send($event)" value="PRODUIT INTERNET SIM">PRODUIT INTERNET SIM</mat-radio-button>
+                <mat-radio-button (change)="send($event)" value="PRODUIT FIXE SIM">PRODUIT FIXE SIM</mat-radio-button>
+                <mat-radio-button (change)="send($event)" value="PRODUIT MOBILE SIM">PRODUIT MOBILE SIM</mat-radio-button>
               </div>
             </div>
           </div>
@@ -40,7 +40,7 @@
             <div class="col-6">
               <h2>REDAL</h2>
               <div class="left">
-                <mat-radio-button>FACTURE REDAL</mat-radio-button>
+                <mat-radio-button (change)="send($event)"   value="FACTURE REDAL">FACTURE REDAL</mat-radio-button>
               </div>
             </div>
           </div>
@@ -53,7 +53,7 @@
             <div class="col-6">
               <h2>AMENDIS</h2>
               <div class="left">
-                <mat-radio-button>FACTURES AMENDIS</mat-radio-button>
+                <mat-radio-button (change)="send($event)"  value="FACTURES AMENDIS">FACTURES AMENDIS</mat-radio-button>
               </div>
             </div>
           </div>
@@ -62,11 +62,11 @@
     </mat-tab>
 
     <mat-tab label="HISTORIQUE">
-      <mat-accordion class="example-headers-align" multi>
+      <mat-accordion  class="example-headers-align" multi>
         <mat-expansion-panel>
           <mat-expansion-panel-header>
             <div class="col-6">
-              <mat-panel-description> Maroc Telecom </mat-panel-description>
+              <mat-panel-description > Maroc Telecom </mat-panel-description>
             </div>
             <div class="col-6">
               <mat-panel-title>
@@ -74,8 +74,16 @@
               </mat-panel-title>
             </div>
           </mat-expansion-panel-header>
-          <div class="row">
-            <app-facture></app-facture>
+          <div class="row" *ngFor="let facture of this.Facture" >
+            <div class="container" *ngIf="facture.creditorName=='Maroc Telecom'">
+              <div class="col-9 box">
+                <div class="row">
+                  <div class="col-sm">{{facture.reference}}</div>
+                  <div class="col-sm">{{facture.debtName}}</div>
+                  <div class="col-sm">{{facture.impaye}}</div>
+                </div>
+              </div>
+            </div>
           </div>
         </mat-expansion-panel>
         <mat-expansion-panel>
@@ -89,10 +97,16 @@
               </mat-panel-title>
             </div>
           </mat-expansion-panel-header>
-          <div class="row">
-            <app-facture></app-facture>
-            <app-facture></app-facture>
-            <app-facture></app-facture>
+          <div class="row" *ngFor="let facture of this.Facture">
+            <div class="container" *ngIf="facture.creditorName=='Redal'">
+              <div class="col-9 box">
+                <div class="row">
+                  <div class="col-sm">{{facture.reference}}</div>
+                  <div class="col-sm">{{facture.debtName}}</div>
+                  <div class="col-sm">{{facture.impaye}}</div>
+                </div>
+              </div>
+            </div>
           </div>
         </mat-expansion-panel>
         <mat-expansion-panel>
@@ -106,9 +120,16 @@
               </mat-panel-title>
             </div>
           </mat-expansion-panel-header>
-          <div class="row">
-            <app-facture></app-facture>
-            <app-facture></app-facture>
+          <div class="row" *ngFor="let facture of this.Facture">
+            <div class="container" *ngIf="facture.creditorName=='Amendis'">
+              <div class="col-9 box">
+                <div class="row">
+                  <div class="col-sm">{{facture.reference}}</div>
+                  <div class="col-sm">{{facture.debtName}}</div>
+                  <div class="col-sm">{{facture.impaye}}</div>
+                </div>
+              </div>
+            </div>
           </div>
         </mat-expansion-panel>
       </mat-accordion>

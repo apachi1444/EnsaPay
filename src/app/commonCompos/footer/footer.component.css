@@ -14,4 +14,6 @@
   position: fixed;
   z-index: 10000;
   background-color: #20cfcf;
+  padding-top: 0.7rem;
+  padding-bottom: 1rem;
 }

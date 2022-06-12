@@ -34,58 +34,43 @@
       aria-label="thumbs up SVG icon"
     ></mat-icon>
   </ng-template>
-  <mat-step [completed]="!isCompleted" label="Choose Your Provider">
+  <mat-step [completed]="this.isCompleted"   label="Choose Your Provider">
     <div class="container">
-      <app-facture-paiement></app-facture-paiement>
+      <app-facture-paiement (event)="receive($event)" ></app-facture-paiement>
       <div class="text-center">
         <button
+        (click)="checkCreanceAndCreancier()"
           mat-button
           matStepperNext
           class="btn btn-primary"
-          [disabled]="isCompleted"
-        >
-          <img
-            src="../../../assets/images/arrow.png"
-            style="width: 40px; filter: invert(100)"
-          />
+          [disabled]=!this.isCompleted
+       
+          
+          >
+          next
         </button>
       </div>
     </div>
   </mat-step>
-  <mat-step label="Pay!">
+  <mat-step [completed]="this.next" label="Pay!">
     <div class="container">
-      <app-do-paiement></app-do-paiement>
+      <app-do-paiement [creancier]="creancier" [creance]="creance" (event)="receiveImpayQrCode($event)" [isCompleted]="verif" ></app-do-paiement>
       <div class="text-center">
-        <button mat-button matStepperPrevious class="btn btn-primary">
-          <img
-            src="../../../assets/images/arrow.png"
-            style="width: 40px; transform: scaleX(-1); filter: invert(100)"
-          />
-        </button>
-        <button mat-button matStepperNext class="btn btn-primary">
-          <img
-            src="../../../assets/images/arrow.png"
-            style="width: 40px; filter: invert(100)"
-          />
+        <button  (click)="cancel()" class="btn btn-danger">Abondonner la transaction</button>
+        <button  *ngIf="this.next" mat-button  matStepperNext class="btn btn-primary">
+          next
         </button>
       </div>
     </div>
   </mat-step>
-  <mat-step label="Facture">
+  <mat-step [completed]="this.nextSelect" label="Facture">
     <div class="container">
-      <app-paiement-slect></app-paiement-slect>
+      <app-paiement-slect [ImpayQrCode]="ImpayQrCode"  [Creancier]="creancier"  [Creance]="creance" (event)="receiveAppselect()" ></app-paiement-slect>
       <div class="text-center">
-        <button mat-button matStepperPrevious class="btn btn-primary">
-          <img
-            src="../../../assets/images/arrow.png"
-            style="width: 40px; transform: scaleX(-1); filter: invert(100)"
-          />
-        </button>
-        <button mat-button matStepperNext class="btn btn-primary">
-          <img
-            src="../../../assets/images/arrow.png"
-            style="width: 40px; filter: invert(100)"
-          />
+        <button (click)="cancel()" class="btn btn-danger">Abondonner la transaction</button>
+        
+        <button *ngIf="this.nextSelect" mat-button matStepperNext class="btn btn-primary">
+         next
         </button>
       </div>
     </div>
@@ -93,21 +78,8 @@
   <mat-step>
     <ng-template matStepLabel>Confirm</ng-template>
     <div class="container">
-      <app-paiement-par-reference></app-paiement-par-reference>
-      <div class="text-center">
-        <button mat-button matStepperPrevious class="btn btn-primary">
-          <img
-            src="../../../assets/images/arrow.png"
-            style="width: 40px; transform: scaleX(-1); filter: invert(100)"
-          />
-        </button>
-        <button mat-button matStepperNext class="btn btn-primary">
-          <img
-            src="../../../assets/images/check.png"
-            style="width: 53.6px; filter: invert(100)"
-          />
-        </button>
-      </div>
+      <app-paiement-par-reference [ImpayQrCode]="ImpayQrCode"  [Creancier]="creancier"  [Creance]="creance"></app-paiement-par-reference>
+      
     </div>
   </mat-step>
 </mat-stepper>

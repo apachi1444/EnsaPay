@@ -1,0 +1,53 @@
+<div class="list-group rounded-0">
+    <div *ngFor="let facture of Facture"
+      class="list-group-item border-start-0 border-end-0 py-5 border-top-0"
+    >
+      <div class="d-flex">
+        <div class="flex-shrink-0">
+          <img *ngIf="facture.creditorName=='Maroc Telecom'"
+            class="avatar avatar-lg p-1"
+            src="../../../../assets/images/iam.png"
+            alt="Jassa Rich"
+          />
+          <img *ngIf="facture.creditorName=='Amendis'"
+            class="avatar avatar-lg p-1"
+            src="../../../../assets/images/Amendis.png"
+            alt="Jassa Rich"
+          />
+          <img *ngIf="facture.creditorName=='Redal'"
+            class="avatar avatar-lg p-1"
+            src="../../../../assets/images/Redal.jpeg"
+            alt="Jassa Rich"
+          />
+         
+        </div>
+
+        <div class="flex-grow-1 ps-3" >
+          <strong><i class="fas fa-calendar"> </i> </strong>
+          <span class="flex-grow-1 text-md text-muted me-4">
+            <strong> 13/11/2022 </strong>
+          </span>
+          <small class="float-right">(10 mins ago) </small>
+          <h5 class="fw-bold mt-2">{{facture.creditorName}}</h5>
+          <div class="text-muted text-sm">{{facture.debtName}}</div>
+
+          <div class="d-flex mt-4">
+           
+            <div class="flex-grow-1 ps-3 text-sm text-muted">
+              <strong class="text-dark">Price: </strong> {{this.facture.impaye}} DHS
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+   
+    <div class="card-footer p-4 text-center">
+      <button
+        class="btn btn-primary"
+        routerLink="/client/addPayment"
+      >
+        <i class="fas fa-plus px-2"></i> Add Facture
+      </button>
+    </div>
+  </div>

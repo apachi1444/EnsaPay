@@ -15,14 +15,18 @@ const routes: Routes = [
   {
     path: 'profile',
     component: AgentDashbordComponent,
-    // canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
-  { path: 'newPassword/:username', component: NewCodeComponent },
-  { path: 'VerifyCode/:username', component: VerifyCodeComponent },
-
-  { path: 'addClient', component: AddClientComponent },
-  { path: 'profile', component: AgentDashbordComponent },
-  { path: 'forgetPassword', component: ForgetPasswordComponent },
+  {
+    path: 'newPassword/:username',
+    component: NewCodeComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'VerifyCode/:username',
+    component: VerifyCodeComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({

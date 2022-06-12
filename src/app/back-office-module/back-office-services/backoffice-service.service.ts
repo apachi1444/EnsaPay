@@ -40,23 +40,23 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BackOfficeService {
   constructor(private http: HttpClient, private route: Router) {}
-
+  server = environment.host;
   public doRegister(user: any) {
-    return this.http.post('http://localhost:8080/backoffice/add', user, {
+    return this.http.post(this.server + 'backoffice/add', user, {
       responseType: 'text' as 'json',
     });
   }
   sendMailToClient(username: any) {
     this.http
-      .post('http://localhost:8080/forgetPassword/' + username, [], {
+      .post(this.server + 'forgetPassword/' + username, [], {
         responseType: 'text',
       })
       .subscribe(
@@ -72,10 +72,7 @@ export class BackOfficeService {
   VerificationCode(username: any, code: any) {
     this.http
       .post(
-        'http://localhost:8080/forgetPassword/checkToken/' +
-          username +
-          '/' +
-          code,
+        this.server + 'forgetPassword/checkToken/' + username + '/' + code,
         [],
         { responseType: 'text' }
       )
@@ -95,11 +92,9 @@ export class BackOfficeService {
     };
     data.userPassword = password;
     this.http
-      .post(
-        'http://localhost:8080/forgetPassword/newPassword/' + username,
-        data,
-        { responseType: 'text' }
-      )
+      .post(this.server + 'forgetPassword/newPassword/' + username, data, {
+        responseType: 'text',
+      })
       .subscribe(
         (res) => {
           console.log(res.toString());
@@ -109,5 +104,17 @@ export class BackOfficeService {
           console.log(error.error);
         }
       );
+  }
+  postAgent(data: FormData) {
+    console.log(data.get('file'));
+    let finalUrl = this.server + 'agent/regiterNewUserAgent';
+    this.http.post(finalUrl, data, { responseType: 'text' }).subscribe(
+      (res) => {
+        console.log(res.toString());
+      },
+      (error) => {
+        console.log(error.error);
+      }
+    );
   }
 }

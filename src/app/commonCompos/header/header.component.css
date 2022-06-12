@@ -109,11 +109,17 @@
   display: block;
   text-decoration: none;
 }
+.navbar .navbar-brand a:hover {
+  color: #0a3d62;
+}
 
 .navbar-brand {
   font-family: "Pacifico", cursive;
   font-size: 2.5rem;
   color: #e74c3c;
+}
+.navbar-brand:hover {
+  color: #0a3d62;
 }
 
 .navbar-toggler {
@@ -170,6 +176,10 @@
   margin-top: -10px;
 }
 
+.nav-item > .nav-link:hover {
+  color: #e74c3c;
+}
+
 .navbar-nav .btn:hover {
   background-color: #0a3d62;
 }
@@ -195,4 +205,9 @@
 }
 #container li a:hover span {
   background: rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-item:hover {
+  color: #e74c3c;
+  background: transparent;
 }
