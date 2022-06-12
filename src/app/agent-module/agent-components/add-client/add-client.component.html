@@ -1,0 +1,319 @@
+<div class="template">
+  <form
+    class="card mb-4 form"
+    #myform="ngForm"
+    (submit)="addClient($event)"
+    enctype="multipart/form-data"
+  >
+    <div class="card-header ass">
+      <h4 class="card-heading">Add Client</h4>
+    </div>
+    <div class="card-body">
+      <div class="row">
+        <div class="col-sm-6 col-md-6">
+          <div class="mb-4">
+            <label class="form-label">Phone</label>
+            <input 
+            ngModel
+            #phone="ngModel"
+              name="Phone"
+              class="form-control"
+              type="text"
+              placeholder="Phone"
+              pattern="[0-9]{10}"
+              maxlength="10"
+              required
+            />
+          </div>
+          <div
+                    class="alert alert-danger w-100 error-text"
+                    s
+                    *ngIf="phone.touched && !phone.valid"
+                  >
+                    <div *ngIf="phone.errors?.['required']">
+                      <strong> Phone Number </strong>is required
+                    </div>
+                    <div *ngIf="phone!.errors?.['minlength']">
+                      Min Length is
+                      {{ phone.errors?.['minlength'].requiredLength }}
+                      dude
+                    </div>
+                    <div *ngIf="phone!.errors?.['pattern']">
+                      error is
+                      {{ phone.errors?.['pattern'].requiredPattern }} dude
+                    </div>
+                  </div>
+        </div>
+        
+
+                  
+
+                   
+        <div class="col-sm-6 col-md-6">
+          <div class="mb-4">
+            <label class="form-label">Email address</label>
+            <input
+              class="form-control"
+              ngModel
+              #email="ngModel"
+
+              name="email"
+              type="email"
+              placeholder="Email"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              required
+
+            />
+          </div>
+          <div
+                    class="alert alert-danger w-100 error-text"
+                    s
+                    *ngIf="email.touched && !email.valid"
+                  >
+                    <div *ngIf="email.errors?.['required']">
+                      <strong> email </strong>is required
+                    </div>
+                   
+                    <div *ngIf="email!.errors?.['pattern']">
+                      error is
+                      {{ email.errors?.['pattern'].requiredPattern }} dude
+                    </div>
+                  </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="mb-4">
+            <label class="form-label">First Name</label>
+            <input
+              class="form-control"
+              ngModel
+              #FirstName="ngModel"
+              name="FirstName"
+              type="text"
+              placeholder="First name"
+              pattern="[A-Za-z]+"
+            />
+          </div>
+          <div
+                    class="alert alert-danger w-100 error-text"
+                    s
+                    *ngIf="FirstName.touched && !FirstName.valid"
+                  >
+                    <div *ngIf="FirstName.errors?.['required']">
+                      <strong> First Name </strong>is required
+                    </div>
+                   
+                    <div *ngIf="FirstName!.errors?.['pattern']">
+                      error is
+                      {{ FirstName.errors?.['pattern'].requiredPattern }} dude
+                    </div>
+                  </div>
+          
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="mb-4">
+            <label class="form-label">Last Name</label>
+            <input
+              class="form-control"
+              ngModel
+              #nom="ngModel"
+              name="nom"
+              type="text"
+              placeholder="Last Name"
+              pattern="[A-Za-z]+"
+
+            />
+          </div>
+          <div
+                    class="alert alert-danger w-100 error-text"
+                    s
+                    *ngIf="nom.touched && !nom.valid"
+                  >
+                    <div *ngIf="nom.errors?.['required']">
+                      <strong> Last Name </strong>is required
+                    </div>
+                   
+                    <div *ngIf="nom!.errors?.['pattern']">
+                      error is
+                      {{ nom.errors?.['pattern'].requiredPattern }} dude
+                    </div>
+                  </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="mb-4">
+            <label class="form-label">Solde</label>
+            <input
+            (ngModelChange)="testSolde($event)"
+              class="form-control"
+              ngModel
+              #solde="ngModel"
+              name="Solde"
+              type="number"
+              placeholder="Solde"
+            />
+            <div  *ngIf="!this.Solde" 
+                    class="alert alert-danger w-100 error-text"
+                                >
+             
+                    <div>
+                      error 
+                        
+                    </div>
+                  </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-4">
+            <label class="form-label">Address</label>
+            <input
+              ngModel
+              #adress="ngModel"
+              name="Address"
+              class="form-control"
+              type="text"
+              placeholder="Home Address"
+            />
+          </div>
+          <div
+          class="alert alert-danger w-100 error-text"
+          s
+          *ngIf="adress.touched && !adress.valid"
+        >
+          <div *ngIf="solde.errors?.['required']">
+            <strong> Adress </strong>is required
+          </div>
+         
+          
+        </div>
+        </div>
+        <div class="col-md-6">
+          <div class="mb-4">
+            <label class="form-label">CIN</label>
+            <input
+              ngModel
+              #cin="ngModel"
+              name="cin"
+              class="form-control"
+              type="text"
+              placeholder="Cin"
+              pattern="[A-Z]{2}+[0-9]{6}"
+
+            />
+          </div>
+          <div
+          class="alert alert-danger w-100 error-text"
+          s
+          *ngIf="cin.touched && !cin.valid"
+        >
+          <div *ngIf="cin.errors?.['required']">
+            <strong> CIN </strong>is required
+          </div>
+         
+          <div *ngIf="cin!.errors?.['pattern']">
+            error is
+            {{ cin.errors?.['pattern'].requiredPattern }} dude
+          </div>
+        </div>
+        </div>
+
+        <div class="col-sm-4 col-md-4">
+          <div class="mb-4">
+            <label class="form-label">City</label>
+            <input
+              ngModel
+              #city="ngModel"
+              name="City"
+              class="form-control"
+              type="text"
+              placeholder="City"
+              pattern="[A-Za-z]+"
+
+            />
+            <div
+            class="alert alert-danger w-100 error-text"
+            s
+            *ngIf="city.touched && !city.valid"
+          >
+            <div *ngIf="city.errors?.['required']">
+              <strong> City </strong>is required
+            </div>
+           
+            <div *ngIf="city!.errors?.['pattern']">
+              error is
+              {{ city.errors?.['pattern'].requiredPattern }} dude
+            </div>
+          </div>
+
+          </div>
+
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="mb-4">
+            <label class="form-label">ZIP</label>
+            <input
+            (ngModelChange)="testZip($event)"
+
+              ngModel
+              #zip="ngModel"
+              name="Zip"
+              class="form-control"
+              type="number"
+              placeholder="ZIP"
+            />
+          </div>
+          <div  *ngIf="!this.Zip" 
+          class="alert alert-danger w-100 error-text"
+                      >
+   
+          <div>
+            error 
+              
+          </div>
+        </div>
+        </div>
+        <div class="col-sm-4 col-md-4">
+          <div class="mb-4">
+            <label class="form-label">Country</label>
+            <input
+              ngModel
+              name="Country"
+              class="form-control"
+              type="text"
+              placeholder="Country"
+            />
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="mb-0">
+            <label class="form-label">CIN</label>
+            <div>
+              <label for="upload" class="btn btn-primary task choix">{{
+                this.nameImage
+              }}</label>
+              <input
+                (change)="File($event)"
+                id="upload"
+                type="file"
+                name="file"
+                placeholder="Paste file url"
+                required
+              /><br />
+              
+              <img *ngIf="this.src != null" [src]="src" height="150" /><br />
+              <i
+                *ngIf="this.nameImage != 'choose file'"
+                class="fas fa-trash"
+                (click)="suprrimerPhoto()"
+              ></i>
+              
+                 
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="card-footer text-end">
+      <button class="btn btn-primary task" type="submit">Update Profile</button>
+    </div>
+  </form>
+</div>

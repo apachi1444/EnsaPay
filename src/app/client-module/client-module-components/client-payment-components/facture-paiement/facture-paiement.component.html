@@ -1,0 +1,138 @@
+<h1>PAIEMENT DE FACTURE</h1>
+<hr />
+<div>
+  <mat-tab-group name="f" ngModel #status="ngModel" >
+    <mat-tab label="LISTE DES CREANCIERS">
+      <div class="row">
+        <div class="col-6 box">
+          <div class="row">
+            <div class="col-6 img">
+              <img src="../../../assets/images/iam.png" />
+            </div>
+            <div class="col-6">
+              <h2>IAM RECHARGES</h2>
+              <div class="left">
+                <mat-radio-button (change)="send($event)" value="TELEPHONIE ET INTERNET SIM">TELEPHONIE ET INTERNET SIM</mat-radio-button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 box">
+          <div class="row">
+            <div class="col-6 img">
+              <img src="../../../assets/images/iam.png" />
+            </div>
+            <div class="col-6">
+              <h2>IAM FACTURES</h2>
+              <div class="left">
+                <mat-radio-button (change)="send($event)" value="PRODUIT INTERNET SIM">PRODUIT INTERNET SIM</mat-radio-button>
+                <mat-radio-button (change)="send($event)" value="PRODUIT FIXE SIM">PRODUIT FIXE SIM</mat-radio-button>
+                <mat-radio-button (change)="send($event)" value="PRODUIT MOBILE SIM">PRODUIT MOBILE SIM</mat-radio-button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 box">
+          <div class="row">
+            <div class="col-6 img">
+              <img src="../../../assets/images/Redal.jpeg" />
+            </div>
+            <div class="col-6">
+              <h2>REDAL</h2>
+              <div class="left">
+                <mat-radio-button (change)="send($event)"   value="FACTURE REDAL">FACTURE REDAL</mat-radio-button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6 box">
+          <div class="row">
+            <div class="col-6 img">
+              <img src="../../../assets/images/Amendis.png" />
+            </div>
+            <div class="col-6">
+              <h2>AMENDIS</h2>
+              <div class="left">
+                <mat-radio-button (change)="send($event)"  value="FACTURES AMENDIS">FACTURES AMENDIS</mat-radio-button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="HISTORIQUE">
+      <mat-accordion  class="example-headers-align" multi>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <div class="col-6">
+              <mat-panel-description > Maroc Telecom </mat-panel-description>
+            </div>
+            <div class="col-6">
+              <mat-panel-title>
+                <img src="../../../assets/images/iam.png" />
+              </mat-panel-title>
+            </div>
+          </mat-expansion-panel-header>
+          <div class="row" *ngFor="let facture of this.Facture" >
+            <div class="container" *ngIf="facture.creditorName=='Maroc Telecom'">
+              <div class="col-9 box">
+                <div class="row">
+                  <div class="col-sm">{{facture.reference}}</div>
+                  <div class="col-sm">{{facture.debtName}}</div>
+                  <div class="col-sm">{{facture.impaye}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <div class="col-6">
+              <mat-panel-description> Redal </mat-panel-description>
+            </div>
+            <div class="col-6">
+              <mat-panel-title>
+                <img src="../../../assets/images/Redal.jpeg" />
+              </mat-panel-title>
+            </div>
+          </mat-expansion-panel-header>
+          <div class="row" *ngFor="let facture of this.Facture">
+            <div class="container" *ngIf="facture.creditorName=='Redal'">
+              <div class="col-9 box">
+                <div class="row">
+                  <div class="col-sm">{{facture.reference}}</div>
+                  <div class="col-sm">{{facture.debtName}}</div>
+                  <div class="col-sm">{{facture.impaye}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+        <mat-expansion-panel>
+          <mat-expansion-panel-header>
+            <div class="col-6">
+              <mat-panel-description> Amendis </mat-panel-description>
+            </div>
+            <div class="col-6">
+              <mat-panel-title>
+                <img src="../../../assets/images/Amendis.png" />
+              </mat-panel-title>
+            </div>
+          </mat-expansion-panel-header>
+          <div class="row" *ngFor="let facture of this.Facture">
+            <div class="container" *ngIf="facture.creditorName=='Amendis'">
+              <div class="col-9 box">
+                <div class="row">
+                  <div class="col-sm">{{facture.reference}}</div>
+                  <div class="col-sm">{{facture.debtName}}</div>
+                  <div class="col-sm">{{facture.impaye}}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </mat-tab>
+  </mat-tab-group>
+</div>

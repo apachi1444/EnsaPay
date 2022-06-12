@@ -1,0 +1,35 @@
+@import url("https://fonts.googleapis.com/css2?family=Hurricane&family=Poppins:wght@200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Hurricane&family=Pacifico&family=Poppins:wght@200&display=swap");
+
+html,
+body {
+  font-family: "Poppins";
+  font-size: 15px;
+  line-height: 1.5;
+  box-sizing: border-box;
+  margin: 0;
+  overflow-x: hidden;
+  top: 0;
+  left: 0;
+}
+
+/* a {
+  text-decoration: none;
+  color: rgba(42, 50, 120, 0.8);
+  font-weight: bold;
+}
+
+a:hover {
+  color: #e74c3c;
+}
+
+ul {
+  list-style-type: none;
+} */
+/* 
+.navbar {
+  background: white;
+  padding: 3rem auto;
+  height: 0rem;
+  min-height: 12vh;
+} */

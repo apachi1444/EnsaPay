@@ -1,0 +1,19 @@
+.btn-login {
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  background-color: #e74c3c;
+  border: none;
+}
+
+.btn-login:hover {
+  color: #f06657;
+}
+
+input:focus {
+  border: none;
+  border-color: transparent;
+}
+
+.form-control:focus {
+  border: none;
+}

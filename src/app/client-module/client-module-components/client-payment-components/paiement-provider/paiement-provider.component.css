@@ -1,0 +1,32 @@
+.container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas: "image Texte";
+}
+
+.image {
+  grid-area: image;
+}
+
+.Texte {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(2, 1fr);
+  gap: 0px 0px;
+  grid-auto-flow: row;
+  grid-template-areas:
+    "Title"
+    "Services";
+  grid-area: Texte;
+}
+
+.Title {
+  grid-area: Title;
+}
+
+.Services {
+  grid-area: Services;
+}
