@@ -51,6 +51,11 @@ import { environment } from "src/environments/environment";
     )
 
   }
+  getsearchFacture(f:any){
+    let finalUrl = this.server + 'CMIservice/factures/' + this.ClientUserName+"/"+f;
+    return this.http.get<any>(finalUrl);
+
+  }
   getAllFacture():Observable<any>{
     let finalUrl = this.server + 'CMIservice/factures/' + this.ClientUserName;
    return this.http.get<any>(finalUrl);

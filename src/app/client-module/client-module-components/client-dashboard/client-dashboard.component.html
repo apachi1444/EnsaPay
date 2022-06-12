@@ -65,7 +65,7 @@
                   alt="Jassa Rich"
                 />
                 <h3 class="mb-3">
-                  {{ User.clientFirstName }} {{ User.clientLastName }}
+                  {{ this.User.clientFirstName }} {{ this.User.hajji }}
                 </h3>
                 <p class="mb-4">Full Stack Developer</p>
                 <!-- <button class="btn btn-outline-dark btn-sm">
@@ -92,7 +92,9 @@
                       ><i class="fas fa-user"></i> Name</label
                     >
                     <input
-                      value="Yessine Jaoua"
+                      value="{{ this.User.clientFirstName }} {{
+                        this.User.clientLastName
+                      }}"
                       class="form-control"
                       disabled
                     />
@@ -108,7 +110,7 @@
                   >
                   <input
                     class="form-control"
-                    placeholder="yessinejawa@gmail.com"
+                    value="{{ this.User.clientEmail }}"
                     disabled
                   />
                 </div>
@@ -118,7 +120,7 @@
                   >
                   <input
                     class="form-control"
-                    placeholder="+212 620722602"
+                    value="{{ this.User.clientPhone }}"
                     disabled
                   />
                 </div>
@@ -128,7 +130,7 @@
                   >
                   <input
                     class="form-control"
-                    placeholder="Jnane Ourad"
+                    placeholder="{{ this.User.clientAddress }}"
                     disabled
                   />
                 </div>
@@ -138,7 +140,7 @@
                   >
                   <input
                     class="form-control"
-                    placeholder="Marrakech"
+                    value="{{ this.User.clientCity }}"
                     disabled
                   />
                 </div>
@@ -146,13 +148,21 @@
                   <label class="form-label"
                     ><i class="fas fa-house"></i> Zip Code</label
                   >
-                  <input class="form-control" placeholder="40000" disabled />
+                  <input
+                    class="form-control"
+                    value="{{ this.User.clientZip }}"
+                    disabled
+                  />
                 </div>
                 <div class="mb-3">
                   <label class="form-label"
                     ><i class="fas fa-bank"></i> My Account</label
                   >
-                  <input class="form-control" placeholder="5000$" disabled />
+                  <input
+                    class="form-control"
+                    value="{{ this.User.clientSolde }}"
+                    disabled
+                  />
                 </div>
               </div>
               <!-- <div class="card-footer text-end">
@@ -180,25 +190,6 @@
           </div>
           <div class="col-lg-8">
             <div class="card overflow-hidden mb-4">
-              <div class="card-header d-flex justify-content-between">
-                <div>
-                  <h3>My Clients</h3>
-                </div>
-                <div>
-                  <div class="input-group-text">
-                    <span class="me-2" id="basic-addon1"
-                      ><i class="fas fa-search"></i
-                    ></span>
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Search Here"
-                      aria-label="Username"
-                      aria-describedby="basic-addon1"
-                    />
-                  </div>
-                </div>
-              </div>
               <!-- <div class="mt-3">
             <div class="d-flex justify-content-between align-items-center">
               <div class="d-flex flex-row align-items-center">
