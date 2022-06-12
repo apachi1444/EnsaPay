@@ -21,6 +21,7 @@ import { NewCodeComponent } from './commonCompos/new-code/new-code.component';
 import { ForgetPasswordComponent } from './commonCompos/forget-password/forget-password.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VerifyCodeComponent } from './commonCompos/verify-code/verify-code.component';
+import { CommonInterceptor } from './commonInterceptors/common.interceptor';
 
 @NgModule({
   declarations: [
@@ -52,11 +53,11 @@ import { VerifyCodeComponent } from './commonCompos/verify-code/verify-code.comp
     AgentServiceService,
     AuthGuard,
     LoginServiceService,
-    // {
-    //   provide: HTTP_INTERCEPTORS,
-    //   useClass: TokenInterceptorService,
-    //   multi: true,
-    // },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CommonInterceptor,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })

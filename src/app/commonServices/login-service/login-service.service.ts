@@ -26,6 +26,9 @@ export class LoginServiceService implements OnInit {
     this.data.username = userForm.value.phoneNumber;
     this.data.userPassword = userForm.value.password;
 
+    console.log(this.data.username);
+    console.log(this.data.userPassword);
+
     return this.http.post<any>(
       'http://localhost:8080/user/authenticate',
       this.data,

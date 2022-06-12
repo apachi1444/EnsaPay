@@ -6,7 +6,8 @@
 }
 
 .btn-login:hover {
-  color: #f06657;
+  color: white;
+  background-color: #f06657;
 }
 
 input:focus {
