@@ -21,7 +21,7 @@ import { NewCodeComponent } from './commonCompos/new-code/new-code.component';
 import { ForgetPasswordComponent } from './commonCompos/forget-password/forget-password.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { VerifyCodeComponent } from './commonCompos/verify-code/verify-code.component';
-
+import { NgToastModule } from 'ng-angular-popup';
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +38,7 @@ import { VerifyCodeComponent } from './commonCompos/verify-code/verify-code.comp
     NewCodeComponent,
     ForgetPasswordComponent,
     VerifyCodeComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -46,6 +47,7 @@ import { VerifyCodeComponent } from './commonCompos/verify-code/verify-code.comp
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
+    NgToastModule
   ],
   providers: [
     BackOfficeService,

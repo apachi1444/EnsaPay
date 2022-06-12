@@ -33,7 +33,7 @@ export class AgentDashbordComponent implements OnInit {
     if (userForm.password == userForm.newPass) {
       console.log(userForm);
      this.resetPasswordService.resetPassword(userForm.password);
-     location.reload();
+    
     }
     else{
        this.toast.error(

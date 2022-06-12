@@ -25,12 +25,11 @@ export class LoginServiceService implements OnInit {
   authenticate(userForm: NgForm) {
     this.data.username = userForm.value.phoneNumber;
     this.data.userPassword = userForm.value.password;
-
     return this.http.post<any>(
       'http://localhost:8080/user/authenticate',
       this.data,
       {
-        responseType: 'json',
+       responseType:'json'
       }
     );
   }
@@ -38,13 +37,22 @@ export class LoginServiceService implements OnInit {
   redirectUser(role: any) {
     switch (role) {
       case 'ROLE_Agent':
-        this.router.navigateByUrl('/agent/profile');
+        this.router.navigateByUrl('/agent/profile') .then(() => {
+          window.location.reload();
+        });
+        
         break;
       case 'ROLE_Backoffice':
-        this.router.navigateByUrl('/backOffice/profile');
+        this.router.navigateByUrl('/backOffice/profile') .then(() => {
+          window.location.reload();
+        });
+        
         break;
       case 'ROLE_Client':
-        this.router.navigateByUrl('/client/dashboard');
+        this.router.navigateByUrl('/client/dashboard') .then(() => {
+          window.location.reload();
+        });
+        
         break;
 
       default:

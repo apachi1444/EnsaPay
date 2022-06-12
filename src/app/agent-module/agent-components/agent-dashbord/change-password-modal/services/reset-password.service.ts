@@ -27,14 +27,14 @@ export class ResetPasswordService {
     console.log(data);
     this.http.put(final, data, { responseType: 'text' }).subscribe(
       (res) => {
-        const toast = this.toast.success({
+        this.toast.success({
           detail: res.toString(),
           duration: 3000,
         });
         location.reload();
       },
       (error) => {
-        const toast = this.toast.error({ detail: error.error, duration: 3000 });
+         this.toast.error({ detail: error.error, duration: 3000 });
       }
     );
   }

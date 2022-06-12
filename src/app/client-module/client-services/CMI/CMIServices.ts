@@ -1,6 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
+import { NgToastService } from "ng-angular-popup";
 import { Observable } from "rxjs";
 
 
@@ -17,7 +18,8 @@ import { environment } from "src/environments/environment";
       private localService: LocalStorageService,
       private http: 
       HttpClient,
-      private route:Router
+      private route:Router,
+      private toast:NgToastService
     ) {}
     server = environment.host;
     ClientUserName = this.localService.getUserName();
@@ -30,6 +32,7 @@ import { environment } from "src/environments/environment";
     });
   }
   confirm(creance:any,creancier:any,impay:any){
+   
     let data={
       impaye:Number,
       nameCreditor:String,
@@ -42,12 +45,14 @@ import { environment } from "src/environments/environment";
     let finalUrl = this.server + 'CMIservice/validatePayment/' + this.ClientUserName;
     this.http.post(finalUrl,data,{responseType:'text'}).subscribe(
       (res)=>{
-      console.log(res)
-      this.route.navigateByUrl("/client/dashboard")
+        this.toast.success({detail:"success",summary:"paiement done ",duration:5000}) 
+        this.route.navigateByUrl("/client/dashboard")
       },
       (error)=>{
-        console.log(error.error)
+        this.toast.error({detail:"error",summary:"paiement failed",duration:5000}) 
       }
+     
+     
     )
 
   }
@@ -57,6 +62,7 @@ import { environment } from "src/environments/environment";
 
   }
   getAllFacture():Observable<any>{
+    console.log(this.ClientUserName)
     let finalUrl = this.server + 'CMIservice/factures/' + this.ClientUserName;
    return this.http.get<any>(finalUrl);
   }

@@ -29,12 +29,16 @@ export class ClientService {
 
   agentUserName = this.localService.getUserName();
   getDataFromToken(): Observable<any> {
+    
     let finalUrl = this.server + 'client/profileClient/' + this.agentUserName;
     return this.http.get<any>(finalUrl, {
       headers: {
         Authorization: 'Bearer ' + this.localService.getTokenLocalStorage(),
       },
-    });
+      
+    })
+    
+  
   }
   postClient(data: FormData) {
     console.log(data.get('file'));
