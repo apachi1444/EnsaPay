@@ -1,5 +1,29 @@
+<div class="card-header d-flex justify-content-between">
+  <div>
+    <h3>My Clients</h3>
+  </div>
+  <form #f="ngForm" >
+  <div>
+    <div class="input-group-text">
+      <span  style="cursor: pointer;"  class="me-2" id="basic-addon1"
+        ><i   class="fas fa-search"></i
+      ></span>
+      <input
+      (ngModelChange)="search($event)" 
+       ngModel
+       name="creditor"
+      type="text"
+        class="form-control"
+        placeholder="Search Here"
+        aria-label="Username"
+        aria-describedby="basic-addon1"
+      />
+    </div>
+  </div>
+</form>
+</div>
 <div class="list-group rounded-0">
-    <div *ngFor="let facture of Facture"
+    <div *ngFor="let facture of pageSlice"
       class="list-group-item border-start-0 border-end-0 py-5 border-top-0"
     >
       <div class="d-flex">
@@ -40,6 +64,7 @@
         </div>
       </div>
     </div>
+    <mat-paginator style="background-color: whitesmoke;" [length]="this.lenght" [pageSize]="3" [pageSizeOptions]="[3,4,5]" (page)="OnPageChange($event)" ></mat-paginator>
 
    
     <div class="card-footer p-4 text-center">
