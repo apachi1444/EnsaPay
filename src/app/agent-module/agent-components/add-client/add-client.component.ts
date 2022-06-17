@@ -8,8 +8,9 @@ import { AgentServiceService } from '../../agent-services/agent-service.service'
   styleUrls: ['./add-client.component.css'],
 })
 export class AddClientComponent implements OnInit {
+  sendData: boolean = true;
   Image: any;
-  Solde: any = true;
+
   Zip: any = true;
   constructor(private agentService: AgentServiceService) {}
   src: any;
@@ -47,25 +48,49 @@ export class AddClientComponent implements OnInit {
     const myForm = event.currentTarget;
     const data = new FormData(myForm);
     data.append('file', this.Image);
-
-    this.agentService.postClient(data);
+    if (this.sendData) {
+      this.agentService.postClient(data);
+    }
   }
   suprrimerPhoto() {
     this.src = null;
     this.nameImage = 'choose file';
   }
-  testSolde(solde: any) {
-    if (solde < 0) {
-      return (this.Solde = false);
-    }
 
-    return (this.Solde = true);
-  }
   testZip(zip: any) {
     if (zip < 0) {
       return (this.Zip = false);
     }
 
     return (this.Zip = true);
+  }
+  disable(
+    country: any,
+    zip: any,
+    city: any,
+    cin: any,
+    adresse: any,
+    lastname: any,
+    Firstname: any,
+    email: any,
+    phone: any,
+    solde: any,
+    image: any
+  ): boolean {
+    if (
+      country ||
+      zip ||
+      cin ||
+      city ||
+      adresse ||
+      lastname ||
+      Firstname ||
+      email ||
+      phone ||
+      solde ||
+      image
+    ) {
+      return true;
+    } else return false;
   }
 }
