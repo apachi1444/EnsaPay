@@ -16,8 +16,13 @@ import { HomePageComponent } from './commonCompos/home-page/home-page.component'
 import { ContactUsComponent } from './commonCompos/contact-us/contact-us.component';
 import { AuthGuard } from './commonServices/authGuard/auth.guard';
 import { PageUnauthorizedComponent } from './commonCompos/page-unauthorized/page-unauthorized.component';
-import { TokenInterceptorService } from './commonServices/token-service/token-interceptor.service';
-
+import { LoginServiceService } from './commonServices/login-service/login-service.service';
+import { NewCodeComponent } from './commonCompos/new-code/new-code.component';
+import { ForgetPasswordComponent } from './commonCompos/forget-password/forget-password.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { VerifyCodeComponent } from './commonCompos/verify-code/verify-code.component';
+import { NgToastModule } from 'ng-angular-popup';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +36,9 @@ import { TokenInterceptorService } from './commonServices/token-service/token-in
     HomePageComponent,
     ContactUsComponent,
     PageUnauthorizedComponent,
+    NewCodeComponent,
+    ForgetPasswordComponent,
+    VerifyCodeComponent,
   ],
   imports: [
     BrowserModule,
@@ -38,11 +46,15 @@ import { TokenInterceptorService } from './commonServices/token-service/token-in
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    NgToastModule,
+    MatProgressBarModule,
   ],
   providers: [
     BackOfficeService,
     AgentServiceService,
     AuthGuard,
+    LoginServiceService,
     // {
     //   provide: HTTP_INTERCEPTORS,
     //   useClass: TokenInterceptorService,

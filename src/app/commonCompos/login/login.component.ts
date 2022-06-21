@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { NgToastService } from 'ng-angular-popup';
+import { Observable } from 'rxjs';
 import { LocalStorageService } from 'src/app/commonServices/local-storage-service/local-storage.service';
 import { LoginServiceService } from '../../commonServices/login-service/login-service.service';
 
@@ -17,7 +19,8 @@ export class LoginComponent implements OnInit {
   constructor(
     private loginService: LoginServiceService,
     private localStorageService: LocalStorageService,
-    private router: Router
+    private router: Router,
+    private toast:NgToastService
   ) {}
 
   ngOnInit(): void {}
@@ -27,7 +30,7 @@ export class LoginComponent implements OnInit {
   }
 
   togglePassword() {
-    console.log('first');
+   
     if (this.showPassword) {
       this.showPassword = !this.showPassword;
       this.passwordType = 'text';
@@ -39,29 +42,19 @@ export class LoginComponent implements OnInit {
     }
   }
 
-  redirectUser(role: any) {
-    switch (role) {
-      case 'ROLE_Agent':
-        this.router.navigateByUrl('/agent/profile');
-        break;
-      case 'ROLE_Backoffice':
-        this.router.navigateByUrl('/backOffice/profile');
-        break;
-      case 'ROLE_Client':
-        this.router.navigateByUrl('/client/profile');
-        break;
-
-      default:
-        break;
-    }
-  }
-
   addStudent(userForm: NgForm) {
-    console.log('dsfds');
-    this.loginService.authenticate(userForm).subscribe((res) => {
-      console.log('result');
-      this.localStorageService.setTokenLocalStorage(res.jwtToken);
-      this.redirectUser(this.localStorageService.getRole());
-    });
-  }
+    
+    this.loginService.authenticate(userForm).subscribe(
+      (res)=>{
+        this.toast.success({detail:"success",summary:"login successfully",duration:5000}) 
+        this.localStorageService.setTokenLocalStorage(res.jwtToken);
+        this.loginService.redirectUser(this.localStorageService.getRole());
+      },
+      (error)=>{
+        this.toast.error({detail:"error",summary:"username or password incorrect",duration:5000}) 
+      }
+     
+   
+    )
+}
 }

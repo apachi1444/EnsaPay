@@ -2,7 +2,7 @@
   <div class="container-fluid px-lg-4 px-xl-5 contentDiv">
     <!-- Page Header-->
     <div class="page-header mb-4">
-      <div class="col-lg-12">
+      <div class="col-lg-12" *ngIf="this.FirstConnection">
         <div class="card card-profile mb-4">
           <div
             class="card-header"
@@ -30,242 +30,178 @@
               </button>
             </div>
             <!-- <button class="btn btn-outline-dark btn-sm">
-                <span class="fab fa-twitter"></span> Follow
-              </button> -->
+              <span class="fab fa-twitter"></span> Follow
+            </button> -->
           </div>
         </div>
       </div>
-      <div class="page-header mb-4">
-        <h1 class="page-heading">Profile</h1>
+      <div *ngIf="this.FirstConnection" class="overBlur">
+        <button
+          class="btn btn-danger"
+          style="width: 25%; margin-left: 37%; height: 20%"
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModal"
+        >
+          consulter profile
+        </button>
       </div>
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="card card-profile mb-4">
-            <div
-              class="card-header"
-              style="
-                background-image: url(https://therichpost.com/wp-content/uploads/2021/05/bootstrap5-carousel-slider-img1.jpg);
-              "
-            ></div>
-            <div class="card-body text-center">
-              <img
-                class="card-profile-img"
-                src="https://therichpost.com/wp-content/uploads/2021/03/avatar2.png"
-                alt="Jassa Rich"
-              />
-              <h3 class="mb-3">Jaoua Yessine</h3>
-              <p class="mb-4">Full Stack Developer</p>
-              <!-- <button class="btn btn-outline-dark btn-sm">
-                <span class="fab fa-twitter"></span> Follow
-              </button> -->
-            </div>
-          </div>
-
-          <form class="card mb-4">
-            <div class="card-header">
-              <h4 class="card-heading">My Profile</h4>
-            </div>
-            <div class="card-body">
-              <div class="row mb-3">
-                <div class="col-auto d-flex align-items-center">
-                  <img
-                    class="avatar avatar-lg p-1"
-                    src="https://therichpost.com/wp-content/uploads/2021/03/avatar2.png"
-                    alt="Avatar"
-                  />
-                </div>
-                <div class="col">
-                  <label class="form-label"
-                    ><i class="fas fa-user"></i> Name</label
-                  >
-                  <input value="Yessine Jaoua" class="form-control" disabled />
-                </div>
-              </div>
-              <!-- <div class="mb-3">
-                <label class="form-label">Bio</label>
-                <textarea class="form-control" rows="8"></textarea>
-              </div> -->
-              <div class="mb-3">
-                <label class="form-label"
-                  ><i class="fas fa-envelope"></i> Email</label
-                >
-                <input
-                  class="form-control"
-                  placeholder="yessinejawa@gmail.com"
-                  disabled
-                />
-              </div>
-              <div class="mb-3">
-                <label class="form-label"
-                  ><i class="fas fa-phone"></i> Phone Number</label
-                >
-                <input
-                  class="form-control"
-                  placeholder="+212 620722602"
-                  disabled
-                />
-              </div>
-              <div class="mb-3">
-                <label class="form-label"
-                  ><i class="fas fa-address-card"></i> Address</label
-                >
-                <input
-                  class="form-control"
-                  placeholder="Jnane Ourad"
-                  disabled
-                />
-              </div>
-              <div class="mb-3">
-                <label class="form-label"
-                  ><i class="fas fa-address-card"></i> City</label
-                >
-                <input class="form-control" placeholder="Marrakech" disabled />
-              </div>
-              <div class="mb-3">
-                <label class="form-label"
-                  ><i class="fas fa-house"></i> Zip Code</label
-                >
-                <input class="form-control" placeholder="40000" disabled />
-              </div>
-              <div class="mb-3">
-                <label class="form-label"
-                  ><i class="fas fa-bank"></i> My Account</label
-                >
-                <input class="form-control" placeholder="5000$" disabled />
-              </div>
-            </div>
-            <!-- <div class="card-footer text-end">
-              <button class="btn btn-primary">Save</button>
-            </div> -->
-          </form>
-          <form class="card mb-4">
-            <div class="card-header">
-              <h4 class="card-heading">Forget Password</h4>
-            </div>
-            <div class="card-footer p-4 text-center">
-              <button
-                class="btn btn-primary"
-                (click)="btnClickToNavigateToForgetPasswordPage()"
-              >
-                <i class="fas fa-lock px-2"></i> Change Password Now
-              </button>
-            </div>
-            <!-- <div class="card-footer text-end">
-              <button class="btn btn-primary">Save</button>
-            </div> -->
-          </form>
+      <div [ngClass]="this.FirstConnection ? 'blur' : 'notBlur'">
+        <div class="page-header mb-4">
+          <h1 class="page-heading">Profile</h1>
         </div>
-        <div class="col-lg-8">
-          <div class="card overflow-hidden mb-4">
-            <div class="card-header d-flex justify-content-between">
-              <div>
-                <h3>My History</h3>
-              </div>
-              <div>
-                <div class="input-group-text">
-                  <span class="me-2" id="basic-addon1"
-                    ><i class="fas fa-search"></i
-                  ></span>
-                  <input
-                    type="text"
-                    class="form-control"
-                    placeholder="Search Here"
-                    aria-label="Username"
-                    aria-describedby="basic-addon1"
-                  />
-                </div>
-              </div>
-            </div>
-            <!-- <div class="mt-3">
-              <div class="d-flex justify-content-between align-items-center">
-                <div class="d-flex flex-row align-items-center">
-                  <span class="star"><i class="fa fa-star yellow"></i></span>
-  
-                  <div class="d-flex flex-column">
-                    <span>Marketing</span>
-                    <div class="d-flex flex-row align-items-center time-text">
-                      <small>Marketing</small>
-                      <span class="dots"></span>
-                      <small>viewed Just now</small>
-                      <span class="dots"></span>
-                      <small>Edited 15 minutes ago</small>
-                    </div>
-                  </div>
-                </div>
-  
-                <span class="content-text-1">BA</span>
-              </div>
-            </div> -->
-            <div class="list-group rounded-0">
+        <div class="row">
+          <div class="col-lg-4">
+            <div class="card card-profile mb-4">
               <div
-                class="list-group-item border-start-0 border-end-0 py-5 border-top-0"
-              >
-                <div class="d-flex">
-                  <div class="flex-shrink-0">
+                class="card-header"
+                style="
+                  background-image: url(https://therichpost.com/wp-content/uploads/2021/05/bootstrap5-carousel-slider-img1.jpg);
+                "
+              ></div>
+              <div class="card-body text-center">
+                <img
+                  class="card-profile-img"
+                  src="https://therichpost.com/wp-content/uploads/2021/03/avatar2.png"
+                  alt="Jassa Rich"
+                />
+                <h3 class="mb-3">
+                  {{ this.User.clientFirstName }} {{ this.User.hajji }}
+                </h3>
+                <p class="mb-4">Full Stack Developer</p>
+                <!-- <button class="btn btn-outline-dark btn-sm">
+              <span class="fab fa-twitter"></span> Follow
+            </button> -->
+              </div>
+            </div>
+
+            <form class="card mb-4">
+              <div class="card-header">
+                <h4 class="card-heading">My Profile</h4>
+              </div>
+              <div class="card-body">
+                <div class="row mb-3">
+                  <div class="col-auto d-flex align-items-center">
                     <img
                       class="avatar avatar-lg p-1"
-                      src="../../../../assets/images/iam.png"
-                      alt="Jassa Rich"
+                      src="https://therichpost.com/wp-content/uploads/2021/03/avatar2.png"
+                      alt="Avatar"
                     />
                   </div>
-
-                  <div class="flex-grow-1 ps-3">
-                    <strong><i class="fas fa-calendar"> </i> </strong>
-                    <span class="flex-grow-1 text-md text-muted me-4">
-                      <strong> 13/11/2022 </strong>
-                    </span>
-                    <small class="float-right">(10 mins ago) </small>
-                    <h5 class="fw-bold mt-2">Maroc Telecom</h5>
-                    <div class="text-muted text-sm">Internet et Mobile</div>
-
-                    <div class="d-flex mt-4">
-                      <div class="flex-shrink-0">
-                        <img
-                          class="avatar avatar-md p-1"
-                          src="../../../../assets/images/bill.jpeg"
-                          alt="Tony O'Brian"
-                        />
-                      </div>
-                      <div class="flex-grow-1 ps-3 text-sm text-muted">
-                        <strong class="text-dark">Price: </strong> 200$
-                      </div>
-                    </div>
+                  <div class="col">
+                    <label class="form-label"
+                      ><i class="fas fa-user"></i> Name</label
+                    >
+                    <input
+                     value="{{this.User.clientFirstName}} {{this.User.clientLastName}}"
+                      class="form-control"
+                      disabled
+                    />
                   </div>
+                </div>
+                <!-- <div class="mb-3">
+              <label class="form-label">Bio</label>
+              <textarea class="form-control" rows="8"></textarea>
+            </div> -->
+                <div class="mb-3">
+                  <label class="form-label"
+                    ><i class="fas fa-envelope"></i> Email</label
+                  >
+                  <input
+                    class="form-control"
+                    value="{{this.User.clientEmail}}"
+                    disabled
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label"
+                    ><i class="fas fa-phone"></i> Phone Number</label
+                  >
+                  <input
+                    class="form-control"
+                   value="{{this.User.clientPhone}}"
+                    disabled
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label"
+                    ><i class="fas fa-address-card"></i> Address</label
+                  >
+                  <input
+                    class="form-control"
+                    placeholder="{{this.User.clientAddress}}"
+                    disabled
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label"
+                    ><i class="fas fa-address-card"></i> City</label
+                  >
+                  <input
+                    class="form-control"
+                    value="{{this.User.clientCity}}"
+                    disabled
+                  />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label"
+                    ><i class="fas fa-house"></i> Zip Code</label
+                  >
+                  <input class="form-control" value="{{this.User.clientZip}}" disabled />
+                </div>
+                <div class="mb-3">
+                  <label class="form-label"
+                    ><i class="fas fa-bank"></i> My Account</label
+                  >
+                  <input class="form-control" value="{{this.User.clientSolde}}" disabled />
                 </div>
               </div>
-
-              <div class="list-group-item border-start-0 border-end-0 py-5">
-                <div class="d-flex">
-                  <div class="flex-shrink-0">
-                    <img
-                      class="avatar avatar-lg p-1"
-                      src="../../../../assets/images/Lydec.png"
-                      alt="Jassa Rich"
-                    />
-                  </div>
-                  <div class="flex-grow-1 ps-3">
-                    <small class="float-right">34 mins ago</small>
-                    <h5 class="fw-bold">Lydec</h5>
-                    <div class="text-muted text-sm">
-                      U just paid the facture of the water
-                    </div>
-                  </div>
-                  <div
-                    class="text-end pt-3 pr-3 text-lowercase text-md font-weight-bold"
-                  >
-                    <strong><i class="fas fa-calendar"> </i> </strong>
-                    13/11/2022
-                  </div>
-                </div>
+              <!-- <div class="card-footer text-end">
+            <button class="btn btn-primary">Save</button>
+          </div> -->
+            </form>
+            <form class="card mb-4">
+              <div class="card-header">
+                <h4 class="card-heading">Forget Password</h4>
               </div>
               <div class="card-footer p-4 text-center">
                 <button
+                  *ngIf="!this.FirstConnection"
                   class="btn btn-primary"
-                  (click)="btnClickToNavigateToAddAgentPage()"
+                  data-bs-toggle="modal"
+                  data-bs-target="#changePassword"
                 >
-                  <i class="fas fa-plus px-2"></i> Pay Now
+                  <i class="fas fa-lock px-2"></i> Change Password Now
                 </button>
               </div>
+              <!-- <div class="card-footer text-end">
+            <button class="btn btn-primary">Save</button>
+          </div> -->
+            </form>
+          </div>
+          <div class="col-lg-8">
+            <div class="card overflow-hidden mb-4">
+              
+              <!-- <div class="mt-3">
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="d-flex flex-row align-items-center">
+                <span class="star"><i class="fa fa-star yellow"></i></span>
+
+                <div class="d-flex flex-column">
+                  <span>Marketing</span>
+                  <div class="d-flex flex-row align-items-center time-text">
+                    <small>Marketing</small>
+                    <span class="dots"></span>
+                    <small>viewed Just now</small>
+                    <span class="dots"></span>
+                    <small>Edited 15 minutes ago</small>
+                  </div>
+                </div>
+              </div>
+
+              <span class="content-text-1">BA</span>
+            </div>
+          </div> -->
+         <app-historique-client></app-historique-client>
             </div>
           </div>
         </div>
@@ -282,42 +218,114 @@
   aria-hidden="true"
 >
   <div class="modal-dialog">
-    <div class="modal-content container">
-      <div class="modal-header" style="display: block">
-        <div class="form-group mb-3">
-          <input
-            type="password"
-            class="form-control"
-            name="new-password"
-            placeholder="New Password"
-            required="required"
-            formControlName="password"
-          />
-        </div>
-        <div class="form-group">
-          <input
-            type="password"
-            class="form-control"
-            name="confirm-new-password"
-            placeholder=" Confirm New Password"
-            required="required"
-            formControlName="password"
-          />
-        </div>
+    <form action="" #reset="ngForm">
+      <div class="modal-content container">
+        <div class="modal-header" style="display: block">
+          <div class="form-group mb-3">
+            <input
+              ngModel
+              name="newPass"
+              type="password"
+              class="form-control"
+              placeholder="New Password"
+              required="required"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              ngModel
+              name="password"
+              type="password"
+              class="form-control"
+              placeholder=" Confirm New Password"
+              required="required"
+            />
+          </div>
 
-        <div class="modal-footer" style="display: flex">
-          <button type="button" class="btn btn-primary" data-bs-dismiss="modal">
-            Confirm
-          </button>
-          <button
-            type="button"
-            class="btn btn-secondary"
-            data-bs-dismiss="modal"
-          >
-            Cancel
-          </button>
+          <div class="modal-footer" style="display: flex">
+            <button
+              (click)="doTheResetPassword(reset.value)"
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Confirm
+            </button>
+            <button
+              type="submit"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+          </div>
         </div>
       </div>
-    </div>
+    </form>
+  </div>
+</div>
+<div
+  class="modal fade"
+  id="changePassword"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <form action="" #f="ngForm">
+      <div class="modal-content container">
+        <div class="modal-header" style="display: block">
+          <div class="form-group mb-3">
+            <input
+              ngModel
+              name="newPass"
+              type="password"
+              class="form-control"
+              placeholder="Ancien Password"
+              required="required"
+            />
+          </div>
+          <div class="form-group">
+            <input
+              ngModel
+              name="confirmPass"
+              type="password"
+              class="form-control"
+              placeholder=" Confirm New Password"
+              required="required"
+            />
+          </div>
+          <br />
+          <div class="form-group">
+            <input
+              ngModel
+              name="confirm"
+              type="password"
+              class="form-control"
+              placeholder=" Confirm New Password"
+              required="required"
+            />
+          </div>
+
+          <div class="modal-footer" style="display: flex">
+            <button
+              (click)="changePassword(f)"
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Confirm
+            </button>
+            <button
+              type="submit"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
 </div>

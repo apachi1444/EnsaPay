@@ -40,16 +40,74 @@
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BackOfficeService {
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient, private route: Router) {}
 
   public doRegister(user: any) {
-    return this.http.post('http://localhost:8081/backoffice/add', user, {
+    return this.http.post('http://localhost:8080/backoffice/add', user, {
       responseType: 'text' as 'json',
     });
+  }
+  sendMailToClient(username: any) {
+    this.http
+      .post('http://localhost:8080/forgetPassword/' + username, [], {
+        responseType: 'text',
+      })
+      .subscribe(
+        (res) => {
+          console.log(res.toString());
+          this.route.navigateByUrl('/agent/VerifyCode/' + username);
+        },
+        (error) => {
+          console.log(error.error);
+        }
+      );
+  }
+  VerificationCode(username: any, code: any) {
+    this.http
+      .post(
+        'http://localhost:8080/forgetPassword/checkToken/' +
+          username +
+          '/' +
+          code,
+        [],
+        { responseType: 'text' }
+      )
+      .subscribe(
+        (res) => {
+          console.log(res.toString());
+          this.route.navigateByUrl('/agent/newPassword/' + username);
+        },
+        (error) => {
+          console.log(error.error);
+        }
+      );
+  }
+  newCode(username: any, password: any) {
+    const data = {
+      userPassword: String,
+    };
+    data.userPassword = password;
+    this.http
+      .post(
+        'http://localhost:8080/forgetPassword/newPassword/' + username,
+        data,
+        { responseType: 'text' }
+      )
+      .subscribe(
+        (res) => {
+          console.log(res.toString());
+          this.route.navigateByUrl('/login');
+        },
+        (error) => {
+          console.log(error.error);
+        }
+      );
   }
 }

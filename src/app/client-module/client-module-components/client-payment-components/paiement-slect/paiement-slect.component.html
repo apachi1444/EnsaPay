@@ -1,0 +1,98 @@
+<h1>Paiement de facture</h1>
+<div id="sec">
+  <h2>Paiement par référence</h2>
+  <div class="paiement_par_reference">
+    <figure><img height="100"  *ngIf="this.Creancier=='Maroc Telecom'" src="../../../assets/images/iam.png" />
+      <img height="100" *ngIf="this.Creancier=='Redal'" src="../../../assets/images/Redal.jpeg" />
+      <img height="100" *ngIf="this.Creancier=='Amendis'" src="../../../assets/images/Amendis.png" /></figure>
+    <div>
+      <label><strong>Créancier</strong></label>
+      <p>{{this.Creancier}}</p>
+    </div>
+    <div>
+      <label><strong>Créance</strong></label>
+      <p>{{this.Creance}}</p>
+    </div>
+    <div>
+      <label><strong>Donateur</strong></label>
+      <p *ngIf="this.ImpayQrCode!=null">{{this.ImpayQrCode.donnateur}}</p>
+    </div>
+  </div>
+  <h2>Selectionnez pour payez</h2>
+  <table class="table">
+    <tbody>
+      <tr>
+        <td>Don Sidaction</td>
+        <td *ngIf="this.ImpayQrCode!=null">{{this.ImpayQrCode.impay}}DH</td>
+      </tr>
+      <tr>
+        <td style="font-weight: bold">Total</td>
+        <td *ngIf="this.ImpayQrCode!=null" style="font-weight: bold">{{this.ImpayQrCode.impay}} DH</td>
+      </tr>
+    </tbody>
+  </table>
+  <div class="text-center">
+    <qrcode *ngIf="this.ImpayQrCode!=null" qrdata={{this.ImpayQrCode.QrCode}} [width]="300" [errorCorrectionLevel]="'M'"></qrcode>
+
+  </div>
+  <div class="text-center">
+    <button *ngIf="!this.isValid" type="submit" class="btn btn-primary" 
+    data-bs-toggle="modal"
+      
+    data-bs-target="#exampleModal">Valid</button>
+     <i *ngIf="this.isValid" style="color:rgb(21, 255, 21);"  class="fa-solid fa-check fa-5x"></i>
+  </div>
+ 
+</div>
+
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog" >
+    {{ reset.value | json }}
+    <form action="" #reset="ngForm"   (submit)="checkQrCode(reset)"  >
+      <div class="modal-content container">
+        <div class="text-center"><h3>Confirm that you are humain</h3></div>
+        <div class="modal-header" style="display: block">
+          
+          <div class="form-outline flex-fill mb-0 text-center far">
+                      
+
+            <input ngModel name="un" type="text" id="form3Example3c" class="form-control num" placeholder="_" maxlength="1" size="1" pattern="[0-9]{1}" />
+            <input ngModel name="deux"  type="text" id="form3Example3c" class="form-control num" placeholder="_" maxlength="1" size="1" pattern="[0-9]{1}"/>
+            <input ngModel name="trois"  type="text" id="form3Example3c" class="form-control num" placeholder="_" maxlength="1" size="1" pattern="[0-9]{1}"/>
+            <input ngModel name="quatre"  type="text" id="form3Example3c" class="form-control num" placeholder="_" maxlength="1" size="1" pattern="[0-9]{1}"/>
+          </div>
+      </div>
+
+          <div class="modal-footer" >
+            <div class="d-flex justify-content-center">
+            <button
+          
+           
+            type="submit"
+              class="submitbtn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              Confirm
+            </button>
+            <button
+           
+              type="submit"
+              class="cancelbtn btn-danger"
+              data-bs-dismiss="modal"
+            >
+              Cancel
+            </button>
+          </div>
+          </div>
+        </div>
+      
+    </form>
+  </div>
+</div>
+
