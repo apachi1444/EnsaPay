@@ -14,7 +14,6 @@ const routes: Routes = [
   {
     path: 'addPayment',
     component: PaymentAddComponent,
-    canActivate: [AuthGuard],
   },
   // { path: 'doPayment', component: DoPaiementComponent },
 ];

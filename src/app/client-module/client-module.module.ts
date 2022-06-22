@@ -22,7 +22,8 @@ import { DoPaiementComponent } from './client-module-components/client-payment-c
 import { PaiementProviderComponent } from './client-module-components/client-payment-components/paiement-provider/paiement-provider.component';
 import { PaymentAddComponent } from './client-module-components/client-payment-components/payment-add/payment-add.component';
 import { HistoriqueClientComponent } from './client-module-components/historique-client/historique-client.component';
-import { MatPaginatorModule } from '@angular/material/paginator'; 
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { PaymentSmsComponent } from './client-module-components/client-payment-components/payment-sms/payment-sms.component'; 
 
 @NgModule({
   declarations: [
@@ -35,6 +36,7 @@ import { MatPaginatorModule } from '@angular/material/paginator';
     PaymentAddComponent,
     ClientDashboardComponent,
     HistoriqueClientComponent,
+    PaymentSmsComponent,
   ],
   imports: [
     MatStepperModule,
