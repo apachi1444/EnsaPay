@@ -15,43 +15,41 @@ export class AgentDashbordComponent implements OnInit {
     private router: Router,
     private dataService: AgentServiceService,
     private resetPasswordService: ResetPasswordService,
-    private toast:NgToastService
+    private toast: NgToastService
   ) {}
-  FirstConnection:boolean=true;
- 
+  FirstConnection: boolean = true;
+
   User: any = {};
 
   ngOnInit(): void {
     this.dataService.getDataFromToken().subscribe((data) => {
       console.log(data);
       this.User = data;
-    this.FirstConnection=this.User.firstConnection;
+      this.FirstConnection = this.User.firstConnection;
+      localStorage.setItem('id', this.User.agentId);
     });
   }
 
   doTheResetPassword(userForm: any) {
     if (userForm.password == userForm.newPass) {
       console.log(userForm);
-     this.resetPasswordService.resetPassword(userForm.password);
-    
-    }
-    else{
-       this.toast.error(
-        {detail: "confirm password incorrect",
-        duration:3000});
-        console.log("confirm passwor incorrect")
-        
+      this.resetPasswordService.resetPassword(userForm.password);
+    } else {
+      this.toast.error({
+        detail: 'confirm password incorrect',
+        duration: 3000,
+      });
+      console.log('confirm passwor incorrect');
     }
   }
-  changePassword(f:NgForm){
-    if(f.value.confirm==f.value.confirmPass){
-      this.resetPasswordService.changePassword(f.value.newPass,f.value.confirm)
+  changePassword(f: NgForm) {
+    if (f.value.confirm == f.value.confirmPass) {
+      this.resetPasswordService.changePassword(
+        f.value.newPass,
+        f.value.confirm
+      );
+    } else {
+      console.log('confirm password incorrect');
     }
-    else{
-      console.log("confirm password incorrect")
-    }
-
   }
-    
- 
 }

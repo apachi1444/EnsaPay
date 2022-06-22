@@ -11,14 +11,17 @@ import { NewCodeComponent } from '../commonCompos/new-code/new-code.component';
 import { ClientDashboardComponent } from '../client-module/client-module-components/client-dashboard/client-dashboard.component';
 import { PaymentAddComponent } from '../client-module/client-module-components/client-payment-components/payment-add/payment-add.component';
 import { ProfileComponent } from './back-office-components/profile/profile.component';
+import { UiAddAgentComponent } from './back-office-components/profile/ui-add-agent/ui-add-agent.component';
+import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 
 @NgModule({
-  declarations: [AddAgentComponent, ProfileComponent],
+  declarations: [AddAgentComponent, ProfileComponent, UiAddAgentComponent],
   imports: [
     CommonModule,
     BackOfficeModuleRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    MatPaginatorModule,
   ],
 })
 export class BackOfficeModuleModule {}

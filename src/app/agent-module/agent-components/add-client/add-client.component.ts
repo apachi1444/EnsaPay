@@ -44,7 +44,6 @@ export class AddClientComponent implements OnInit {
   }
 
   addClient(event: any) {
-    console.log(event.currentTarget);
     const myForm = event.currentTarget;
     const data = new FormData(myForm);
     data.append('file', this.Image);

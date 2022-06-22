@@ -1,7 +1,7 @@
 <div class="card overflow-hidden mb-4">
   <div class="card-header d-flex justify-content-between">
     <div>
-      <h3>My Clients</h3>
+      <h3>My Agents</h3>
     </div>
     <div>
       <div class="input-group-text">
@@ -11,7 +11,7 @@
         <input
           (ngModelChange)="search($event)"
           ngModel
-          name="fullname"
+          name="creditor"
           type="text"
           class="form-control"
           placeholder="Search Here"
@@ -57,7 +57,7 @@
         <div class="flex-grow-1 ps-3">
           <small class="float-right">34 mins ago</small>
           <h5 class="fw-bold">
-            {{ user.clientFullName }}
+            {{ user.agentFullName }}
           </h5>
           <div class="text-muted text-sm">
             U just paid the facture of the water
@@ -77,8 +77,8 @@
       (page)="OnPageChange($event)"
     ></mat-paginator>
     <div class="card-footer p-4 text-center">
-      <button class="btn btn-primary" routerLink="/agent/addClient">
-        <i class="fas fa-plus px-2"></i> Add Client
+      <button class="btn btn-primary" routerLink="/backOffice/addAgent">
+        <i class="fas fa-plus px-2"></i> Add Agent
       </button>
     </div>
   </div>

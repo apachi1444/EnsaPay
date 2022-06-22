@@ -1,62 +1,32 @@
-// import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-// import { Injectable } from '@angular/core';
-// import { Observable } from 'rxjs/internal/Observable';
-// import { BackOffice } from '../../Models/backOffice/BackOfficeModel';
-
-// import 'rxjs/add/operator/catch';
-// import 'rxjs/add/observable/throw';
-
-// @Injectable({
-//   providedIn: 'root',
-// })
-// export class BackofficeServiceService {
-//   private _url: string = 'https://jsonplaceholder.typicode.com/todos/1';
-
-//   constructor(private http: HttpClient) {}
-
-//   // the response that was returned from the server is returned
-//   // in the form of an observable
-
-//   // an observable is a sequence of items that arrive async over time
-//   // so once the service gets back the observable
-//   // it will convert it to the desired format
-//   // and provided it to every single component of our app => NO !
-//   // only to the ones who are using the service currently
-
-//   getBackoffices(): Observable<BackOffice[]> {
-//     // return [
-//     //   new BackOffice('yessine', 12, '1234534', 'yessine@gmail.com', 'uessine'),
-//     //   new BackOffice('yessine', 12, '1234534', 'yessine@gmail.com', 'uessine'),
-//     //   new BackOffice('yessine', 12, '1234534', 'yessine@gmail.com', 'uessine'),
-//     // ];
-//     return this.http.get<BackOffice[]>(this._url).catch(this.handleError);
-//   }
-
-//   handleError(error: HttpErrorResponse): void {
-//     return Observable.throw(error.message || 'Server Error');
-//   }
-// }
-
 import { Injectable } from '@angular/core';
 
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
+import { LocalStorageService } from 'src/app/commonServices/local-storage-service/local-storage.service';
+import { environment } from 'src/environments/environment';
+import { NgToastService } from 'ng-angular-popup';
 
 @Injectable({
   providedIn: 'root',
 })
 export class BackOfficeService {
-  constructor(private http: HttpClient, private route: Router) {}
+  constructor(
+    private http: HttpClient,
+    private route: Router,
 
+    private toast: NgToastService,
+    private localService: LocalStorageService
+  ) {}
+  server = environment.host;
   public doRegister(user: any) {
-    return this.http.post('http://localhost:8080/backoffice/add', user, {
+    return this.http.post(this.server + 'backoffice/add', user, {
       responseType: 'text' as 'json',
     });
   }
   sendMailToClient(username: any) {
     this.http
-      .post('http://localhost:8080/forgetPassword/' + username, [], {
+      .post(this.server + 'forgetPassword/' + username, [], {
         responseType: 'text',
       })
       .subscribe(
@@ -72,10 +42,7 @@ export class BackOfficeService {
   VerificationCode(username: any, code: any) {
     this.http
       .post(
-        'http://localhost:8080/forgetPassword/checkToken/' +
-          username +
-          '/' +
-          code,
+        this.server + 'forgetPassword/checkToken/' + username + '/' + code,
         [],
         { responseType: 'text' }
       )
@@ -95,11 +62,9 @@ export class BackOfficeService {
     };
     data.userPassword = password;
     this.http
-      .post(
-        'http://localhost:8080/forgetPassword/newPassword/' + username,
-        data,
-        { responseType: 'text' }
-      )
+      .post(this.server + 'forgetPassword/newPassword/' + username, data, {
+        responseType: 'text',
+      })
       .subscribe(
         (res) => {
           console.log(res.toString());
@@ -109,5 +74,49 @@ export class BackOfficeService {
           console.log(error.error);
         }
       );
+  }
+
+  backOfficeUserName = this.localService.getUserName();
+  getDataFromToken(): Observable<any> {
+    let finalUrl =
+      this.server + 'backoffice/profileBackOffice/' + this.backOfficeUserName;
+    return this.http.get<any>(finalUrl, {
+      headers: {
+        Authorization: 'Bearer ' + this.localService.getTokenLocalStorage(),
+      },
+    });
+  }
+  postAgent(data: FormData): Observable<any> {
+    console.log(data.get('agentPhone'));
+    let finalUrl =
+      this.server + 'agent/regiterNewUserAgent/' + localStorage.getItem('id');
+    return this.http.post(finalUrl, data, {
+      responseType: 'text',
+      headers: {
+        Authorization: 'Bearer ' + this.localService.getTokenLocalStorage(),
+      },
+    });
+  }
+  getAgents(): Observable<any> {
+    let finalUrl =
+      this.server + 'backoffice/getAgents/' + localStorage.getItem('id');
+    return this.http.get<any>(finalUrl, {
+      headers: {
+        Authorization: 'Bearer ' + this.localService.getTokenLocalStorage(),
+      },
+    });
+  }
+  getsearchAgents(f: any): Observable<any> {
+    let finalUrl =
+      this.server +
+      'backoffice/getAgents/' +
+      localStorage.getItem('id') +
+      '/' +
+      f;
+    return this.http.get<any>(finalUrl, {
+      headers: {
+        Authorization: 'Bearer ' + this.localService.getTokenLocalStorage(),
+      },
+    });
   }
 }

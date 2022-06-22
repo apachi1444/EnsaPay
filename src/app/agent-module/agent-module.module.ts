@@ -6,14 +6,23 @@ import { AddClientComponent } from './agent-components/add-client/add-client.com
 import { AgentDashbordComponent } from './agent-components/agent-dashbord/agent-dashbord.component';
 import { NgToastModule } from 'ng-angular-popup';
 import { MyclientsComponent } from './agent-components/agent-dashbord/myclients/myclients.component';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MyclientsMessageComponent } from './agent-components/agent-dashbord/myclients-message/myclients-message.component';
+
 @NgModule({
-  declarations: [AddClientComponent, AgentDashbordComponent, MyclientsComponent],
+  declarations: [
+    AddClientComponent,
+    AgentDashbordComponent,
+    MyclientsComponent,
+    MyclientsMessageComponent,
+  ],
   imports: [
     CommonModule,
     AgentModuleRoutingModule,
     FormsModule,
     ReactiveFormsModule,
     NgToastModule,
+    MatPaginatorModule,
   ],
 })
 export class AgentModuleModule {}
