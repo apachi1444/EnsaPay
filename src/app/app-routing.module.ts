@@ -11,6 +11,7 @@ import { NewCodeComponent } from './commonCompos/new-code/new-code.component';
 import { VerifyCodeComponent } from './commonCompos/verify-code/verify-code.component';
 import { ForgetPasswordComponent } from './commonCompos/forget-password/forget-password.component';
 import { PaymentAddComponent } from './client-module/client-module-components/client-payment-components/payment-add/payment-add.component';
+import { AuthGuard } from './commonServices/authGuard/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'home-page', pathMatch: 'full' },
@@ -28,6 +29,8 @@ const routes: Routes = [
       import('./agent-module/agent-module.module').then(
         (m) => m.AgentModuleModule
       ),
+    canActivate: [AuthGuard],
+    data: { roles: 'ROLE_Agent' },
   },
   {
     path: 'backOffice',
@@ -35,6 +38,8 @@ const routes: Routes = [
       import('./back-office-module/back-office-module.module').then(
         (m) => m.BackOfficeModuleModule
       ),
+    canActivate: [AuthGuard],
+    data: { roles: 'ROLE_Backoffice' },
   },
   {
     path: 'client',
@@ -42,6 +47,8 @@ const routes: Routes = [
       import('./client-module/client-module.module').then(
         (m) => m.ClientModuleModule
       ),
+    canActivate: [AuthGuard],
+    data: { roles: 'ROLE_Client' },
   },
   { path: '**', component: PageNotFoundComponent },
 ];

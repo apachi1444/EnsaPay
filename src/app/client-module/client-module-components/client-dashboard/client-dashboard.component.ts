@@ -16,7 +16,9 @@ export class ClientDashboardComponent implements OnInit {
     private dataService: ClientService,
     private resetPasswordService: ResetPasswordService,
     private toast: NgToastService
-  ) {}
+  ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
   FirstConnection: boolean = true;
 
   User: any = {};

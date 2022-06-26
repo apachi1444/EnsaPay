@@ -54,4 +54,13 @@ export class LocalStorageService {
   removeItem(item: any) {
     localStorage.removeItem(item);
   }
+  clearAll() {
+    localStorage.clear();
+  }
+  isLogged(): boolean {
+    if (this.getRole() != null) {
+      return true;
+    }
+    return false;
+  }
 }

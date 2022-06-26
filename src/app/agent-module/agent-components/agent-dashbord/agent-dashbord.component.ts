@@ -16,7 +16,9 @@ export class AgentDashbordComponent implements OnInit {
     private dataService: AgentServiceService,
     private resetPasswordService: ResetPasswordService,
     private toast: NgToastService
-  ) {}
+  ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
   FirstConnection: boolean = true;
 
   User: any = {};

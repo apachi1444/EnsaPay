@@ -23,7 +23,9 @@ export class ProfileComponent implements OnInit {
     private dataService: BackOfficeService,
 
     private toast: NgToastService
-  ) {}
+  ) {
+    this.router.routeReuseStrategy.shouldReuseRoute = () => false;
+  }
   FirstConnection: boolean = true;
 
   User: any = {};

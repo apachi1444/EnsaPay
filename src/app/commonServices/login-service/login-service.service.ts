@@ -29,7 +29,7 @@ export class LoginServiceService implements OnInit {
       'http://localhost:8080/user/authenticate',
       this.data,
       {
-       responseType:'json'
+        responseType: 'json',
       }
     );
   }
@@ -37,22 +37,16 @@ export class LoginServiceService implements OnInit {
   redirectUser(role: any) {
     switch (role) {
       case 'ROLE_Agent':
-        this.router.navigateByUrl('/agent/profile') .then(() => {
-          window.location.reload();
-        });
-        
+        this.router.navigateByUrl('/agent/profile').then(() => {});
+
         break;
       case 'ROLE_Backoffice':
-        this.router.navigateByUrl('/backOffice/profile') .then(() => {
-          window.location.reload();
-        });
-        
+        this.router.navigateByUrl('/backOffice/profile').then(() => {});
+
         break;
       case 'ROLE_Client':
-        this.router.navigateByUrl('/client/dashboard') .then(() => {
-          window.location.reload();
-        });
-        
+        this.router.navigateByUrl('/client/dashboard').then(() => {});
+
         break;
 
       default:
@@ -70,6 +64,20 @@ export class LoginServiceService implements OnInit {
 
   logout() {
     this.localStorageService.removeItem('token');
+    this.localStorageService.clearAll();
     this.router.navigateByUrl('');
+  }
+  public ismatch(allowedRoles: string): boolean {
+    let match = false;
+    const Usersroles = this.localStorageService.getRole();
+    console.log(Usersroles);
+    if (Usersroles != null && Usersroles) {
+      if (Usersroles === allowedRoles) return true;
+      else {
+        return match;
+      }
+    }
+
+    return match;
   }
 }

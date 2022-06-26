@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
     private loginService: LoginServiceService,
     private localStorageService: LocalStorageService,
     private router: Router,
-    private toast:NgToastService
+    private toast: NgToastService
   ) {}
 
   ngOnInit(): void {}
@@ -30,7 +30,6 @@ export class LoginComponent implements OnInit {
   }
 
   togglePassword() {
-   
     if (this.showPassword) {
       this.showPassword = !this.showPassword;
       this.passwordType = 'text';
@@ -43,18 +42,23 @@ export class LoginComponent implements OnInit {
   }
 
   addStudent(userForm: NgForm) {
-    
     this.loginService.authenticate(userForm).subscribe(
-      (res)=>{
-        this.toast.success({detail:"success",summary:"login successfully",duration:5000}) 
+      (res) => {
+        this.toast.success({
+          detail: 'success',
+          summary: 'login successfully',
+          duration: 5000,
+        });
         this.localStorageService.setTokenLocalStorage(res.jwtToken);
         this.loginService.redirectUser(this.localStorageService.getRole());
       },
-      (error)=>{
-        this.toast.error({detail:"error",summary:"username or password incorrect",duration:5000}) 
+      (error) => {
+        this.toast.error({
+          detail: 'error',
+          summary: 'username or password incorrect',
+          duration: 5000,
+        });
       }
-     
-   
-    )
-}
+    );
+  }
 }

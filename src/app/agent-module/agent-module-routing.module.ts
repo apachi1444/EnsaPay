@@ -10,12 +10,10 @@ const routes: Routes = [
   {
     path: 'addClient',
     component: AddClientComponent,
-    canActivate: [AuthGuard],
   },
   {
     path: 'profile',
     component: AgentDashbordComponent,
-    // canActivate: [AuthGuard],
   },
   { path: 'newPassword/:username', component: NewCodeComponent },
   { path: 'VerifyCode/:username', component: VerifyCodeComponent },
