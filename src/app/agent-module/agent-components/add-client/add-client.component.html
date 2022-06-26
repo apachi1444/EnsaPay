@@ -283,14 +283,15 @@
         </div>
 
         <div class="col-md-12">
-          <div class="mb-0">
-            <label class="form-label">CIN</label>
+          <div class="mb-0 cin">
+            <label class="form-label"></label>
             <div>
               <label for="upload" class="btn btn-primary task choix">{{
                 this.nameImage
               }}</label>
               <input
                 ngModel
+                class="cin"
                 (change)="File($event)"
                 #image="ngModel"
                 id="upload"
@@ -309,13 +310,20 @@
                 </div>
               </div>
               <br />
-
-              <img *ngIf="this.src != null" [src]="src" height="150" /><br />
+              <br />
               <i
                 *ngIf="this.nameImage != 'choose file'"
                 class="fas fa-trash"
                 (click)="suprrimerPhoto()"
               ></i>
+              <div class="img-cin">
+                <img
+                  class="img-cin"
+                  *ngIf="this.src != null"
+                  [src]="src"
+                  height="150"
+                /><br />
+              </div>
             </div>
           </div>
         </div>
