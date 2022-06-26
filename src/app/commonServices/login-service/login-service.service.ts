@@ -25,7 +25,6 @@ export class LoginServiceService implements OnInit {
   authenticate(userForm: NgForm) {
     this.data.username = userForm.value.phoneNumber;
     this.data.userPassword = userForm.value.password;
-
     return this.http.post<any>(
       'http://localhost:8080/user/authenticate',
       this.data,
@@ -33,6 +32,26 @@ export class LoginServiceService implements OnInit {
         responseType: 'json',
       }
     );
+  }
+
+  redirectUser(role: any) {
+    switch (role) {
+      case 'ROLE_Agent':
+        this.router.navigateByUrl('/agent/profile').then(() => {});
+
+        break;
+      case 'ROLE_Backoffice':
+        this.router.navigateByUrl('/backOffice/profile').then(() => {});
+
+        break;
+      case 'ROLE_Client':
+        this.router.navigateByUrl('/client/dashboard').then(() => {});
+
+        break;
+
+      default:
+        break;
+    }
   }
 
   loggedIn() {
@@ -45,6 +64,20 @@ export class LoginServiceService implements OnInit {
 
   logout() {
     this.localStorageService.removeItem('token');
+    this.localStorageService.clearAll();
     this.router.navigateByUrl('');
+  }
+  public ismatch(allowedRoles: string): boolean {
+    let match = false;
+    const Usersroles = this.localStorageService.getRole();
+    console.log(Usersroles);
+    if (Usersroles != null && Usersroles) {
+      if (Usersroles === allowedRoles) return true;
+      else {
+        return match;
+      }
+    }
+
+    return match;
   }
 }

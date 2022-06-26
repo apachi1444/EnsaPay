@@ -1,101 +1,355 @@
 <div class="template">
-  <form class="card mb-4 form">
+  <form
+    class="card mb-4 form"
+    #myform="ngForm"
+    (submit)="addAgent($event)"
+    enctype="multipart/form-data"
+  >
     <div class="card-header ass">
-      <h4 class="card-heading">Add Client</h4>
+      <h4 class="card-heading">Add Agent</h4>
     </div>
     <div class="card-body">
       <div class="row">
-        <div class="col-md-5">
-          <div class="mb-4">
-            <label class="form-label">Company</label>
-            <input
-              class="form-control"
-              type="text"
-              placeholder="Company"
-              value="Jassa Rich"
-            />
-          </div>
-        </div>
-        <div class="col-sm-6 col-md-3">
+        <div class="col-sm-6 col-md-6">
           <div class="mb-4">
             <label class="form-label">Username</label>
             <input
+              (ngModelChange)="insertusername($event)"
+              ngModel
+              #username="ngModel"
+              name="agentusername"
               class="form-control"
               type="text"
-              placeholder="Username"
-              value="Jassa"
+              placeholder="Phone"
+              maxlength="10"
+              required
             />
+            <div
+              class="alert alert-danger w-100 error-text error"
+              *ngIf="this.validusername == false"
+            >
+              <div>username already exist</div>
+            </div>
+
+            <div
+              class="alert alert-danger w-100 error-text error"
+              *ngIf="username.touched && !username.valid"
+            >
+              <div *ngIf="username.errors?.['required']">
+                <strong> username </strong>is required
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-4">
+
+        <div class="col-sm-6 col-md-6">
           <div class="mb-4">
             <label class="form-label">Email address</label>
-            <input class="form-control" type="email" placeholder="Email" />
+            <input
+              class="form-control"
+              ngModel
+              #email="ngModel"
+              name="agentEmail"
+              type="email"
+              placeholder="Email"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+              required
+            />
+
+            <div
+              class="alert alert-danger w-100 error-text"
+              s
+              *ngIf="email.touched && !email.valid"
+            >
+              <div *ngIf="email.errors?.['required']">
+                <strong> email </strong>is required
+              </div>
+
+              <div *ngIf="email!.errors?.['pattern']">email incorrect</div>
+            </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-6">
+        <div class="col-sm-4 col-md-4">
           <div class="mb-4">
             <label class="form-label">First Name</label>
-            <input class="form-control" type="text" placeholder="First name" />
+            <input
+              class="form-control"
+              ngModel
+              #FirstName="ngModel"
+              name="agentFirstName"
+              type="text"
+              required
+              placeholder="First name"
+              pattern="[A-Za-z]+"
+            />
+
+            <div
+              class="alert alert-danger w-100 error-text"
+              *ngIf="FirstName.touched && !FirstName.valid"
+            >
+              <div *ngIf="FirstName.errors?.['required']">
+                <strong> First Name </strong>is required
+              </div>
+
+              <div *ngIf="FirstName!.errors?.['pattern']">
+                firstname incorrrect
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-6">
+        <div class="col-sm-4 col-md-4">
           <div class="mb-4">
             <label class="form-label">Last Name</label>
-            <input class="form-control" type="text" placeholder="Last Name" />
+            <input
+              class="form-control"
+              ngModel
+              #lastname="ngModel"
+              name="agentLastName"
+              type="text"
+              placeholder="Last Name"
+              required
+              pattern="[A-Za-z]+"
+            />
+
+            <div
+              class="alert alert-danger w-100 error-text"
+              s
+              *ngIf="lastname.touched && !lastname.valid"
+            >
+              <div *ngIf="lastname.errors?.['required']">
+                <strong> Last Name </strong>is required
+              </div>
+
+              <div *ngIf="lastname!.errors?.['pattern']">
+                Last Name incorrect
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-md-12">
+        <div class="col-sm-4 col-md-4">
+          <div class="mb-4">
+            <div class="mb-4">
+              <label class="form-label">Phone</label>
+              <input
+                ngModel
+                #phone="ngModel"
+                name="agentPhone"
+                class="form-control"
+                type="text"
+                placeholder="Phone"
+                pattern="[0-9]{10}"
+                maxlength="10"
+                required
+              />
+
+              <div
+                class="alert alert-danger w-100 error-text error"
+                *ngIf="phone.touched && !phone.valid"
+              >
+                <div *ngIf="phone.errors?.['required']">
+                  <strong> Phone Number </strong>is required
+                </div>
+                <div *ngIf="phone!.errors?.['minlength']">phone incorrect</div>
+                <div *ngIf="phone!.errors?.['pattern']">phone incorrect</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-6">
           <div class="mb-4">
             <label class="form-label">Address</label>
             <input
+              ngModel
+              #adress="ngModel"
+              name="agentAddress"
               class="form-control"
               type="text"
               placeholder="Home Address"
+              required
             />
+
+            <div
+              class="alert alert-danger w-100 error-text"
+              s
+              *ngIf="adress.touched && !adress.valid"
+            >
+              <div *ngIf="adress.errors?.['required']">
+                <strong> Adress </strong>is required
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-4">
+        <div class="col-md-6">
+          <div class="mb-4">
+            <label class="form-label">CIN</label>
+            <input
+              ngModel
+              #cin="ngModel"
+              name="agentCIN"
+              class="form-control"
+              type="text"
+              placeholder="Cin"
+              required
+            />
+
+            <div
+              class="alert alert-danger w-100 error-text"
+              s
+              *ngIf="cin.touched && !cin.valid"
+            >
+              <div *ngIf="cin.errors?.['required']">
+                <strong> CIN </strong>is required
+              </div>
+
+              <div *ngIf="cin!.errors?.['pattern']">Cin incorrect</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-4 col-md-4">
           <div class="mb-4">
             <label class="form-label">City</label>
-            <input class="form-control" type="text" placeholder="City" />
+            <input
+              ngModel
+              #city="ngModel"
+              name="agentCity"
+              class="form-control"
+              type="text"
+              placeholder="City"
+              pattern="[A-Za-z]+"
+              required
+            />
+            <div
+              class="alert alert-danger w-100 error-text"
+              s
+              *ngIf="city.touched && !city.valid"
+            >
+              <div *ngIf="city.errors?.['required']">
+                <strong> City </strong>is required
+              </div>
+
+              <div *ngIf="city!.errors?.['pattern']">City incorrect</div>
+            </div>
           </div>
         </div>
-        <div class="col-sm-6 col-md-3">
+        <div class="col-sm-4 col-md-4">
           <div class="mb-4">
             <label class="form-label">ZIP</label>
-            <input class="form-control" type="number" placeholder="ZIP" />
+            <input
+              (ngModelChange)="testZip($event)"
+              ngModel
+              #zip="ngModel"
+              name="agentZip"
+              class="form-control"
+              type="number"
+              required
+              placeholder="ZIP"
+            />
+            <div
+              class="alert alert-danger w-100 error-text"
+              s
+              *ngIf="zip.touched && !zip.valid"
+            >
+              <div *ngIf="zip.errors?.['required']">
+                <strong> Zip </strong>is required
+              </div>
+
+              <div
+                *ngIf="!this.Zip"
+                class="alert alert-danger w-100 error-text"
+              >
+                <div>Zip incorrect</div>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="col-md-5">
+        <div class="col-sm-4 col-md-4">
           <div class="mb-4">
             <label class="form-label">Country</label>
-            <select class="form-control custom-select">
-              <option value="">UK</option>
-              <option value="">US</option>
-            </select>
+            <input
+              ngModel
+              #country="ngModel"
+              name="agentCountry"
+              class="form-control"
+              type="text"
+              placeholder="Country"
+              required
+            />
+
+            <div
+              class="alert alert-danger w-100 error-text"
+              s
+              *ngIf="country.touched && !country.valid"
+            >
+              <div *ngIf="country.errors?.['required']">
+                <strong> Country </strong>is required
+              </div>
+            </div>
           </div>
         </div>
+
         <div class="col-md-12">
           <div class="mb-0">
             <label class="form-label">CIN</label>
             <div>
-              <label for="upload" class="btn btn-primary task choix"
-                >choose file</label
-              >
+              <label for="upload" class="btn btn-primary task choix">{{
+                this.nameImage
+              }}</label>
               <input
+                ngModel
+                (change)="File($event)"
+                #image="ngModel"
                 id="upload"
                 type="file"
+                name="file"
                 placeholder="Paste file url"
                 required
               />
+              <div
+                class="alert alert-danger w-100 error-text"
+                s
+                *ngIf="image.touched && !image.valid"
+              >
+                <div *ngIf="image.errors?.['required']">
+                  <strong> Zip </strong>is required
+                </div>
+              </div>
+              <br />
+
+              <img *ngIf="this.src != null" [src]="src" height="150" /><br />
+              <i
+                *ngIf="this.nameImage != 'choose file'"
+                class="fas fa-trash"
+                (click)="suprrimerPhoto()"
+              ></i>
             </div>
           </div>
         </div>
       </div>
     </div>
     <div class="card-footer text-end">
-      <button class="btn btn-primary task" type="submit">Update Profile</button>
+      <button
+        class="btn btn-primary task"
+        type="submit"
+        [disabled]="
+          this.disable(
+            !country.valid,
+            !zip.valid,
+            !city.valid,
+            !cin.valid,
+            !adress.valid,
+            !lastname.valid,
+            !FirstName.valid,
+            !email.valid,
+            !phone.valid,
+
+            !image.valid
+          )
+        "
+      >
+        add Agent
+      </button>
     </div>
   </form>
 </div>

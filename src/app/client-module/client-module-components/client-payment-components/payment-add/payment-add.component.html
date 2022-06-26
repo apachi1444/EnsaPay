@@ -1,0 +1,143 @@
+<!-- <mat-horizontal-stepper>
+  <mat-step>
+    <form>
+      <ng-template matStepLabel>Enter your name</ng-template>
+      <div>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <form>
+      <ng-template matStepLabel>Enter your address</ng-template>
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button matStepperNext>Next</button>
+      </div>
+    </form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    Details taken.
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button>Reset</button>
+    </div>
+  </mat-step>
+</mat-horizontal-stepper> -->
+
+<mat-stepper [linear]="true" #stepper>
+  <ng-template class="row" matStepperIcon="edit" aria-label="1">
+    <mat-icon
+      svgIcon="thumbs-up"
+      aria-hidden="false"
+      aria-label="thumbs up SVG icon"
+    ></mat-icon>
+  </ng-template>
+  <mat-step [completed]="this.isCompleted" label="Choose Your Provider">
+    <div class="container">
+      <app-facture-paiement (event)="receive($event)"></app-facture-paiement>
+      <div class="text-center">
+        <button
+          (click)="checkCreanceAndCreancier()"
+          mat-button
+          matStepperNext
+          class="btn btn-primary"
+          [disabled]="!this.isCompleted"
+        >
+          next
+        </button>
+      </div>
+    </div>
+  </mat-step>
+  <mat-step [completed]="this.next" label="Pay!">
+    <div class="container">
+      <app-do-paiement
+        [creancier]="creancier"
+        [creance]="creance"
+        (event)="receiveImpayQrCode($event)"
+        [isCompleted]="verif"
+      ></app-do-paiement>
+      <div class="text-center">
+        <button (click)="cancel()" class="btn btn-danger">
+          Abondonner la transaction
+        </button>
+        <button
+          *ngIf="this.next"
+          mat-button
+          matStepperNext
+          class="btn btn-primary"
+        >
+          next
+        </button>
+      </div>
+    </div>
+  </mat-step>
+  <mat-step [completed]="this.nextSelect" label="Facture">
+    <div class="container">
+      <app-paiement-slect
+        [ImpayQrCode]="ImpayQrCode"
+        [Creancier]="creancier"
+        [Creance]="creance"
+        (event)="receiveAppselect()"
+      ></app-paiement-slect>
+      <div class="text-center">
+        <button (click)="cancel()" class="btn btn-danger">
+          Abondonner la transaction
+        </button>
+
+        <button
+          *ngIf="this.nextSelect"
+          mat-button
+          matStepperNext
+          class="btn btn-primary"
+          (click)="sendSMS()"
+        >
+          Next
+        </button>
+      </div>
+    </div>
+  </mat-step>
+  <mat-step label="SMS">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-sm-4">
+          <div class="box">
+            <img class="sms-img" src="../../../../../assets/images/Sms.png" />
+          </div>
+        </div>
+        <div class="col-xs-12 col-sm-8">
+          <div class="box">
+            <app-payment-sms
+              (event)="receivetokenchekch($event)"
+            ></app-payment-sms>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-xs-12 col-sm-12">
+          <div class="box">
+            <button
+              *ngIf="this.tokennext"
+              mat-button
+              matStepperNext
+              class="btn btn-primary"
+            >
+              next
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Confirm</ng-template>
+    <div class="container">
+      <app-paiement-par-reference
+        [ImpayQrCode]="ImpayQrCode"
+        [Creancier]="creancier"
+        [Creance]="creance"
+      ></app-paiement-par-reference>
+    </div>
+  </mat-step>
+</mat-stepper>

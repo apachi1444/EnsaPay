@@ -1,0 +1,45 @@
+<h1>Paiement de facture</h1>
+<div id="sec">
+  <h2>Paiement par référence</h2>
+  <div class="paiement_par_reference">
+    <figure><img height="60" *ngIf="this.Creancier=='Maroc Telecom'" src="../../../assets/images/iam.png" />
+      <img height="60"  *ngIf="this.Creancier=='Redal'" src="../../../assets/images/Redal.jpeg" />
+      <img  height="60" *ngIf="this.Creancier=='Amendis'" src="../../../assets/images/Amendis.png" />></figure>
+    <div>
+      <label><strong>Créancier</strong></label>
+      <p>{{this.Creancier}}</p>
+      <label><strong>Date de création</strong></label>
+      <p>{{ dateToday | date: "shortDate" }}</p>
+    </div>
+    <div>
+      <label><strong>Créance</strong></label>
+      <p>{{this.Creance}}</p>
+    </div>
+    <div>
+      <label><strong>Donateur</strong></label>
+      <p *ngIf="this.ImpayQrCode!=null">{{this.ImpayQrCode.donnateur}}</p>
+    </div>
+  </div>
+  <h4>Récapitulatif des informations saisies</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <td><strong>référence</strong></td>
+        <td><strong>description</strong></td>
+        <td><strong>prix ttc</strong></td>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>100001192072</td>
+        <td>Don Sidaction</td>
+        <td *ngIf="this.ImpayQrCode!=null">{{this.ImpayQrCode.impay}} DH</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <div class="text-center">
+    <button (click)="cancel()" class="btn btn-danger">Abondonner la transaction</button>
+    <button (click)="confirm()" type="btn btn-primary" class="btn btn-success">Confirmer et Signer</button>
+  </div>
+</div>

@@ -1,3 +1,4 @@
+import { getLocaleFirstDayOfWeek } from '@angular/common';
 import { Injectable } from '@angular/core';
 
 @Injectable({
@@ -16,6 +17,12 @@ export class LocalStorageService {
 
   getTokenLocalStorage(): any {
     return localStorage.getItem('token');
+  }
+  isLogin(): boolean {
+    if (this.getTokenLocalStorage() != null) {
+      return true;
+    }
+    return false;
   }
 
   getUsernameLocalStorage() {
@@ -46,5 +53,14 @@ export class LocalStorageService {
 
   removeItem(item: any) {
     localStorage.removeItem(item);
+  }
+  clearAll() {
+    localStorage.clear();
+  }
+  isLogged(): boolean {
+    if (this.getRole() != null) {
+      return true;
+    }
+    return false;
   }
 }

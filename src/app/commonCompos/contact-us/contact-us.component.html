@@ -14,55 +14,92 @@
   <!-- Contact Section Form-->
   <div class="row justify-content-center">
     <div class="col-lg-8 col-xl-7">
-      <form id="contactForm" data-sb-form-api-token="API_TOKEN">
+      <form
+        id="contactForm"
+        data-sb-form-api-token="API_TOKEN"
+        #forme="ngForm"
+        (submit)="contactUs(forme)"
+      >
         <!-- Name input-->
         <div class="form-floating mb-3">
           <input
             class="form-control"
-            id="name"
+            ngModel
+            #Name="ngModel"
+            name="Name"
             type="text"
-            placeholder="Enter your name..."
-            data-sb-validations="required"
+            required
+            placeholder=" Full name"
           />
           <label for="name">Full name</label>
-          <div class="invalid-feedback" data-sb-feedback="name:required">
-            A name is required.
+          <div
+            class="alert alert-danger w-100 error-text"
+            s
+            *ngIf="Name.touched && !Name.valid"
+          >
+            <div *ngIf="Name.errors?.['required']">
+              <strong> name </strong>is required
+            </div>
           </div>
         </div>
         <!-- Email address input-->
         <div class="form-floating mb-3">
           <input
             class="form-control"
-            id="email"
+            ngModel
+            #email="ngModel"
+            name="Email"
             type="email"
-            placeholder="name@example.com"
-            data-sb-validations="required,email"
+            placeholder="Email"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+            required
           />
           <label for="email">Email address</label>
-          <div class="invalid-feedback" data-sb-feedback="email:required">
-            An email is required.
-          </div>
-          <div class="invalid-feedback" data-sb-feedback="email:email">
-            Email is not valid.
+          <div
+            class="alert alert-danger w-100 error-text"
+            s
+            *ngIf="email.touched && !email.valid"
+          >
+            <div *ngIf="email.errors?.['required']">
+              <strong> email </strong>is required
+            </div>
+
+            <div *ngIf="email!.errors?.['pattern']">email incorrect</div>
           </div>
         </div>
         <!-- Phone number input-->
         <div class="form-floating mb-3">
           <input
+            ngModel
+            #phone="ngModel"
+            name="phone"
             class="form-control"
             id="phone"
-            type="tel"
-            placeholder="(123) 456-7890"
-            data-sb-validations="required"
+            type="text"
+            placeholder="Phone"
+            pattern="[0-9]{10}"
+            maxlength="10"
+            required
           />
           <label for="phone">Phone number</label>
-          <div class="invalid-feedback" data-sb-feedback="phone:required">
-            A phone number is required.
+          <div
+            class="alert alert-danger w-100 error-text error"
+            *ngIf="phone.touched && !phone.valid"
+          >
+            <div *ngIf="phone.errors?.['required']">
+              <strong> Phone Number </strong>is required
+            </div>
+            <div *ngIf="phone!.errors?.['minlength']">phone incorrect</div>
+            <div *ngIf="phone!.errors?.['pattern']">phone incorrect</div>
           </div>
         </div>
+
         <!-- Message input-->
         <div class="form-floating mb-3">
           <textarea
+            ngModel
+            #mesage="ngModel"
+            name="message"
             class="form-control"
             id="message"
             type="text"
@@ -71,12 +108,15 @@
             data-sb-validations="required"
           ></textarea>
           <label for="message">Message</label>
-          <div class="invalid-feedback" data-sb-feedback="message:required">
-            A message is required.
+          <div
+            class="alert alert-danger w-100 error-text error"
+            *ngIf="mesage.touched && !mesage.valid"
+          >
+            <div *ngIf="mesage.errors?.['required']">
+              <strong> Phone Number </strong>is required
+            </div>
           </div>
         </div>
-        <!-- Submit success message-->
-        <!---->
         <!-- This is what your users will see when the form-->
         <!-- has successfully submitted-->
         <div class="d-none" id="submitSuccessMessage">
@@ -95,7 +135,12 @@
           <div class="text-center text-danger mb-3">Error sending message!</div>
         </div>
         <!-- Submit Button-->
-        <button class="btn btn-primary btn-xl" id="submitButton" type="submit">
+        <button
+          [disabled]="!forme.valid"
+          class="btn btn-primary btn-xl"
+          id="submitButton"
+          type="submit"
+        >
           Send
         </button>
       </form>

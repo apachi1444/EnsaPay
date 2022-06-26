@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row mb-g3">
+    <div class="col-lg-8">
+      <div class="card dar">
+        <div class="card-body" >
+          <form class="form" action="" #f="ngForm" (submit)="send(f.value)" accept-charset="YTF-8" method="post">
+            <h1>Effectuer Un Paiment</h1>
+            <hr />
+            <br />
+            <div *ngIf="this.creancier=='Redal'" class="form-text">Please enter your reference:</div>
+            <div *ngIf="this.creancier=='Amendis'" class="form-text">Please enter your reference:</div>
+            <div *ngIf="this.creancier=='Maroc Telecom'" class="form-text">Please enter your Phone Number:</div>
+            <div style="display:flex; margin: 0.2rem;">
+            
+            <input *ngIf="this.creancier=='Redal'"
+            ngModel
+          
+              class="form-control"
+              name="name"
+              type="text"
+              id="name"
+              placeholder="reference"
+            />
+           
+            <input *ngIf="this.creancier=='Amendis'"
+            ngModel 
+            class="form-control"
+              name="name"
+              type="text"
+              id="name"
+              placeholder="reference"
+            />
+
+            
+            
+            <input *ngIf="this.creancier=='Maroc Telecom'"
+            ngModel  
+            class="form-control"
+              name="name"
+              type="text"
+              id="name"
+              placeholder="Phone Number"
+            />
+            <i *ngIf="this.isCompleted==''" style="color:rgb(21, 255, 21);margin: 0.2rem;"  class="fa-solid fa-check fa-5x"></i>
+          </div>
+          
+
+            <br />
+            
+            
+           
+            <button *ngIf="this.isCompleted=='ok'" type="submit" class="btn btn-primary">Valider</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-4">
+      <img height="220" *ngIf="this.creancier=='Maroc Telecom'" src="../../../assets/images/iam.png" />
+      <img height="250" *ngIf="this.creancier=='Redal'" src="../../../assets/images/Redal.jpeg" />
+      <img height="300" *ngIf="this.creancier=='Amendis'" src="../../../assets/images/Amendis.png" />
+ 
+    </div>
+  </div>
+</div>
