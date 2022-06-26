@@ -18,7 +18,7 @@ export class MyclientsMessageComponent implements OnInit {
         this.Clients = res;
         console.log(res);
 
-        this.pageSlice = this.Clients.slice(0, 3);
+        this.pageSlice = this.Clients.slice(0, 9);
         this.lenght = this.Clients.length;
       },
       (err: any) => {
@@ -39,7 +39,7 @@ export class MyclientsMessageComponent implements OnInit {
       (res: any) => {
         this.Clients = res;
 
-        this.pageSlice = this.Clients.slice(0, 3);
+        this.pageSlice = this.Clients.slice(0, 9);
         this.lenght = this.Clients.length;
       },
       (err: any) => {
