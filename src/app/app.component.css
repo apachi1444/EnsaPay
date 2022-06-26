@@ -33,3 +33,8 @@ ul {
   height: 0rem;
   min-height: 12vh;
 } */
+@media only screen and (max-width: 940px) {
+  app-sponsors {
+    display: none;
+  }
+}
