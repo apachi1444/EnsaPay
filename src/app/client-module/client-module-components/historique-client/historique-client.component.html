@@ -52,9 +52,11 @@
       <div class="flex-grow-1 ps-3">
         <strong><i class="fas fa-calendar"> </i> </strong>
         <span class="flex-grow-1 text-md text-muted me-4">
-          <strong> 13/11/2022 </strong>
+          <strong>{{ this.parseDate(facture.creationDate) }} </strong>
         </span>
-        <small class="float-right">(10 mins ago) </small>
+        <small class="float-right"
+          >{{ this.calculateData(facture.creationDate) }}
+        </small>
         <h5 class="fw-bold mt-2">{{ facture.creditorName }}</h5>
         <div class="text-muted text-sm">{{ facture.debtName }}</div>
 

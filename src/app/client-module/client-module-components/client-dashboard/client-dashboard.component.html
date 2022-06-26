@@ -92,7 +92,9 @@
                       ><i class="fas fa-user"></i> Name</label
                     >
                     <input
-                     value="{{this.User.clientFirstName}} {{this.User.clientLastName}}"
+                      value="{{ this.User.clientFullName }} {{
+                        this.User.clientLastName
+                      }}"
                       class="form-control"
                       disabled
                     />
@@ -108,7 +110,7 @@
                   >
                   <input
                     class="form-control"
-                    value="{{this.User.clientEmail}}"
+                    value="{{ this.User.clientEmail }}"
                     disabled
                   />
                 </div>
@@ -118,7 +120,7 @@
                   >
                   <input
                     class="form-control"
-                   value="{{this.User.clientPhone}}"
+                    value="{{ this.User.clientPhone }}"
                     disabled
                   />
                 </div>
@@ -128,7 +130,7 @@
                   >
                   <input
                     class="form-control"
-                    placeholder="{{this.User.clientAddress}}"
+                    placeholder="{{ this.User.clientAddress }}"
                     disabled
                   />
                 </div>
@@ -138,7 +140,7 @@
                   >
                   <input
                     class="form-control"
-                    value="{{this.User.clientCity}}"
+                    value="{{ this.User.clientCity }}"
                     disabled
                   />
                 </div>
@@ -146,32 +148,22 @@
                   <label class="form-label"
                     ><i class="fas fa-house"></i> Zip Code</label
                   >
-                  <input class="form-control" value="{{this.User.clientZip}}" disabled />
+                  <input
+                    class="form-control"
+                    value="{{ this.User.clientZip }}"
+                    disabled
+                  />
                 </div>
                 <div class="mb-3">
                   <label class="form-label"
                     ><i class="fas fa-bank"></i> My Account</label
                   >
-                  <input class="form-control" value="{{this.User.clientSolde}}" disabled />
+                  <input
+                    class="form-control"
+                    value="{{ this.User.clientSolde }}"
+                    disabled
+                  />
                 </div>
-              </div>
-              <!-- <div class="card-footer text-end">
-            <button class="btn btn-primary">Save</button>
-          </div> -->
-            </form>
-            <form class="card mb-4">
-              <div class="card-header">
-                <h4 class="card-heading">Forget Password</h4>
-              </div>
-              <div class="card-footer p-4 text-center">
-                <button
-                  *ngIf="!this.FirstConnection"
-                  class="btn btn-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#changePassword"
-                >
-                  <i class="fas fa-lock px-2"></i> Change Password Now
-                </button>
               </div>
               <!-- <div class="card-footer text-end">
             <button class="btn btn-primary">Save</button>
@@ -180,7 +172,6 @@
           </div>
           <div class="col-lg-8">
             <div class="card overflow-hidden mb-4">
-              
               <!-- <div class="mt-3">
             <div class="d-flex justify-content-between align-items-center">
               <div class="d-flex flex-row align-items-center">
@@ -201,7 +192,7 @@
               <span class="content-text-1">BA</span>
             </div>
           </div> -->
-         <app-historique-client></app-historique-client>
+              <app-historique-client></app-historique-client>
             </div>
           </div>
         </div>

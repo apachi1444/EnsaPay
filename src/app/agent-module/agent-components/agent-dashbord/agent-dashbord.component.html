@@ -89,10 +89,10 @@
                   </div>
                   <div class="col">
                     <label class="form-label"
-                      ><i class="fas fa-user"></i> Name</label
+                      ><i class="fas fa-user"></i> fullName</label
                     >
                     <input
-                      value="{{ this.User.agentFirstName }} {{
+                      value="{{ this.User.agentFullName }} {{
                         this.User.agLastName
                       }}"
                       class="form-control"
@@ -149,24 +149,6 @@
           <button class="btn btn-primary">Save</button>
         </div> -->
             </form>
-            <form class="card mb-4">
-              <div class="card-header">
-                <h4 class="card-heading">Forget Password</h4>
-              </div>
-              <div class="card-footer p-4 text-center">
-                <button
-                  *ngIf="!this.FirstConnection"
-                  class="btn btn-primary"
-                  data-bs-toggle="modal"
-                  data-bs-target="#changePassword"
-                >
-                  <i class="fas fa-lock px-2"></i> Change Password Now
-                </button>
-              </div>
-              <!-- <div class="card-footer text-end">
-            <button class="btn btn-primary">Save</button>
-          </div> -->
-            </form>
           </div>
           <div class="col-lg-8">
             <app-myclients></app-myclients>
@@ -186,7 +168,6 @@
   aria-hidden="true"
 >
   <div class="modal-dialog">
-    {{ reset.value | json }}
     <form action="" #reset="ngForm">
       <div class="modal-content container">
         <div class="modal-header" style="display: block">

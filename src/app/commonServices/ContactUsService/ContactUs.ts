@@ -51,6 +51,31 @@ export class ContactUsService {
       },
     });
   }
+  deleteMessage(id: any): any {
+    let finalUrl = this.finaUrl + 'deleteMessageClient/' + id;
+    return this.Http.post(finalUrl, [], {
+      responseType: 'text',
+
+      headers: {
+        Authorization: 'Bearer ' + this.localService.getTokenLocalStorage(),
+      },
+    }).subscribe(
+      (res) => {
+        this.toast.success({
+          detail: 'message deleted',
+          duration: 5000,
+        });
+        location.reload();
+      },
+      (error) => {
+        console.log(error.error);
+        this.toast.error({
+          detail: 'cannot delete message',
+          duration: 3000,
+        });
+      }
+    );
+  }
 
   getsearchClientMessage(f: any): Observable<any> {
     let finalUrl =

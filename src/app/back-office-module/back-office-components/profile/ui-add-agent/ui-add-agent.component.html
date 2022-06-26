@@ -55,17 +55,17 @@
           />
         </div>
         <div class="flex-grow-1 ps-3">
-          <small class="float-right">34 mins ago</small>
-          <h5 class="fw-bold">
+          <small class="float-right">
+            {{ this.calculateData(user.creationDate) }}</small
+          >
+
+          <h3 class="fw-bold">
             {{ user.agentFullName }}
-          </h5>
-          <div class="text-muted text-sm">
-            U just paid the facture of the water
-          </div>
+          </h3>
         </div>
         <div class="text-end pt-3 pr-3 text-lowercase text-md font-weight-bold">
           <strong><i class="fas fa-calendar"> </i> </strong>
-          13/11/2022
+          {{ this.parseDate(user.creationDate) }}
         </div>
       </div>
     </div>

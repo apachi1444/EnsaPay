@@ -1,65 +1,3 @@
-<!-- <div class="card overflow-hidden mb-4">
-  <div class="card-header d-flex justify-content-between">
-    <div>
-      <h3>Reclamation Clients</h3>
-    </div>
-    <div>
-      <div class="input-group-text">
-        <span class="me-2" id="basic-addon1"
-          ><i class="fas fa-search"></i
-        ></span>
-        <input
-          (ngModelChange)="search($event)"
-          ngModel
-          name="phone"
-          type="text"
-          class="form-control"
-          placeholder="Search Here"
-          aria-label="Username"
-          aria-describedby="basic-addon1"
-        />
-      </div>
-    </div>
-  </div>
-  <div class="list-group rounded-0">
-    <div
-      class="list-group-item border-start-0 border-end-0 py-5"
-      *ngFor="let user of pageSlice"
-    >
-      <div class="d-flex">
-        <div class="flex-shrink-0">
-          <img
-            class="avatar avatar-lg p-1"
-            src="https://therichpost.com/wp-content/uploads/2021/03/avatar2.png"
-            alt="Jassa Rich"
-          />
-        </div>
-        <div class="flex-grow-1 ps-3">
-          <small class="float-right"></small>
-          <h5 class="fw-bold">
-            {{ user.phone }}
-          </h5>
-          <div class="text-muted text-sm">
-            {{ user.message }}
-          </div>
-        </div>
-        <div class="text-end pt-3 pr-3 text-lowercase text-md font-weight-bold">
-          <strong><i class="fas fa-calendar"> </i> </strong>
-          13/11/2022
-        </div>
-      </div>
-    </div>
-    <mat-paginator
-      style="background-color: whitesmoke"
-      [length]="this.lenght"
-      [pageSize]="3"
-      [pageSizeOptions]="[3, 4, 5]"
-      (page)="OnPageChange($event)"
-    ></mat-paginator>
-    <div class="card-footer p-4 text-center"></div>
-  </div>
-</div> -->
-
 <div class="card overflow-hidden mb-4">
   <div class="card-header d-flex justify-content-between">
     <div>
@@ -106,37 +44,16 @@
               <div class="message">
                 {{ user.message }}
               </div>
+
+              <h5 class="time">{{ this.calculateData(user.creationDate) }}</h5>
             </div>
+
+            <i (click)="deletemessage(user.id)" class="fas fa-trash"></i>
           </div>
         </div>
       </div>
     </section>
-    <!-- End Icon Boxes Section -->
-    <!-- <div class="row">
-      <div class="d-flex col-xs-12 col-sm-4" *ngFor="let user of pageSlice">
-        <div class="box flex-grow-1 ps-3">
-          <div class="flex-shrink-0 text-left">
-            <img
-              class="avatar avatar-lg p-1"
-              src="https://therichpost.com/wp-content/uploads/2021/03/avatar5.png"
-              alt="profile"
-            />
-          </div>
-          <h5 class="fw-bold phone text-center">
-            {{ user.phone }}
-          </h5>
-          <div class="text-muted text-sm">
-            {{ user.message }}
-          </div>
-          <div
-            class="text-end pt-3 pr-3 text-lowercase text-md font-weight-bold"
-          >
-            <strong><i class="fas fa-calendar"> </i> </strong>
-            13/11/2022
-          </div>
-        </div>
-      </div>
-    </div> -->
+
     <mat-paginator
       style="background-color: whitesmoke"
       [length]="this.lenght"

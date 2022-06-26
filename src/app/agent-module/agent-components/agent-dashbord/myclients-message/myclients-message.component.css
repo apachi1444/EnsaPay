@@ -23,6 +23,14 @@
   top: 1000px;
   width: 100%;
 }
+.time {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  margin: 0 auto;
+}
 .card {
   position: relative;
   display: flex;
@@ -222,7 +230,7 @@ svg {
   z-index: 100;
 }
 .icon-boxes .icon-box {
-  padding: 40px 30px;
+  padding: 4px 30px;
   position: relative;
   overflow: hidden;
   background: #fff;
@@ -251,6 +259,6 @@ svg {
 .icon-boxes .message {
   font-size: 15px;
   line-height: 28px;
-  margin-bottom: 0;
+  margin-bottom: 15px;
   color: #777777;
 }
