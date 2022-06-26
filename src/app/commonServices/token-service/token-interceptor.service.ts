@@ -20,15 +20,11 @@ export class TokenInterceptorService implements HttpInterceptor {
     req: HttpRequest<any>,
     next: HttpHandler
   ): Observable<HttpEvent<any>> {
-    throw new Error('Method not implemented.');
+    let tokenizedReq = req.clone({
+      setHeaders: {
+        Authorization: `Bearer ${this.loginService.getToken()}`,
+      },
+    });
+    return next.handle(tokenizedReq);
   }
-  //  intercept(req: any, next: any) {
-  // //   console.log(this.loginService.getToken());
-  // //   let tokenizedReq = req.clone({
-  // //     setHeaders: {
-  // //       Authorization: `Bearer ${this.loginService.getToken()}`,
-  // //     },
-  // //   });
-  // //   return next.handle(tokenizedReq);
-  //  }
 }
