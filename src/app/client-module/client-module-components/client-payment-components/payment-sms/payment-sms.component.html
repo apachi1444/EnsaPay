@@ -1,0 +1,76 @@
+<div class="d-flex justify-content-center align-items-center container">
+  <div class="card py-5 px-3">
+    <h5 class="m-0">Mobile phone verification</h5>
+    <span class="mobile-text"
+      >Enter the code we just send on your mobile phone
+    </span>
+    <form
+      class="d-flex flex-row mt-5"
+      #token="ngForm"
+      (ngSubmit)="sendValidateToken(token)"
+    >
+      <input
+        type="text"
+        class="form-control"
+        maxlength="1"
+        ngModel
+        name="input1"
+        size="1"
+        (keyup)="onDigitInput($event)"
+      />
+      <input
+        type="text"
+        class="form-control"
+        maxlength="1"
+        ngModel
+        name="input2"
+        size="1"
+        (keyup)="onDigitInput($event)"
+      />
+      <input
+        type="text"
+        class="form-control"
+        maxlength="1"
+        ngModel
+        name="input3"
+        size="1"
+        (keyup)="onDigitInput($event)"
+      />
+      <input
+        type="text"
+        class="form-control"
+        maxlength="1"
+        ngModel
+        name="input4"
+        size="1"
+        (keyup)="onDigitInput($event)"
+      />
+      <input
+        type="text"
+        class="form-control"
+        maxlength="1"
+        ngModel
+        name="input5"
+        size="1"
+        (keyup)="onDigitInput($event)"
+      />
+      <input
+        type="text"
+        class="form-control"
+        maxlength="1"
+        ngModel
+        name="input6"
+        size="1"
+        (keyup)="onDigitInput($event)"
+      /><br />
+      <button
+        *ngIf="this.next"
+        type="submit"
+        mat-button
+        class="btn btn-primary"
+      >
+        Valid
+      </button>
+    </form>
+  </div>
+</div>

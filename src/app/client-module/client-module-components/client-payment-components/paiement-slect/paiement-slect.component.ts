@@ -5,31 +5,38 @@ import { LocalStorageService } from 'src/app/commonServices/local-storage-servic
 @Component({
   selector: 'app-paiement-slect',
   templateUrl: './paiement-slect.component.html',
-  styleUrls: ['./paiement-slect.component.css']
+  styleUrls: ['./paiement-slect.component.css'],
 })
 export class PaiementSlectComponent implements OnInit {
+  constructor() {}
 
-  constructor() { }
-  
-  @Output() public event =new EventEmitter<any>();
- @Input() ImpayQrCode:any;
- @Input() Creance:any;
- @Input() Creancier:any;
- isValid:boolean=false
+  onDigitInput(event: any) {
+    let element;
+    if (event.code !== 'Backspace')
+      element = event.srcElement.nextElementSibling;
 
-  ngOnInit(): void {
+    if (event.code === 'Backspace')
+      element = event.srcElement.previousElementSibling;
 
+    if (element == null) return;
+    else element.focus();
   }
-  checkQrCode(f:NgForm){
-  
-    if(this.ImpayQrCode.QrCode==f.value.un+f.value.deux+f.value.trois+f.value.quatre){
-            this.isValid=true
-            this.event.emit(this.isValid)
-    }
-    else{
-      console.log("try again")
+  @Output() public event = new EventEmitter<any>();
+  @Input() ImpayQrCode: any;
+  @Input() Creance: any;
+  @Input() Creancier: any;
+  isValid: boolean = false;
+
+  ngOnInit(): void {}
+  checkQrCode(f: NgForm) {
+    if (
+      this.ImpayQrCode.QrCode ==
+      f.value.un + f.value.deux + f.value.trois + f.value.quatre
+    ) {
+      this.isValid = true;
+      this.event.emit(this.isValid);
+    } else {
+      console.log('try again');
     }
   }
-
-
 }
